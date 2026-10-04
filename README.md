@@ -1,6 +1,6 @@
-# Honor X10 (TEL-AN10) — Huawei/Honor "2% Mode" USB Flashing Protocol (Reverse Engineering)
+# Honor X10 (TEL-AN10) — Huawei/Honor "2pct mode" USB Flashing Protocol (Reverse Engineering)
 
-Reverse engineering of the **USB upgrade / "2% mode" (DLOAD)** protocol used by Huawei / Honor
+Reverse engineering of the **USB upgrade / "2pct mode" (DLOAD)** protocol used by Huawei / Honor
 devices, performed on an **Honor X10 — TEL-AN10** (Kirin 820) running **HarmonyOS 2.0.0.270**.
 
 The **handshake was implemented and confirmed working against real hardware** over
@@ -16,7 +16,7 @@ The **handshake was implemented and confirmed working against real hardware** ov
 | Goal | Result |
 |---|---|
 | Downgrade HarmonyOS 2 → EMUI / MagicUI | ❌ **Blocked** (server auth signature + version check, RSA-protected) |
-| Reverse the 2% mode protocol | ✅ **Done** — command set, frame format, package header decoded |
+| Reverse the 2pct mode protocol | ✅ **Done** — command set, frame format, package header decoded |
 | Working handshake over COM port | ✅ **Confirmed** — device replies correctly (7-byte response) |
 | Full firmware transfer | ❌ Not completed (package header rejected — see Limitations) |
 
@@ -67,7 +67,7 @@ strb w15, ...          ; write escaped byte
 
 ```
 WRONG (old / 5% mode):  0x0026   -> bytes 26 00
-RIGHT (new / 2% mode):  0x0226   -> bytes 26 02
+RIGHT (new / 2pct mode):  0x0226   -> bytes 26 02
                                             ^^ one byte difference
 
 Magic:     0x0600A725, located at payload offset 2 (NOT offset 3)
