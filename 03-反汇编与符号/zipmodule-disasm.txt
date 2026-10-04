@@ -1,0 +1,378 @@
+
+==============================================================
+### update_from_zip_module_begin @0x407f24 (424 字节)
+==============================================================
+  00407f24  sub        sp, sp, #0xa0
+  00407f28  stp        x22, x21, [sp, #0x70]
+  00407f2c  stp        x20, x19, [sp, #0x80]
+  00407f30  stp        x29, x30, [sp, #0x90]
+  00407f34  add        x29, sp, #0x90
+  00407f38  mrs        x22, tpidr_el0
+  00407f3c  ldr        x8, [x22, #0x28]
+  00407f40  mov        x19, x2
+  00407f44  mov        x20, x1
+  00407f48  mov        x21, x0
+  00407f4c  stur       x8, [x29, #-0x28]
+  00407f50  cbnz       x0, #0x407f74
+  00407f54  adrp       x0, #0x20f000
+  00407f58  adrp       x1, #0x220000
+  00407f5c  adrp       x2, #0x20f000
+  00407f60  add        x0, x0, #0x656      ; STR='%s:%s,line=%d:The buf is NULL.\n'
+  00407f64  add        x1, x1, #0xbed      ; STR='Err'
+  00407f68  add        x2, x2, #0x676      ; STR='update_from_zip_module_begin'
+  00407f6c  mov        w3, #0x61    ; 0x61
+  00407f70  bl         #0x3770f8    -> recovery_print
+  00407f74  adrp       x8, #0x9b8000
+  00407f78  ldr        x8, [x8, #0xcd8]
+  00407f7c  add        x9, x8, x20
+  00407f80  cmp        x9, #0x78    ; 0x78
+  00407f84  b.gt       #0x407fcc
+  00407f88  adrp       x9, #0x9b8000
+  00407f8c  add        x9, x9, #0xbd8
+  00407f90  add        x8, x9, x8
+  00407f94  add        x0, x8, #0x88
+  00407f98  mov        x1, x20
+  00407f9c  mov        x2, x21
+  00407fa0  mov        x3, x20
+  00407fa4  bl         #0x45a230    -> memcpy_s
+  00407fa8  cbz        w0, #0x407fcc
+  00407fac  adrp       x0, #0x23f000
+  00407fb0  adrp       x1, #0x241000
+  00407fb4  adrp       x2, #0x20f000
+  00407fb8  add        x0, x0, #0x9d9      ; STR='%s:%s,line=%d:memcpy_s fail\n'
+  00407fbc  add        x1, x1, #0xe14      ; STR='Warn'
+  00407fc0  add        x2, x2, #0x676      ; STR='update_from_zip_module_begin'
+  00407fc4  mov        w3, #0x69    ; 0x69
+  00407fc8  bl         #0x3770f8    -> recovery_print
+  00407fcc  adrp       x2, #0x9b8000
+  00407fd0  add        x2, x2, #0xc60
+  00407fd4  mov        x0, sp
+  00407fd8  mov        w1, #0x64    ; 0x64
+  00407fdc  mov        w3, #0x62    ; 0x62
+  00407fe0  bl         #0x45a230    -> memcpy_s
+  00407fe4  cbz        w0, #0x408008
+  00407fe8  adrp       x0, #0x23f000
+  00407fec  adrp       x1, #0x241000
+  00407ff0  adrp       x2, #0x20f000
+  00407ff4  add        x0, x0, #0x9d9      ; STR='%s:%s,line=%d:memcpy_s fail\n'
+  00407ff8  add        x1, x1, #0xe14      ; STR='Warn'
+  00407ffc  add        x2, x2, #0x676      ; STR='update_from_zip_module_begin'
+  00408000  mov        w3, #0x6e    ; 0x6e
+  00408004  bl         #0x3770f8    -> recovery_print
+  00408008  adrp       x8, #0x9b8000
+  0040800c  add        x8, x8, #0xbe0
+  00408010  ldr        x9, [x8, #0xf8]
+  00408014  ldr        x8, [x8]
+  00408018  add        x9, x9, x20
+  0040801c  cmp        x8, x9
+  00408020  b.ne       #0x4080a0
+  00408024  ldr        w9, [sp, #4]
+  00408028  adrp       x10, #0x9b8000
+  0040802c  cmp        x8, x9
+  00408030  str        x9, [x10, #0xbe0]
+  00408034  b.ne       #0x4080a0
+  00408038  mov        x8, sp
+  0040803c  adrp       x0, #0x23b000
+  00408040  adrp       x1, #0x20c000
+  00408044  adrp       x2, #0x20f000
+  00408048  add        x4, x8, #0x3c
+  0040804c  add        x0, x0, #0xd76      ; STR='%s:%s,line=%d:module name:%s\n'
+  00408050  add        x1, x1, #0x42f      ; STR='Info'
+  00408054  add        x2, x2, #0x676      ; STR='update_from_zip_module_begin'
+  00408058  mov        w3, #0x75    ; 0x75
+  0040805c  bl         #0x3770f8    -> recovery_print
+  00408060  ldr        w3, [x19]
+  00408064  mov        x0, sp
+  00408068  mov        w1, #0x62    ; 0x62
+  0040806c  mov        w2, wzr
+  00408070  bl         #0x3ecb60    -> cmd_unit_write_begin_func
+  00408074  cbz        w0, #0x4080a0
+  00408078  adrp       x0, #0x226000
+  0040807c  adrp       x1, #0x220000
+  00408080  adrp       x2, #0x20f000
+  00408084  add        x0, x0, #0x561      ; STR='%s:%s,line=%d:cmd_unit_write_begin_func fail\n'
+  00408088  add        x1, x1, #0xbed      ; STR='Err'
+  0040808c  add        x2, x2, #0x676      ; STR='update_from_zip_module_begin'
+  00408090  mov        w3, #0x78    ; 0x78
+  00408094  bl         #0x3770f8    -> recovery_print
+  00408098  mov        w0, wzr
+  0040809c  b          #0x4080a4
+  004080a0  mov        w0, #1    ; 0x1
+  004080a4  ldr        x8, [x22, #0x28]
+  004080a8  ldur       x9, [x29, #-0x28]
+  004080ac  cmp        x8, x9
+  004080b0  b.ne       #0x4080c8
+  004080b4  ldp        x29, x30, [sp, #0x90]
+  004080b8  ldp        x20, x19, [sp, #0x80]
+  004080bc  ldp        x22, x21, [sp, #0x70]
+  004080c0  add        sp, sp, #0xa0
+  004080c4  ret        
+  004080c8  bl         #0x4e824c    -> __stack_chk_fail
+
+==============================================================
+### update_from_zip_module_processdata @0x4080cc (480 字节)
+==============================================================
+  004080cc  sub        sp, sp, #0xe0
+  004080d0  stp        x28, x27, [sp, #0x80]
+  004080d4  stp        x26, x25, [sp, #0x90]
+  004080d8  stp        x24, x23, [sp, #0xa0]
+  004080dc  stp        x22, x21, [sp, #0xb0]
+  004080e0  stp        x20, x19, [sp, #0xc0]
+  004080e4  stp        x29, x30, [sp, #0xd0]
+  004080e8  add        x29, sp, #0xd0
+  004080ec  mrs        x23, tpidr_el0
+  004080f0  ldr        x8, [x23, #0x28]
+  004080f4  mov        x19, x2
+  004080f8  adrp       x2, #0x9b8000
+  004080fc  mov        x20, x1
+  00408100  mov        x21, x0
+  00408104  add        x2, x2, #0xc60
+  00408108  add        x0, sp, #0x10
+  0040810c  mov        w1, #0x64    ; 0x64
+  00408110  mov        w3, #0x62    ; 0x62
+  00408114  stur       x8, [x29, #-0x58]
+  00408118  bl         #0x45a230    -> memcpy_s
+  0040811c  cbz        w0, #0x408140
+  00408120  adrp       x0, #0x23f000
+  00408124  adrp       x1, #0x241000
+  00408128  adrp       x2, #0x201000
+  0040812c  add        x0, x0, #0x9d9      ; STR='%s:%s,line=%d:memcpy_s fail\n'
+  00408130  add        x1, x1, #0xe14      ; STR='Warn'
+  00408134  add        x2, x2, #0xc1d      ; STR='update_from_zip_module_processdata'
+  00408138  mov        w3, #0x98    ; 0x98
+  0040813c  bl         #0x3770f8    -> recovery_print
+  00408140  mov        w0, #0xf006    ; 0xf006
+  00408144  bl         #0x4fa800    -> malloc
+  00408148  cbz        x0, #0x408220
+  0040814c  mov        x22, x0
+  00408150  cmp        x20, #1    ; 0x1
+  00408154  str        x23, [sp, #8]
+  00408158  b.lt       #0x408210
+  0040815c  adrp       x9, #0x9b8000
+  00408160  ldr        w8, [sp, #0x24]
+  00408164  ldr        x9, [x9, #0xcd8]
+  00408168  adrp       x26, #0x201000
+  0040816c  mov        x28, xzr
+  00408170  add        x23, x22, #6
+  00408174  mov        w24, #0xf000    ; 0xf000
+  00408178  add        x25, x9, x8
+  0040817c  add        x26, x26, #0xc1d      ; STR='update_from_zip_module_processdata'
+  00408180  add        x8, x25, x28
+  00408184  sub        x9, x20, x28
+  00408188  cmp        x9, #0xf, lsl #12    ; 0xf
+  0040818c  lsr        x10, x8, #0x18
+  00408190  strb       w10, [x22]
+  00408194  lsr        x10, x8, #0x10
+  00408198  strb       w8, [x22, #3]
+  0040819c  lsr        x8, x8, #8
+  004081a0  csel       x27, x9, x24, lt
+  004081a4  strb       w8, [x22, #2]
+  004081a8  lsr        x8, x27, #8
+  004081ac  add        x2, x21, x28
+  004081b0  mov        w1, #0xf000    ; 0xf000
+  004081b4  mov        x0, x23
+  004081b8  mov        x3, x27
+  004081bc  strb       w10, [x22, #1]
+  004081c0  strb       w27, [x22, #5]
+  004081c4  strb       w8, [x22, #4]
+  004081c8  bl         #0x45a230    -> memcpy_s
+  004081cc  cbz        w0, #0x4081ec
+  004081d0  adrp       x0, #0x23f000
+  004081d4  adrp       x1, #0x241000
+  004081d8  mov        w3, #0xb4    ; 0xb4
+  004081dc  add        x0, x0, #0x9d9      ; STR='%s:%s,line=%d:memcpy_s fail\n'
+  004081e0  add        x1, x1, #0xe14      ; STR='Warn'
+  004081e4  mov        x2, x26
+  004081e8  bl         #0x3770f8    -> recovery_print
+  004081ec  ldr        w3, [x19]
+  004081f0  add        w1, w27, #6
+  004081f4  mov        x0, x22
+  004081f8  mov        w2, wzr
+  004081fc  bl         #0x3edbd8    -> write_cmd
+  00408200  cbnz       w0, #0x408248
+  00408204  add        x28, x27, x28
+  00408208  cmp        x28, x20
+  0040820c  b.lt       #0x408180
+  00408210  mov        x0, x22
+  00408214  bl         #0x4fa7e4    -> free
+  00408218  mov        w0, #1    ; 0x1
+  0040821c  b          #0x408274
+  00408220  adrp       x0, #0x204000
+  00408224  adrp       x1, #0x220000
+  00408228  adrp       x2, #0x201000
+  0040822c  add        x0, x0, #0xcf      ; STR='%s:%s,line=%d:NULL == tmpbuf\n'
+  00408230  add        x1, x1, #0xbed      ; STR='Err'
+  00408234  add        x2, x2, #0xc1d      ; STR='update_from_zip_module_processdata'
+  00408238  mov        w3, #0x9d    ; 0x9d
+  0040823c  bl         #0x3770f8    -> recovery_print
+  00408240  mov        w0, wzr
+  00408244  b          #0x408278
+  00408248  adrp       x0, #0x239000
+  0040824c  adrp       x1, #0x220000
+  00408250  adrp       x2, #0x201000
+  00408254  add        x0, x0, #0x704      ; STR='%s:%s,line=%d:write cmd fail\n'
+  00408258  add        x1, x1, #0xbed      ; STR='Err'
+  0040825c  add        x2, x2, #0xc1d      ; STR='update_from_zip_module_processdata'
+  00408260  mov        w3, #0xb8    ; 0xb8
+  00408264  bl         #0x3770f8    -> recovery_print
+  00408268  mov        x0, x22
+  0040826c  bl         #0x4fa7e4    -> free
+  00408270  mov        w0, wzr
+  00408274  ldr        x23, [sp, #8]
+  00408278  ldr        x8, [x23, #0x28]
+  0040827c  ldur       x9, [x29, #-0x58]
+  00408280  cmp        x8, x9
+  00408284  b.ne       #0x4082a8
+  00408288  ldp        x29, x30, [sp, #0xd0]
+  0040828c  ldp        x20, x19, [sp, #0xc0]
+  00408290  ldp        x22, x21, [sp, #0xb0]
+  00408294  ldp        x24, x23, [sp, #0xa0]
+  00408298  ldp        x26, x25, [sp, #0x90]
+  0040829c  ldp        x28, x27, [sp, #0x80]
+  004082a0  add        sp, sp, #0xe0
+  004082a4  ret        
+  004082a8  bl         #0x4e824c    -> __stack_chk_fail
+
+==============================================================
+### update_from_zip_module_post @0x4082ac (244 字节)
+==============================================================
+  004082ac  sub        sp, sp, #0x90
+  004082b0  stp        x20, x19, [sp, #0x70]
+  004082b4  stp        x29, x30, [sp, #0x80]
+  004082b8  add        x29, sp, #0x80
+  004082bc  mrs        x20, tpidr_el0
+  004082c0  ldr        x8, [x20, #0x28]
+  004082c4  mov        x19, x2
+  004082c8  stur       x8, [x29, #-0x18]
+  004082cc  cbz        x0, #0x4082dc
+  004082d0  cmp        x1, #1    ; 0x1
+  004082d4  b.lt       #0x4082dc
+  004082d8  cbnz       x19, #0x4082fc
+  004082dc  adrp       x0, #0x23b000
+  004082e0  adrp       x1, #0x220000
+  004082e4  adrp       x2, #0x23b000
+  004082e8  add        x0, x0, #0xd94      ; STR='%s:%s,line=%d:buf or buf_len or share_data is err.\n'
+  004082ec  add        x1, x1, #0xbed      ; STR='Err'
+  004082f0  add        x2, x2, #0xdc8      ; STR='update_from_zip_module_post'
+  004082f4  mov        w3, #0xc4    ; 0xc4
+  004082f8  bl         #0x3770f8    -> recovery_print
+  004082fc  adrp       x2, #0x9b8000
+  00408300  add        x2, x2, #0xc60
+  00408304  mov        x0, sp
+  00408308  mov        w1, #0x64    ; 0x64
+  0040830c  mov        w3, #0x62    ; 0x62
+  00408310  bl         #0x45a230    -> memcpy_s
+  00408314  cbz        w0, #0x408338
+  00408318  adrp       x0, #0x213000
+  0040831c  adrp       x1, #0x241000
+  00408320  adrp       x2, #0x23b000
+  00408324  add        x0, x0, #0xc1c      ; STR='%s:%s,line=%d: memcpy_s fail\n'
+  00408328  add        x1, x1, #0xe14      ; STR='Warn'
+  0040832c  add        x2, x2, #0xdc8      ; STR='update_from_zip_module_post'
+  00408330  mov        w3, #0xcb    ; 0xcb
+  00408334  bl         #0x3770f8    -> recovery_print
+  00408338  ldr        w3, [x19]
+  0040833c  mov        x0, sp
+  00408340  mov        w1, #0x62    ; 0x62
+  00408344  mov        w2, wzr
+  00408348  bl         #0x3ed9d0    -> cmd_unit_write_post_func
+  0040834c  cbz        w0, #0x408378
+  00408350  adrp       x0, #0x226000
+  00408354  adrp       x1, #0x220000
+  00408358  adrp       x2, #0x23b000
+  0040835c  add        x0, x0, #0x561      ; STR='%s:%s,line=%d:cmd_unit_write_begin_func fail\n'
+  00408360  add        x1, x1, #0xbed      ; STR='Err'
+  00408364  add        x2, x2, #0xdc8      ; STR='update_from_zip_module_post'
+  00408368  mov        w3, #0xcf    ; 0xcf
+  0040836c  bl         #0x3770f8    -> recovery_print
+  00408370  mov        w0, wzr
+  00408374  b          #0x40837c
+  00408378  mov        w0, #1    ; 0x1
+  0040837c  ldr        x8, [x20, #0x28]
+  00408380  ldur       x9, [x29, #-0x18]
+  00408384  cmp        x8, x9
+  00408388  b.ne       #0x40839c
+  0040838c  ldp        x29, x30, [sp, #0x80]
+  00408390  ldp        x20, x19, [sp, #0x70]
+  00408394  add        sp, sp, #0x90
+  00408398  ret        
+  0040839c  bl         #0x4e824c    -> __stack_chk_fail
+
+==============================================================
+### update_from_zip_module_skipdata @0x4083a0 (300 字节)
+==============================================================
+  004083a0  sub        sp, sp, #0x90
+  004083a4  stp        x20, x19, [sp, #0x70]
+  004083a8  stp        x29, x30, [sp, #0x80]
+  004083ac  add        x29, sp, #0x80
+  004083b0  mrs        x20, tpidr_el0
+  004083b4  ldr        x8, [x20, #0x28]
+  004083b8  mov        x19, x1
+  004083bc  stur       x8, [x29, #-0x18]
+  004083c0  cbz        x0, #0x4083c8
+  004083c4  cbnz       x2, #0x4083e8
+  004083c8  adrp       x0, #0x204000
+  004083cc  adrp       x1, #0x220000
+  004083d0  adrp       x2, #0x20f000
+  004083d4  add        x0, x0, #0xed      ; STR='%s:%s,line=%d:The buf or share_data is NULL.\n'
+  004083d8  add        x1, x1, #0xbed      ; STR='Err'
+  004083dc  add        x2, x2, #0x693      ; STR='update_from_zip_module_skipdata'
+  004083e0  mov        w3, #0x82    ; 0x82
+  004083e4  bl         #0x3770f8    -> recovery_print
+  004083e8  adrp       x2, #0x9b8000
+  004083ec  add        x2, x2, #0xc60
+  004083f0  mov        x0, sp
+  004083f4  mov        w1, #0x64    ; 0x64
+  004083f8  mov        w3, #0x62    ; 0x62
+  004083fc  bl         #0x45a230    -> memcpy_s
+  00408400  cbz        w0, #0x408424
+  00408404  adrp       x0, #0x23f000
+  00408408  adrp       x1, #0x241000
+  0040840c  adrp       x2, #0x20f000
+  00408410  add        x0, x0, #0x9d9      ; STR='%s:%s,line=%d:memcpy_s fail\n'
+  00408414  add        x1, x1, #0xe14      ; STR='Warn'
+  00408418  add        x2, x2, #0x693      ; STR='update_from_zip_module_skipdata'
+  0040841c  mov        w3, #0x87    ; 0x87
+  00408420  bl         #0x3770f8    -> recovery_print
+  00408424  adrp       x0, #0x221000
+  00408428  adrp       x1, #0x20c000
+  0040842c  adrp       x2, #0x20f000
+  00408430  add        x0, x0, #0xe5e      ; STR='%s:%s,line=%d:skip data:%lld\n'
+  00408434  add        x1, x1, #0x42f      ; STR='Info'
+  00408438  add        x2, x2, #0x693      ; STR='update_from_zip_module_skipdata'
+  0040843c  mov        w3, #0x89    ; 0x89
+  00408440  mov        x4, x19
+  00408444  bl         #0x3770f8    -> recovery_print
+  00408448  ldr        x8, [x20, #0x28]
+  0040844c  ldur       x9, [x29, #-0x18]
+  00408450  cmp        x8, x9
+  00408454  b.ne       #0x40846c
+  00408458  ldp        x29, x30, [sp, #0x80]
+  0040845c  ldp        x20, x19, [sp, #0x70]
+  00408460  mov        w0, #1    ; 0x1
+  00408464  add        sp, sp, #0x90
+  00408468  ret        
+  0040846c  bl         #0x4e824c    -> __stack_chk_fail
+  00408470  stp        x28, x27, [sp, #-0x60]!
+  00408474  stp        x26, x25, [sp, #0x10]
+  00408478  stp        x24, x23, [sp, #0x20]
+  0040847c  stp        x22, x21, [sp, #0x30]
+  00408480  stp        x20, x19, [sp, #0x40]
+  00408484  stp        x29, x30, [sp, #0x50]
+  00408488  add        x29, sp, #0x50
+  0040848c  sub        sp, sp, #0x260
+  00408490  mrs        x26, tpidr_el0
+  00408494  ldr        x8, [x26, #0x28]
+  00408498  stur       x8, [x29, #-0x60]
+  0040849c  cbz        x0, #0x4084ec
+  004084a0  mov        x21, x1
+  004084a4  cbz        x1, #0x4084ec
+  004084a8  mov        w19, w3
+  004084ac  mov        w20, w2
+  004084b0  mov        x22, x0
+  004084b4  add        x0, sp, #0x10
+  004084b8  mov        w1, #0x30    ; 0x30
+  004084bc  mov        w3, #0x30    ; 0x30
+  004084c0  mov        w2, wzr
+  004084c4  bl         #0x45a614    -> memset_s
+  004084c8  cbz        w0, #0x40853c

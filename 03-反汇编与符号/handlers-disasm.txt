@@ -1,0 +1,1725 @@
+
+======================================================================
+### handshake_cmd  @0x3ec860  (540 字节)
+======================================================================
+  003ec860  sub        sp, sp, #0xe0
+  003ec864  stp        x26, x25, [sp, #0x90]
+  003ec868  stp        x24, x23, [sp, #0xa0]
+  003ec86c  stp        x22, x21, [sp, #0xb0]
+  003ec870  stp        x20, x19, [sp, #0xc0]
+  003ec874  stp        x29, x30, [sp, #0xd0]
+  003ec878  add        x29, sp, #0xd0
+  003ec87c  mrs        x24, tpidr_el0
+  003ec880  ldr        x8, [x24, #0x28]
+  003ec884  mov        x19, x0
+  003ec888  stur       x8, [x29, #-0x48]
+  003ec88c  cbnz       w1, #0x3ec8b0
+  003ec890  adrp       x0, #0x240000
+  003ec894  adrp       x1, #0x20c000
+  003ec898  adrp       x2, #0x223000
+  003ec89c  add        x0, x0, #0xb8
+  003ec8a0  add        x1, x1, #0x42f
+  003ec8a4  add        x2, x2, #0xcde
+  003ec8a8  mov        w3, #0x1b9      ; 0x1b9
+  003ec8ac  bl         #0x3770f8      ; -> recovery_print
+  003ec8b0  bl         #0x3f589c      ; -> get_receiving_property_buf
+  003ec8b4  adrp       x8, #0x272000
+  003ec8b8  add        x8, x8, #0xc29
+  003ec8bc  ldp        q0, q1, [x8]
+  003ec8c0  ldp        q2, q3, [x8, #0x40]
+  003ec8c4  ldur       x9, [x8, #0x7d]
+  003ec8c8  mov        x21, x0
+  003ec8cc  stp        q0, q1, [sp]
+  003ec8d0  ldp        q0, q4, [x8, #0x20]
+  003ec8d4  stp        q2, q3, [sp, #0x40]
+  003ec8d8  ldp        q2, q3, [x8, #0x60]
+  003ec8dc  stur       x9, [sp, #0x7d]
+  003ec8e0  stp        q0, q4, [sp, #0x20]
+  003ec8e4  stp        q2, q3, [sp, #0x60]
+  003ec8e8  ldrb       w22, [x19]
+  003ec8ec  ldrb       w26, [x19, #1]
+  003ec8f0  ldrb       w20, [x19, #0x10]
+  003ec8f4  ldrb       w25, [x19, #0x11]
+  003ec8f8  ldur       w23, [x19, #2]
+  003ec8fc  bl         #0x411718      ; -> SetUsbUpdateStarted
+  003ec900  mov        w8, #0xa725      ; 0xa725
+  003ec904  movk       w8, #0x600, lsl #16      ; 0x600
+  003ec908  cmp        w23, w8
+  003ec90c  bfi        w22, w26, #8, #8
+  003ec910  b.ne       #0x3ec99c
+  003ec914  adrp       x0, #0x221000
+  003ec918  adrp       x1, #0x20c000
+  003ec91c  adrp       x2, #0x223000
+  003ec920  add        x0, x0, #0x7fa
+  003ec924  add        x1, x1, #0x42f
+  003ec928  add        x2, x2, #0xcde
+  003ec92c  mov        w3, #0x1ea      ; 0x1ea
+  003ec930  mov        w4, w22
+  003ec934  bl         #0x3770f8      ; -> recovery_print
+  003ec938  cmp        w22, #0x226      ; 0x226
+  003ec93c  b.eq       #0x3ec9c8
+  003ec940  cbz        x21, #0x3ec978
+  003ec944  mov        w8, #0x1918      ; 0x1918
+  003ec948  movk       w8, #0x940, lsl #16      ; 0x940
+  003ec94c  str        w20, [x21, x8]
+  003ec950  ldrb       w5, [x19, #0x10]
+  003ec954  adrp       x0, #0x231000
+  003ec958  adrp       x1, #0x20c000
+  003ec95c  adrp       x2, #0x223000
+  003ec960  add        x0, x0, #0xefb
+  003ec964  add        x1, x1, #0x42f
+  003ec968  add        x2, x2, #0xcde
+  003ec96c  mov        w3, #0x1fb      ; 0x1fb
+  003ec970  mov        w4, w20
+  003ec974  bl         #0x3770f8      ; -> recovery_print
+  003ec978  cmp        w25, #1      ; 0x1
+  003ec97c  cset       w8, eq
+  003ec980  mov        x0, sp
+  003ec984  mov        w1, #0x85      ; 0x85
+  003ec988  strb       w20, [sp, #0x11]
+  003ec98c  strb       w8, [sp, #0x12]
+  003ec990  bl         #0x3f536c      ; -> send_package
+  003ec994  mov        w8, wzr
+  003ec998  b          #0x3eca40
+  003ec99c  cmp        w22, #0x226      ; 0x226
+  003ec9a0  b.ne       #0x3eca0c
+  003ec9a4  adrp       x0, #0x221000
+  003ec9a8  adrp       x1, #0x20c000
+  003ec9ac  adrp       x2, #0x223000
+  003ec9b0  add        x0, x0, #0x7fa
+  003ec9b4  add        x1, x1, #0x42f
+  003ec9b8  add        x2, x2, #0xcde
+  003ec9bc  mov        w3, #0x1ea      ; 0x1ea
+  003ec9c0  mov        w4, w22
+  003ec9c4  bl         #0x3770f8      ; -> recovery_print
+  003ec9c8  adrp       x0, #0x22f000
+  003ec9cc  adrp       x1, #0x241000
+  003ec9d0  adrp       x2, #0x223000
+  003ec9d4  add        x0, x0, #0xdbd
+  003ec9d8  add        x1, x1, #0xe14
+  003ec9dc  add        x2, x2, #0xcde
+  003ec9e0  mov        w3, #0x1ed      ; 0x1ed
+  003ec9e4  bl         #0x3770f8      ; -> recovery_print
+  003ec9e8  adrp       x8, #0x24b000
+  003ec9ec  ldr        d0, [x8, #0x918]
+  003ec9f0  mov        w8, #0x706      ; 0x706
+  003ec9f4  mov        w9, #8      ; 0x8
+  003ec9f8  sturh      w8, [sp, #9]
+  003ec9fc  stur       d0, [sp, #1]
+  003eca00  strb       w9, [sp, #0xb]
+  003eca04  cbnz       x21, #0x3ec944
+  003eca08  b          #0x3ec978
+  003eca0c  adrp       x0, #0x23d000
+  003eca10  adrp       x1, #0x220000
+  003eca14  adrp       x2, #0x223000
+  003eca18  add        x0, x0, #0xc02
+  003eca1c  add        x1, x1, #0xbed
+  003eca20  add        x2, x2, #0xcde
+  003eca24  mov        w3, #0x1e2      ; 0x1e2
+  003eca28  mov        w4, w23
+  003eca2c  mov        w5, w22
+  003eca30  bl         #0x3770f8      ; -> recovery_print
+  003eca34  mov        w0, #7      ; 0x7
+  003eca38  bl         #0x3f4eb8      ; -> transmit_response
+  003eca3c  mov        w8, #3      ; 0x3
+  003eca40  ldr        x9, [x24, #0x28]
+  003eca44  ldur       x10, [x29, #-0x48]
+  003eca48  tst        w0, #0xff      ; 0xff
+  003eca4c  mov        w11, #2      ; 0x2
+  003eca50  csel       w0, w11, w8, eq
+  003eca54  cmp        x9, x10
+  003eca58  b.ne       #0x3eca78
+  003eca5c  ldp        x29, x30, [sp, #0xd0]
+  003eca60  ldp        x20, x19, [sp, #0xc0]
+  003eca64  ldp        x22, x21, [sp, #0xb0]
+  003eca68  ldp        x24, x23, [sp, #0xa0]
+  003eca6c  ldp        x26, x25, [sp, #0x90]
+  003eca70  add        sp, sp, #0xe0
+  003eca74  ret        
+  003eca78  bl         #0x4e824c      ; -> __stack_chk_fail
+
+======================================================================
+### unlock_cmd  @0x3eca7c  (228 字节)
+======================================================================
+  003eca7c  stp        x20, x19, [sp, #-0x20]!
+  003eca80  stp        x29, x30, [sp, #0x10]
+  003eca84  add        x29, sp, #0x10
+  003eca88  cbz        x0, #0x3ecad0
+  003eca8c  bl         #0x3eed34      ; -> is_sec_code_allowed
+  003eca90  tst        w0, #0xff      ; 0xff
+  003eca94  b.eq       #0x3ecaf8
+  003eca98  mov        w0, wzr
+  003eca9c  bl         #0x3f4eb8      ; -> transmit_response
+  003ecaa0  tst        w0, #0xff      ; 0xff
+  003ecaa4  b.eq       #0x3ecb50
+  003ecaa8  adrp       x0, #0x240000
+  003ecaac  adrp       x1, #0x20c000
+  003ecab0  adrp       x2, #0x22f000
+  003ecab4  add        x0, x0, #0xe3
+  003ecab8  add        x1, x1, #0x42f
+  003ecabc  add        x2, x2, #0xdd5
+  003ecac0  mov        w3, #0x234      ; 0x234
+  003ecac4  bl         #0x3770f8      ; -> recovery_print
+  003ecac8  mov        w0, wzr
+  003ecacc  b          #0x3ecb54
+  003ecad0  adrp       x0, #0x22b000
+  003ecad4  adrp       x1, #0x220000
+  003ecad8  adrp       x2, #0x22f000
+  003ecadc  add        x0, x0, #0x28
+  003ecae0  add        x1, x1, #0xbed
+  003ecae4  add        x2, x2, #0xdd5
+  003ecae8  mov        w3, #0x221      ; 0x221
+  003ecaec  bl         #0x3770f8      ; -> recovery_print
+  003ecaf0  mov        w0, #3      ; 0x3
+  003ecaf4  b          #0x3ecb54
+  003ecaf8  adrp       x19, #0x220000
+  003ecafc  adrp       x20, #0x22f000
+  003ecb00  adrp       x0, #0x249000
+  003ecb04  add        x19, x19, #0xbed
+  003ecb08  add        x20, x20, #0xdd5
+  003ecb0c  add        x0, x0, #0xfa9
+  003ecb10  mov        w3, #0x227      ; 0x227
+  003ecb14  mov        x1, x19
+  003ecb18  mov        x2, x20
+  003ecb1c  bl         #0x3770f8      ; -> recovery_print
+  003ecb20  adrp       x0, #0x216000
+  003ecb24  add        x0, x0, #0x1fe
+  003ecb28  mov        w3, #0x228      ; 0x228
+  003ecb2c  mov        x1, x19
+  003ecb30  mov        x2, x20
+  003ecb34  bl         #0x3770f8      ; -> recovery_print
+  003ecb38  mov        w0, #7      ; 0x7
+  003ecb3c  bl         #0x3f4eb8      ; -> transmit_response
+  003ecb40  tst        w0, #0xff      ; 0xff
+  003ecb44  mov        w8, #2      ; 0x2
+  003ecb48  cinc       w0, w8, ne
+  003ecb4c  b          #0x3ecb54
+  003ecb50  mov        w0, #2      ; 0x2
+  003ecb54  ldp        x29, x30, [sp, #0x10]
+  003ecb58  ldp        x20, x19, [sp], #0x20
+  003ecb5c  ret        
+
+======================================================================
+### cmd_update_auth_func  @0x3ec4c0  (928 字节)
+======================================================================
+  003ec4c0  sub        sp, sp, #0x100
+  003ec4c4  stp        x28, x27, [sp, #0xa0]
+  003ec4c8  stp        x26, x25, [sp, #0xb0]
+  003ec4cc  stp        x24, x23, [sp, #0xc0]
+  003ec4d0  stp        x22, x21, [sp, #0xd0]
+  003ec4d4  stp        x20, x19, [sp, #0xe0]
+  003ec4d8  stp        x29, x30, [sp, #0xf0]
+  003ec4dc  add        x29, sp, #0xf0
+  003ec4e0  mrs        x25, tpidr_el0
+  003ec4e4  ldr        x8, [x25, #0x28]
+  003ec4e8  movi       v0.2d, #0000000000000000
+  003ec4ec  cmp        w1, #9      ; 0x9
+  003ec4f0  stur       x8, [x29, #-0x58]
+  003ec4f4  strb       wzr, [sp, #0x90]
+  003ec4f8  stp        q0, q0, [sp, #0x70]
+  003ec4fc  stp        q0, q0, [sp, #0x50]
+  003ec500  stp        q0, q0, [sp, #0x30]
+  003ec504  stp        q0, q0, [sp, #0x10]
+  003ec508  b.ls       #0x3ec5c0
+  003ec50c  ldrb       w8, [x0]
+  003ec510  ldrb       w9, [x0, #1]
+  003ec514  mov        x23, x0
+  003ec518  bfi        w8, w9, #8, #8
+  003ec51c  cmp        w8, #1      ; 0x1
+  003ec520  b.ne       #0x3ec5a0
+  003ec524  ldrb       w24, [x23, #2]
+  003ec528  ldrb       w8, [x23, #3]
+  003ec52c  ldrb       w9, [x23, #4]
+  003ec530  ldrb       w10, [x23, #5]
+  003ec534  bfi        x24, x8, #8, #8
+  003ec538  bfi        x24, x9, #0x10, #8
+  003ec53c  bfi        x24, x10, #0x18, #8
+  003ec540  cbz        w24, #0x3ec5a0
+  003ec544  ldrb       w19, [x23, #6]
+  003ec548  ldrb       w8, [x23, #7]
+  003ec54c  ldrb       w9, [x23, #8]
+  003ec550  ldrb       w10, [x23, #9]
+  003ec554  bfi        x19, x8, #8, #8
+  003ec558  bfi        x19, x9, #0x10, #8
+  003ec55c  bfi        x19, x10, #0x18, #8
+  003ec560  cbz        w19, #0x3ec5a0
+  003ec564  add        x20, x23, #0xa
+  003ec568  adrp       x2, #0x23b000
+  003ec56c  add        x2, x2, #0x687
+  003ec570  mov        x0, x20
+  003ec574  mov        w1, w24
+  003ec578  bl         #0x3eeb50      ; -> save_update_auth_file
+  003ec57c  cbz        w0, #0x3ec604
+  003ec580  adrp       x0, #0x22d000
+  003ec584  adrp       x1, #0x220000
+  003ec588  adrp       x2, #0x249000
+  003ec58c  add        x0, x0, #0x8f0
+  003ec590  add        x1, x1, #0xbed
+  003ec594  add        x2, x2, #0xf94
+  003ec598  mov        w3, #0x157      ; 0x157
+  003ec59c  b          #0x3ec5bc
+  003ec5a0  adrp       x0, #0x203000
+  003ec5a4  adrp       x1, #0x220000
+  003ec5a8  adrp       x2, #0x249000
+  003ec5ac  add        x0, x0, #0xc50
+  003ec5b0  add        x1, x1, #0xbed
+  003ec5b4  add        x2, x2, #0xf94
+  003ec5b8  mov        w3, #0x14c      ; 0x14c
+  003ec5bc  bl         #0x3770f8      ; -> recovery_print
+  003ec5c0  mov        w0, #7      ; 0x7
+  003ec5c4  bl         #0x3f4eb8      ; -> transmit_response
+  003ec5c8  tst        w0, #0xff      ; 0xff
+  003ec5cc  mov        w8, #2      ; 0x2
+  003ec5d0  cinc       w0, w8, ne
+  003ec5d4  ldr        x8, [x25, #0x28]
+  003ec5d8  ldur       x9, [x29, #-0x58]
+  003ec5dc  cmp        x8, x9
+  003ec5e0  b.ne       #0x3ec85c
+  003ec5e4  ldp        x29, x30, [sp, #0xf0]
+  003ec5e8  ldp        x20, x19, [sp, #0xe0]
+  003ec5ec  ldp        x22, x21, [sp, #0xd0]
+  003ec5f0  ldp        x24, x23, [sp, #0xc0]
+  003ec5f4  ldp        x26, x25, [sp, #0xb0]
+  003ec5f8  ldp        x28, x27, [sp, #0xa0]
+  003ec5fc  add        sp, sp, #0x100
+  003ec600  ret        
+  003ec604  bl         #0x411718      ; -> SetUsbUpdateStarted
+  003ec608  add        x27, x20, x24
+  003ec60c  adrp       x20, #0x20c000
+  003ec610  adrp       x21, #0x249000
+  003ec614  adrp       x0, #0x21f000
+  003ec618  add        x20, x20, #0x42f
+  003ec61c  add        x21, x21, #0xf94
+  003ec620  add        x0, x0, #0x291
+  003ec624  mov        w3, #0x165      ; 0x165
+  003ec628  mov        x1, x20
+  003ec62c  mov        x2, x21
+  003ec630  mov        w4, w19
+  003ec634  bl         #0x3770f8      ; -> recovery_print
+  003ec638  mov        w0, #-1      ; 0xffffffff
+  003ec63c  bl         #0x3eeafc      ; -> setAuthResult
+  003ec640  bl         #0x4226d8      ; -> _Z19ClearVersionMbnListv
+  003ec644  add        x8, x23, x24
+  003ec648  mov        x22, xzr
+  003ec64c  mov        w6, wzr
+  003ec650  mov        w26, wzr
+  003ec654  add        x24, x8, #0xb
+  003ec658  mov        x28, x27
+  003ec65c  str        wzr, [sp, #0xc]
+  003ec660  add        x8, x24, x22
+  003ec664  ldurb      w8, [x8, #-1]
+  003ec668  cmp        w8, #0xd      ; 0xd
+  003ec66c  b.eq       #0x3ec678
+  003ec670  cmp        w8, #0xa      ; 0xa
+  003ec674  b.ne       #0x3ec7d0
+  003ec678  neg        w8, w6
+  003ec67c  add        x23, x22, x8
+  003ec680  adrp       x0, #0x23b000
+  003ec684  mov        w3, #0x170      ; 0x170
+  003ec688  add        x0, x0, #0x68c
+  003ec68c  mov        x1, x20
+  003ec690  mov        x2, x21
+  003ec694  mov        w4, w23
+  003ec698  mov        w5, w22
+  003ec69c  bl         #0x3770f8      ; -> recovery_print
+  003ec6a0  add        x0, sp, #0x10
+  003ec6a4  mov        w1, #0x81      ; 0x81
+  003ec6a8  mov        w3, #0x81      ; 0x81
+  003ec6ac  mov        w2, wzr
+  003ec6b0  bl         #0x45a614      ; -> memset_s
+  003ec6b4  cbz        w0, #0x3ec6d4
+  003ec6b8  adrp       x0, #0x22d000
+  003ec6bc  adrp       x1, #0x241000
+  003ec6c0  mov        w3, #0x173      ; 0x173
+  003ec6c4  add        x0, x0, #0x76
+  003ec6c8  add        x1, x1, #0xe14
+  003ec6cc  mov        x2, x21
+  003ec6d0  bl         #0x3770f8      ; -> recovery_print
+  003ec6d4  and        x3, x23, #0xffffffff      ; 0xffffffff
+  003ec6d8  add        x0, sp, #0x10
+  003ec6dc  mov        w1, #0x81      ; 0x81
+  003ec6e0  mov        x2, x27
+  003ec6e4  bl         #0x45a230      ; -> memcpy_s
+  003ec6e8  cbz        w0, #0x3ec708
+  003ec6ec  adrp       x0, #0x23f000
+  003ec6f0  adrp       x1, #0x241000
+  003ec6f4  mov        w3, #0x177      ; 0x177
+  003ec6f8  add        x0, x0, #0x9d9
+  003ec6fc  add        x1, x1, #0xe14
+  003ec700  mov        x2, x21
+  003ec704  bl         #0x3770f8      ; -> recovery_print
+  003ec708  add        x0, sp, #0x10
+  003ec70c  mov        w1, #0x81      ; 0x81
+  003ec710  bl         #0x4d7090      ; -> __strlen_chk
+  003ec714  mov        x23, x0
+  003ec718  adrp       x0, #0x205000
+  003ec71c  add        x4, sp, #0x10
+  003ec720  mov        w3, #0x17a      ; 0x17a
+  003ec724  add        x0, x0, #0xd18
+  003ec728  mov        x1, x20
+  003ec72c  mov        x2, x21
+  003ec730  mov        w5, w23
+  003ec734  bl         #0x3770f8      ; -> recovery_print
+  003ec738  cmp        w23, #2      ; 0x2
+  003ec73c  b.lo       #0x3ec748
+  003ec740  add        x8, sp, #0x10
+  003ec744  strb       wzr, [x8, w23, uxtw]
+  003ec748  adrp       x0, #0x23b000
+  003ec74c  add        x1, sp, #0x10
+  003ec750  add        x0, x0, #0x687
+  003ec754  mov        w2, w23
+  003ec758  bl         #0x3eec24      ; -> check_update_auth
+  003ec75c  mov        w23, w0
+  003ec760  adrp       x0, #0x21d000
+  003ec764  mov        w3, #0x181      ; 0x181
+  003ec768  add        x0, x0, #0x1b3
+  003ec76c  mov        x1, x20
+  003ec770  mov        x2, x21
+  003ec774  mov        w4, w23
+  003ec778  bl         #0x3770f8      ; -> recovery_print
+  003ec77c  add        x0, sp, #0x10
+  003ec780  bl         #0x4225b4      ; -> _Z17AddVersionMbnListPKc
+  003ec784  cbnz       w23, #0x3ec7a8
+  003ec788  adrp       x0, #0x23b000
+  003ec78c  mov        w3, #0x185      ; 0x185
+  003ec790  add        x0, x0, #0x6c2
+  003ec794  mov        x1, x20
+  003ec798  mov        x2, x21
+  003ec79c  bl         #0x3770f8      ; -> recovery_print
+  003ec7a0  mov        w8, #1      ; 0x1
+  003ec7a4  str        w8, [sp, #0xc]
+  003ec7a8  add        x27, x24, x22
+  003ec7ac  ldrb       w8, [x27]
+  003ec7b0  cmp        w8, #0xd      ; 0xd
+  003ec7b4  b.eq       #0x3ec7c0
+  003ec7b8  cmp        w8, #0xa      ; 0xa
+  003ec7bc  b.ne       #0x3ec7cc
+  003ec7c0  add        w6, w26, #2
+  003ec7c4  add        x27, x28, #2
+  003ec7c8  b          #0x3ec7d0
+  003ec7cc  add        w6, w22, #1
+  003ec7d0  add        x22, x22, #1
+  003ec7d4  add        w26, w26, #1
+  003ec7d8  cmp        w19, w22
+  003ec7dc  add        x28, x28, #1
+  003ec7e0  b.ne       #0x3ec660
+  003ec7e4  ldr        w8, [sp, #0xc]
+  003ec7e8  tbz        w8, #0, #0x3ec830
+  003ec7ec  mov        w0, wzr
+  003ec7f0  bl         #0x3eeafc      ; -> setAuthResult
+  003ec7f4  mov        w0, wzr
+  003ec7f8  bl         #0x3f4eb8      ; -> transmit_response
+  003ec7fc  tst        w0, #0xff      ; 0xff
+  003ec800  b.eq       #0x3ec854
+  003ec804  adrp       x0, #0x23d000
+  003ec808  adrp       x1, #0x20c000
+  003ec80c  adrp       x2, #0x249000
+  003ec810  add        x0, x0, #0xbea
+  003ec814  add        x1, x1, #0x42f
+  003ec818  add        x2, x2, #0xf94
+  003ec81c  mov        w3, #0x1a3      ; 0x1a3
+  003ec820  mov        w4, wzr
+  003ec824  bl         #0x3770f8      ; -> recovery_print
+  003ec828  mov        w0, wzr
+  003ec82c  b          #0x3ec5d4
+  003ec830  bl         #0x4226d8      ; -> _Z19ClearVersionMbnListv
+  003ec834  adrp       x0, #0x20a000
+  003ec838  adrp       x1, #0x220000
+  003ec83c  adrp       x2, #0x249000
+  003ec840  add        x0, x0, #0xaee
+  003ec844  add        x1, x1, #0xbed
+  003ec848  add        x2, x2, #0xf94
+  003ec84c  mov        w3, #0x197      ; 0x197
+  003ec850  b          #0x3ec5bc
+  003ec854  mov        w0, #2      ; 0x2
+  003ec858  b          #0x3ec5d4
+  003ec85c  bl         #0x4e824c      ; -> __stack_chk_fail
+
+======================================================================
+### new_shake_hand_cmd  @0x410504  (120 字节)
+======================================================================
+  00410504  str        x21, [sp, #-0x30]!
+  00410508  stp        x20, x19, [sp, #0x10]
+  0041050c  stp        x29, x30, [sp, #0x20]
+  00410510  add        x29, sp, #0x20
+  00410514  mov        x20, x0
+  00410518  mov        x0, x2
+  0041051c  mov        x21, x2
+  00410520  mov        w19, w1
+  00410524  bl         #0x411a0c      ; -> copy_new_node_to_ppool
+  00410528  cbz        w0, #0x41054c
+  0041052c  adrp       x0, #0x23e000
+  00410530  adrp       x1, #0x241000
+  00410534  adrp       x2, #0x202000
+  00410538  add        x0, x0, #0x8a7
+  0041053c  add        x1, x1, #0xe14
+  00410540  add        x2, x2, #0x83
+  00410544  mov        w3, #0x2ae      ; 0x2ae
+  00410548  bl         #0x3770f8      ; -> recovery_print
+  0041054c  mov        w8, #0x400000      ; 0x400000
+  00410550  mov        x0, x20
+  00410554  mov        w1, w19
+  00410558  str        wzr, [x21, x8]
+  0041055c  bl         #0x3ec860      ; -> handshake_cmd
+  00410560  ldp        x29, x30, [sp, #0x20]
+  00410564  ldp        x20, x19, [sp, #0x10]
+  00410568  cmp        w0, #0      ; 0x0
+  0041056c  mov        w8, #0xe      ; 0xe
+  00410570  csel       w0, wzr, w8, eq
+  00410574  ldr        x21, [sp], #0x30
+  00410578  ret        
+
+======================================================================
+### reboot_device_cmd  @0x41057c  (212 字节)
+======================================================================
+  0041057c  str        x21, [sp, #-0x30]!
+  00410580  stp        x20, x19, [sp, #0x10]
+  00410584  stp        x29, x30, [sp, #0x20]
+  00410588  add        x29, sp, #0x20
+  0041058c  mov        x19, x2
+  00410590  cbz        x0, #0x410598
+  00410594  tbz        w1, #0x1f, #0x4105b8
+  00410598  adrp       x0, #0x233000
+  0041059c  adrp       x1, #0x220000
+  004105a0  adrp       x2, #0x211000
+  004105a4  add        x0, x0, #0x9cd
+  004105a8  add        x1, x1, #0xbed
+  004105ac  add        x2, x2, #0xff2
+  004105b0  mov        w3, #0x2df      ; 0x2df
+  004105b4  bl         #0x3770f8      ; -> recovery_print
+  004105b8  adrp       x20, #0x20c000
+  004105bc  adrp       x21, #0x211000
+  004105c0  adrp       x0, #0x239000
+  004105c4  add        x20, x20, #0x42f
+  004105c8  add        x21, x21, #0xff2
+  004105cc  add        x0, x0, #0xbdf
+  004105d0  mov        w3, #0x2e0      ; 0x2e0
+  004105d4  mov        x1, x20
+  004105d8  mov        x2, x21
+  004105dc  bl         #0x3770f8      ; -> recovery_print
+  004105e0  adrp       x0, #0x23c000
+  004105e4  add        x0, x0, #0x28c
+  004105e8  mov        w3, #0x2e2      ; 0x2e2
+  004105ec  mov        x1, x20
+  004105f0  mov        x2, x21
+  004105f4  bl         #0x3770f8      ; -> recovery_print
+  004105f8  add        x20, x19, #0x400, lsl #12
+  004105fc  ldr        w1, [x20]
+  00410600  mov        x0, x19
+  00410604  bl         #0x3ef344      ; -> print_hex
+  00410608  mov        w0, wzr
+  0041060c  bl         #0x3f4eb8      ; -> transmit_response
+  00410610  tst        w0, #0xff      ; 0xff
+  00410614  b.ne       #0x410638
+  00410618  adrp       x0, #0x20b000
+  0041061c  adrp       x1, #0x241000
+  00410620  adrp       x2, #0x211000
+  00410624  add        x0, x0, #0x537
+  00410628  add        x1, x1, #0xe14
+  0041062c  add        x2, x2, #0xff2
+  00410630  mov        w3, #0x2e6      ; 0x2e6
+  00410634  bl         #0x3770f8      ; -> recovery_print
+  00410638  str        wzr, [x20]
+  0041063c  ldp        x29, x30, [sp, #0x20]
+  00410640  ldp        x20, x19, [sp, #0x10]
+  00410644  mov        w0, wzr
+  00410648  ldr        x21, [sp], #0x30
+  0041064c  ret        
+
+======================================================================
+### force_reboot_device_cmd  @0x410650  (224 字节)
+======================================================================
+  00410650  str        x21, [sp, #-0x30]!
+  00410654  stp        x20, x19, [sp, #0x10]
+  00410658  stp        x29, x30, [sp, #0x20]
+  0041065c  add        x29, sp, #0x20
+  00410660  mov        x19, x2
+  00410664  cbz        x0, #0x41066c
+  00410668  tbz        w1, #0x1f, #0x41068c
+  0041066c  adrp       x0, #0x233000
+  00410670  adrp       x1, #0x220000
+  00410674  adrp       x2, #0x237000
+  00410678  add        x0, x0, #0x9cd
+  0041067c  add        x1, x1, #0xbed
+  00410680  add        x2, x2, #0x6ac
+  00410684  mov        w3, #0x2f7      ; 0x2f7
+  00410688  bl         #0x3770f8      ; -> recovery_print
+  0041068c  adrp       x20, #0x20c000
+  00410690  adrp       x21, #0x237000
+  00410694  adrp       x0, #0x239000
+  00410698  add        x20, x20, #0x42f
+  0041069c  add        x21, x21, #0x6ac
+  004106a0  add        x0, x0, #0xbdf
+  004106a4  mov        w3, #0x2f8      ; 0x2f8
+  004106a8  mov        x1, x20
+  004106ac  mov        x2, x21
+  004106b0  bl         #0x3770f8      ; -> recovery_print
+  004106b4  adrp       x0, #0x23c000
+  004106b8  adrp       x8, #0x11b9000
+  004106bc  mov        w9, #1      ; 0x1
+  004106c0  add        x0, x0, #0x28c
+  004106c4  mov        w3, #0x2fa      ; 0x2fa
+  004106c8  mov        x1, x20
+  004106cc  mov        x2, x21
+  004106d0  strb       w9, [x8, #0x550]
+  004106d4  bl         #0x3770f8      ; -> recovery_print
+  004106d8  add        x20, x19, #0x400, lsl #12
+  004106dc  ldr        w1, [x20]
+  004106e0  mov        x0, x19
+  004106e4  bl         #0x3ef344      ; -> print_hex
+  004106e8  mov        w0, wzr
+  004106ec  bl         #0x3f4eb8      ; -> transmit_response
+  004106f0  tst        w0, #0xff      ; 0xff
+  004106f4  b.ne       #0x410718
+  004106f8  adrp       x0, #0x20b000
+  004106fc  adrp       x1, #0x241000
+  00410700  adrp       x2, #0x237000
+  00410704  add        x0, x0, #0x537
+  00410708  add        x1, x1, #0xe14
+  0041070c  add        x2, x2, #0x6ac
+  00410710  mov        w3, #0x2fe      ; 0x2fe
+  00410714  bl         #0x3770f8      ; -> recovery_print
+  00410718  str        wzr, [x20]
+  0041071c  ldp        x29, x30, [sp, #0x20]
+  00410720  ldp        x20, x19, [sp, #0x10]
+  00410724  mov        w0, wzr
+  00410728  ldr        x21, [sp], #0x30
+  0041072c  ret        
+
+======================================================================
+### unlock_device_cmd  @0x41089c  (228 字节)
+======================================================================
+  0041089c  stp        x20, x19, [sp, #-0x20]!
+  004108a0  stp        x29, x30, [sp, #0x10]
+  004108a4  add        x29, sp, #0x10
+  004108a8  mov        x19, x2
+  004108ac  cbz        x0, #0x410924
+  004108b0  tbnz       w1, #0x1f, #0x410924
+  004108b4  cbz        x19, #0x410948
+  004108b8  adrp       x0, #0x216000
+  004108bc  adrp       x1, #0x20c000
+  004108c0  adrp       x2, #0x23e000
+  004108c4  add        x0, x0, #0xdd8
+  004108c8  add        x1, x1, #0x42f
+  004108cc  add        x2, x2, #0x8d2
+  004108d0  mov        w3, #0x308      ; 0x308
+  004108d4  bl         #0x3770f8      ; -> recovery_print
+  004108d8  add        x20, x19, #0x400, lsl #12
+  004108dc  ldr        w1, [x20]
+  004108e0  mov        x0, x19
+  004108e4  bl         #0x3ef344      ; -> print_hex
+  004108e8  mov        w0, wzr
+  004108ec  bl         #0x3f4eb8      ; -> transmit_response
+  004108f0  tst        w0, #0xff      ; 0xff
+  004108f4  b.ne       #0x410918
+  004108f8  adrp       x0, #0x20b000
+  004108fc  adrp       x1, #0x241000
+  00410900  adrp       x2, #0x23e000
+  00410904  add        x0, x0, #0x537
+  00410908  add        x1, x1, #0xe14
+  0041090c  add        x2, x2, #0x8d2
+  00410910  mov        w3, #0x30c      ; 0x30c
+  00410914  bl         #0x3770f8      ; -> recovery_print
+  00410918  mov        w19, wzr
+  0041091c  str        wzr, [x20]
+  00410920  b          #0x410970
+  00410924  adrp       x0, #0x233000
+  00410928  adrp       x1, #0x220000
+  0041092c  adrp       x2, #0x23e000
+  00410930  add        x0, x0, #0x9cd
+  00410934  add        x1, x1, #0xbed
+  00410938  add        x2, x2, #0x8d2
+  0041093c  mov        w3, #0x306      ; 0x306
+  00410940  bl         #0x3770f8      ; -> recovery_print
+  00410944  cbnz       x19, #0x4108b8
+  00410948  adrp       x0, #0x23e000
+  0041094c  adrp       x1, #0x220000
+  00410950  adrp       x2, #0x23e000
+  00410954  add        x0, x0, #0x8e4
+  00410958  add        x1, x1, #0xbed
+  0041095c  add        x2, x2, #0x8d2
+  00410960  mov        w3, #0x307      ; 0x307
+  00410964  mov        w4, #0xd      ; 0xd
+  00410968  mov        w19, #0xd      ; 0xd
+  0041096c  bl         #0x3770f8      ; -> recovery_print
+  00410970  ldp        x29, x30, [sp, #0x10]
+  00410974  mov        w0, w19
+  00410978  ldp        x20, x19, [sp], #0x20
+  0041097c  ret        
+
+======================================================================
+### transmit_write_cmd  @0x410730  (364 字节)
+======================================================================
+  00410730  str        x27, [sp, #-0x60]!
+  00410734  stp        x26, x25, [sp, #0x10]
+  00410738  stp        x24, x23, [sp, #0x20]
+  0041073c  stp        x22, x21, [sp, #0x30]
+  00410740  stp        x20, x19, [sp, #0x40]
+  00410744  stp        x29, x30, [sp, #0x50]
+  00410748  add        x29, sp, #0x50
+  0041074c  mov        x20, x2
+  00410750  mov        x19, x0
+  00410754  tbz        w1, #0x1f, #0x410778
+  00410758  adrp       x0, #0x212000
+  0041075c  adrp       x1, #0x220000
+  00410760  adrp       x2, #0x202000
+  00410764  add        x0, x0, #4
+  00410768  add        x1, x1, #0xbed
+  0041076c  add        x2, x2, #0x96
+  00410770  mov        w3, #0x345      ; 0x345
+  00410774  bl         #0x3770f8      ; -> recovery_print
+  00410778  ldr        w8, [x19]
+  0041077c  ldrb       w24, [x19, #4]
+  00410780  ldrb       w23, [x19, #5]
+  00410784  ldrb       w26, [x19, #6]
+  00410788  ldrb       w25, [x19, #7]
+  0041078c  rev        w21, w8
+  00410790  adrp       x22, #0x11b9000
+  00410794  cbnz       w21, #0x410804
+  00410798  ldrb       w8, [x22, #0xd6b]
+  0041079c  cbnz       w8, #0x410804
+  004107a0  adrp       x0, #0x202000
+  004107a4  adrp       x1, #0x20c000
+  004107a8  adrp       x2, #0x202000
+  004107ac  mov        w8, #0x400000      ; 0x400000
+  004107b0  add        x0, x0, #0xa9
+  004107b4  add        x1, x1, #0x42f
+  004107b8  add        x2, x2, #0x96
+  004107bc  mov        w3, #0x358      ; 0x358
+  004107c0  mov        w4, wzr
+  004107c4  str        wzr, [x20, x8]
+  004107c8  bl         #0x3770f8      ; -> recovery_print
+  004107cc  mov        w0, wzr
+  004107d0  bl         #0x3f4eb8      ; -> transmit_response
+  004107d4  tst        w0, #0xff      ; 0xff
+  004107d8  mov        w21, wzr
+  004107dc  b.ne       #0x410804
+  004107e0  adrp       x0, #0x20b000
+  004107e4  adrp       x1, #0x241000
+  004107e8  adrp       x2, #0x202000
+  004107ec  add        x0, x0, #0x537
+  004107f0  add        x1, x1, #0xe14
+  004107f4  add        x2, x2, #0x96
+  004107f8  mov        w3, #0x35b      ; 0x35b
+  004107fc  bl         #0x3770f8      ; -> recovery_print
+  00410800  mov        w21, wzr
+  00410804  adrp       x27, #0x11b9000
+  00410808  ldr        w8, [x27, #0xd6c]
+  0041080c  cmp        w8, w21
+  00410810  b.ne       #0x410838
+  00410814  lsl        w8, w24, #0x18
+  00410818  bfi        w8, w23, #0x10, #8
+  0041081c  bfi        w8, w26, #8, #8
+  00410820  orr        w8, w8, w25
+  00410824  mov        w0, wzr
+  00410828  add        w8, w21, w8
+  0041082c  str        w8, [x27, #0xd6c]
+  00410830  strb       wzr, [x22, #0xd6b]
+  00410834  b          #0x410880
+  00410838  mov        w8, #0x400000      ; 0x400000
+  0041083c  mov        w1, #0x20      ; 0x20
+  00410840  mov        x0, x19
+  00410844  str        wzr, [x20, x8]
+  00410848  bl         #0x3ef344      ; -> print_hex
+  0041084c  ldr        w4, [x27, #0xd6c]
+  00410850  adrp       x0, #0x219000
+  00410854  adrp       x1, #0x220000
+  00410858  adrp       x2, #0x202000
+  0041085c  add        x0, x0, #0xc0
+  00410860  add        x1, x1, #0xbed
+  00410864  add        x2, x2, #0x96
+  00410868  mov        w3, #0x365      ; 0x365
+  0041086c  mov        w5, w21
+  00410870  bl         #0x3770f8      ; -> recovery_print
+  00410874  mov        w0, #0xb      ; 0xb
+  00410878  bl         #0x3f4eb8      ; -> transmit_response
+  0041087c  mov        w0, #5      ; 0x5
+  00410880  ldp        x29, x30, [sp, #0x50]
+  00410884  ldp        x20, x19, [sp, #0x40]
+  00410888  ldp        x22, x21, [sp, #0x30]
+  0041088c  ldp        x24, x23, [sp, #0x20]
+  00410890  ldp        x26, x25, [sp, #0x10]
+  00410894  ldr        x27, [sp], #0x60
+  00410898  ret        
+
+======================================================================
+### transmit_write_begin_cmd  @0x410980  (112 字节)
+======================================================================
+  00410980  stp        x22, x21, [sp, #-0x30]!
+  00410984  stp        x20, x19, [sp, #0x10]
+  00410988  stp        x29, x30, [sp, #0x20]
+  0041098c  add        x29, sp, #0x20
+  00410990  mov        x22, x0
+  00410994  mov        x0, x2
+  00410998  mov        x19, x2
+  0041099c  mov        w21, w1
+  004109a0  bl         #0x411a0c      ; -> copy_new_node_to_ppool
+  004109a4  mov        w20, w0
+  004109a8  cbz        x22, #0x4109b0
+  004109ac  cbnz       w21, #0x4109d0
+  004109b0  adrp       x0, #0x21a000
+  004109b4  adrp       x1, #0x220000
+  004109b8  adrp       x2, #0x21b000
+  004109bc  add        x0, x0, #0xb9e
+  004109c0  add        x1, x1, #0xbed
+  004109c4  add        x2, x2, #0x876
+  004109c8  mov        w3, #0x3b7      ; 0x3b7
+  004109cc  bl         #0x3770f8      ; -> recovery_print
+  004109d0  cbz        x19, #0x4109dc
+  004109d4  mov        w8, #0x400000      ; 0x400000
+  004109d8  str        wzr, [x19, x8]
+  004109dc  mov        w0, w20
+  004109e0  ldp        x29, x30, [sp, #0x20]
+  004109e4  ldp        x20, x19, [sp, #0x10]
+  004109e8  ldp        x22, x21, [sp], #0x30
+  004109ec  ret        
+
+======================================================================
+### transmit_write_post_cmd  @0x4109f0  (88 字节)
+======================================================================
+  004109f0  str        x19, [sp, #-0x20]!
+  004109f4  stp        x29, x30, [sp, #0x10]
+  004109f8  add        x29, sp, #0x10
+  004109fc  mov        x19, x2
+  00410a00  cbz        x0, #0x410a08
+  00410a04  tbz        w1, #0x1f, #0x410a28
+  00410a08  adrp       x0, #0x212000
+  00410a0c  adrp       x1, #0x220000
+  00410a10  adrp       x2, #0x24a000
+  00410a14  add        x0, x0, #4
+  00410a18  add        x1, x1, #0xbed
+  00410a1c  add        x2, x2, #0xbd7
+  00410a20  mov        w3, #0x3c2      ; 0x3c2
+  00410a24  bl         #0x3770f8      ; -> recovery_print
+  00410a28  mov        x0, x19
+  00410a2c  bl         #0x411a0c      ; -> copy_new_node_to_ppool
+  00410a30  cbz        x19, #0x410a3c
+  00410a34  mov        w8, #0x400000      ; 0x400000
+  00410a38  str        wzr, [x19, x8]
+  00410a3c  ldp        x29, x30, [sp, #0x10]
+  00410a40  ldr        x19, [sp], #0x20
+  00410a44  ret        
+
+======================================================================
+### cmd_unit_write_post_func  @0x3ed9d0  (520 字节)
+======================================================================
+  003ed9d0  str        x23, [sp, #-0x40]!
+  003ed9d4  stp        x22, x21, [sp, #0x10]
+  003ed9d8  stp        x20, x19, [sp, #0x20]
+  003ed9dc  stp        x29, x30, [sp, #0x30]
+  003ed9e0  add        x29, sp, #0x30
+  003ed9e4  mov        w23, w3
+  003ed9e8  mov        w19, w2
+  003ed9ec  mov        w21, w1
+  003ed9f0  mov        x22, x0
+  003ed9f4  bl         #0x3f589c      ; -> get_receiving_property_buf
+  003ed9f8  cbz        x0, #0x3eda9c
+  003ed9fc  mov        x20, x0
+  003eda00  adrp       x0, #0x23b000
+  003eda04  adrp       x1, #0x20c000
+  003eda08  adrp       x2, #0x213000
+  003eda0c  add        x0, x0, #0x74f
+  003eda10  add        x1, x1, #0x42f
+  003eda14  add        x2, x2, #0xac5
+  003eda18  mov        w3, #0x346      ; 0x346
+  003eda1c  bl         #0x3770f8      ; -> recovery_print
+  003eda20  ldr        x8, [x20, #0x20]
+  003eda24  cbz        x8, #0x3edae0
+  003eda28  mov        w8, #0x858      ; 0x858
+  003eda2c  movk       w8, #0x940, lsl #16      ; 0x940
+  003eda30  str        w23, [x20, x8]
+  003eda34  ldr        w2, [x20, #4]
+  003eda38  cbz        w2, #0x3edb24
+  003eda3c  mov        w8, #0x434      ; 0x434
+  003eda40  movk       w8, #0x40, lsl #16      ; 0x40
+  003eda44  add        x1, x20, x8
+  003eda48  mov        x0, x20
+  003eda4c  mov        w3, w23
+  003eda50  bl         #0x3f719c      ; -> check_write_data_to_partition
+  003eda54  cbz        w0, #0x3edb48
+  003eda58  adrp       x0, #0x21f000
+  003eda5c  adrp       x1, #0x220000
+  003eda60  adrp       x2, #0x213000
+  003eda64  add        x0, x0, #0x2fe
+  003eda68  add        x1, x1, #0xbed
+  003eda6c  add        x2, x2, #0xac5
+  003eda70  mov        w3, #0x35e      ; 0x35e
+  003eda74  bl         #0x3770f8      ; -> recovery_print
+  003eda78  and        w8, w19, #0xff      ; 0xff
+  003eda7c  cmp        w8, #1      ; 0x1
+  003eda80  b.ne       #0x3eda94
+  003eda84  mov        w0, #7      ; 0x7
+  003eda88  bl         #0x3f4eb8      ; -> transmit_response
+  003eda8c  tst        w0, #0xff      ; 0xff
+  003eda90  b.eq       #0x3edb98
+  003eda94  mov        w0, #7      ; 0x7
+  003eda98  b          #0x3edb9c
+  003eda9c  adrp       x0, #0x218000
+  003edaa0  adrp       x1, #0x220000
+  003edaa4  adrp       x2, #0x213000
+  003edaa8  add        x0, x0, #0x821
+  003edaac  add        x1, x1, #0xbed
+  003edab0  add        x2, x2, #0xac5
+  003edab4  mov        w3, #0x33f      ; 0x33f
+  003edab8  bl         #0x3770f8      ; -> recovery_print
+  003edabc  and        w8, w19, #0xff      ; 0xff
+  003edac0  cmp        w8, #1      ; 0x1
+  003edac4  b.ne       #0x3edad8
+  003edac8  mov        w0, #7      ; 0x7
+  003edacc  bl         #0x3f4eb8      ; -> transmit_response
+  003edad0  tst        w0, #0xff      ; 0xff
+  003edad4  b.eq       #0x3edb98
+  003edad8  mov        w0, #5      ; 0x5
+  003edadc  b          #0x3edb9c
+  003edae0  adrp       x0, #0x21f000
+  003edae4  adrp       x1, #0x241000
+  003edae8  adrp       x2, #0x213000
+  003edaec  add        x0, x0, #0x2cd
+  003edaf0  add        x1, x1, #0xe14
+  003edaf4  add        x2, x2, #0xac5
+  003edaf8  mov        w3, #0x349      ; 0x349
+  003edafc  bl         #0x3770f8      ; -> recovery_print
+  003edb00  and        w8, w19, #0xff      ; 0xff
+  003edb04  cmp        w8, #1      ; 0x1
+  003edb08  b.ne       #0x3edb1c
+  003edb0c  mov        w0, wzr
+  003edb10  bl         #0x3f4eb8      ; -> transmit_response
+  003edb14  tst        w0, #0xff      ; 0xff
+  003edb18  b.eq       #0x3edb98
+  003edb1c  mov        w0, wzr
+  003edb20  b          #0x3edb9c
+  003edb24  adrp       x0, #0x221000
+  003edb28  adrp       x1, #0x20c000
+  003edb2c  adrp       x2, #0x213000
+  003edb30  add        x0, x0, #0x82e
+  003edb34  add        x1, x1, #0x42f
+  003edb38  add        x2, x2, #0xac5
+  003edb3c  mov        w3, #0x359      ; 0x359
+  003edb40  mov        w4, wzr
+  003edb44  bl         #0x3770f8      ; -> recovery_print
+  003edb48  ldr        x0, [x20, #0x20]
+  003edb4c  str        wzr, [x20, #4]
+  003edb50  mov        x1, x22
+  003edb54  mov        w2, w21
+  003edb58  ldr        x8, [x0, #0x28]
+  003edb5c  blr        x8
+  003edb60  cbz        w0, #0x3edbb0
+  003edb64  adrp       x0, #0x20a000
+  003edb68  adrp       x1, #0x220000
+  003edb6c  adrp       x2, #0x213000
+  003edb70  add        x0, x0, #0xb4b
+  003edb74  add        x1, x1, #0xbed
+  003edb78  add        x2, x2, #0xac5
+  003edb7c  mov        w3, #0x36e      ; 0x36e
+  003edb80  bl         #0x3770f8      ; -> recovery_print
+  003edb84  and        w8, w19, #0xff      ; 0xff
+  003edb88  cmp        w8, #1      ; 0x1
+  003edb8c  b.ne       #0x3edb98
+  003edb90  mov        w0, #7      ; 0x7
+  003edb94  bl         #0x3f4eb8      ; -> transmit_response
+  003edb98  mov        w0, #2      ; 0x2
+  003edb9c  ldp        x29, x30, [sp, #0x30]
+  003edba0  ldp        x20, x19, [sp, #0x20]
+  003edba4  ldp        x22, x21, [sp, #0x10]
+  003edba8  ldr        x23, [sp], #0x40
+  003edbac  ret        
+  003edbb0  and        w8, w19, #0xff      ; 0xff
+  003edbb4  cmp        w8, #1      ; 0x1
+  003edbb8  b.ne       #0x3edbcc
+  003edbbc  mov        w0, wzr
+  003edbc0  bl         #0x3f4eb8      ; -> transmit_response
+  003edbc4  tst        w0, #0xff      ; 0xff
+  003edbc8  b.eq       #0x3edb98
+  003edbcc  mov        w0, wzr
+  003edbd0  str        xzr, [x20, #0x20]
+  003edbd4  b          #0x3edb9c
+
+======================================================================
+### send_package  @0x3f536c  (760 字节)
+======================================================================
+  003f536c  stp        x28, x19, [sp, #-0x20]!
+  003f5370  stp        x29, x30, [sp, #0x10]
+  003f5374  add        x29, sp, #0x10
+  003f5378  sub        sp, sp, #1, lsl #12
+  003f537c  sub        sp, sp, #0x10
+  003f5380  mrs        x19, tpidr_el0
+  003f5384  ldr        x8, [x19, #0x28]
+  003f5388  mov        w4, w1
+  003f538c  stur       x8, [x29, #-0x18]
+  003f5390  cbz        x0, #0x3f5494
+  003f5394  cmp        w4, #0      ; 0x0
+  003f5398  b.le       #0x3f5494
+  003f539c  mov        x11, sp
+  003f53a0  mov        w9, wzr
+  003f53a4  mov        w8, wzr
+  003f53a8  mov        w14, wzr
+  003f53ac  mov        w10, w4
+  003f53b0  orr        x12, x11, #3      ; 0x3
+  003f53b4  mov        w13, #0x7d      ; 0x7d
+  003f53b8  strh       wzr, [sp]
+  003f53bc  strb       wzr, [sp, #2]
+  003f53c0  tst        w14, #0xff      ; 0xff
+  003f53c4  b.ne       #0x3f543c
+  003f53c8  ldrb       w15, [x0]
+  003f53cc  sub        w14, w15, #0x7d
+  003f53d0  cmp        w14, #1      ; 0x1
+  003f53d4  b.hi       #0x3f540c
+  003f53d8  and        w14, w8, #0xffff      ; 0xffff
+  003f53dc  cmp        w14, #0xff9      ; 0xff9
+  003f53e0  b.hs       #0x3f5418
+  003f53e4  add        w16, w8, #1
+  003f53e8  and        x17, x8, #0xffff      ; 0xffff
+  003f53ec  eor        w15, w15, #0x20
+  003f53f0  add        w8, w8, #2
+  003f53f4  and        x16, x16, #0xffff      ; 0xffff
+  003f53f8  mov        w14, wzr
+  003f53fc  strb       w13, [x12, x17]
+  003f5400  strh       w8, [sp]
+  003f5404  strb       w15, [x12, x16]
+  003f5408  b          #0x3f543c
+  003f540c  and        w14, w8, #0xffff      ; 0xffff
+  003f5410  cmp        w14, #0xffa      ; 0xffa
+  003f5414  b.lo       #0x3f5428
+  003f5418  mov        w9, #1      ; 0x1
+  003f541c  strb       w9, [sp, #2]
+  003f5420  mov        w14, #1      ; 0x1
+  003f5424  b          #0x3f543c
+  003f5428  mov        w14, wzr
+  003f542c  add        x16, x11, w8, uxth
+  003f5430  add        w8, w8, #1
+  003f5434  strh       w8, [sp]
+  003f5438  strb       w15, [x16, #3]
+  003f543c  subs       x10, x10, #1
+  003f5440  add        x0, x0, #1
+  003f5444  b.ne       #0x3f53c0
+  003f5448  tst        w9, #0xff      ; 0xff
+  003f544c  b.eq       #0x3f54bc
+  003f5450  mov        x8, sp
+  003f5454  adrp       x2, #0x272000
+  003f5458  orr        x0, x8, #3      ; 0x3
+  003f545c  add        x2, x2, #0xed0
+  003f5460  mov        w1, #0x1000      ; 0x1000
+  003f5464  mov        w3, #6      ; 0x6
+  003f5468  bl         #0x45a230      ; -> memcpy_s
+  003f546c  cbz        w0, #0x3f562c
+  003f5470  adrp       x0, #0x23f000
+  003f5474  adrp       x1, #0x241000
+  003f5478  adrp       x2, #0x236000
+  003f547c  add        x0, x0, #0x9d9
+  003f5480  add        x1, x1, #0xe14
+  003f5484  add        x2, x2, #0xc33
+  003f5488  mov        w3, #0x189      ; 0x189
+  003f548c  bl         #0x3770f8      ; -> recovery_print
+  003f5490  b          #0x3f562c
+  003f5494  adrp       x0, #0x240000
+  003f5498  adrp       x1, #0x220000
+  003f549c  adrp       x2, #0x213000
+  003f54a0  add        x0, x0, #0x2c6
+  003f54a4  add        x1, x1, #0xbed
+  003f54a8  add        x2, x2, #0xb5b
+  003f54ac  mov        w3, #0x2ea      ; 0x2ea
+  003f54b0  bl         #0x3770f8      ; -> recovery_print
+  003f54b4  mov        w0, wzr
+  003f54b8  b          #0x3f563c
+  003f54bc  tst        w8, #0xffff      ; 0xffff
+  003f54c0  b.eq       #0x3f5528
+  003f54c4  adrp       x11, #0x54a000
+  003f54c8  ldr        x11, [x11, #0x328]
+  003f54cc  mov        w9, wzr
+  003f54d0  mov        w12, #0xffff      ; 0xffff
+  003f54d4  mov        x10, sp
+  003f54d8  add        x13, x10, w9, uxth
+  003f54dc  ldrb       w13, [x13, #3]
+  003f54e0  cmp        w13, #0x7d      ; 0x7d
+  003f54e4  b.ne       #0x3f54f8
+  003f54e8  add        w9, w9, #1
+  003f54ec  add        x13, x10, w9, uxth
+  003f54f0  ldrb       w13, [x13, #3]
+  003f54f4  eor        w13, w13, #0x20
+  003f54f8  and        w14, w12, #0xff00      ; 0xff00
+  003f54fc  eor        w12, w13, w12
+  003f5500  and        x12, x12, #0xff      ; 0xff
+  003f5504  ldrh       w12, [x11, x12, lsl #1]
+  003f5508  add        w9, w9, #1
+  003f550c  and        w13, w9, #0xffff      ; 0xffff
+  003f5510  cmp        w13, w8, uxth
+  003f5514  eor        w12, w12, w14, lsr #8
+  003f5518  b.lo       #0x3f54d8
+  003f551c  mvn        w10, w12
+  003f5520  ubfx       w9, w10, #8, #8      ; 0x8 0x8
+  003f5524  b          #0x3f5530
+  003f5528  mov        w10, wzr
+  003f552c  mov        w9, wzr
+  003f5530  sub        w11, w10, #0x7d
+  003f5534  and        w11, w11, #0xff      ; 0xff
+  003f5538  cmp        w11, #1      ; 0x1
+  003f553c  b.hi       #0x3f556c
+  003f5540  and        w11, w8, #0xffff      ; 0xffff
+  003f5544  cmp        w11, #0xff9      ; 0xff9
+  003f5548  b.hs       #0x3f55b4
+  003f554c  mov        x12, sp
+  003f5550  mov        w13, #0x7d      ; 0x7d
+  003f5554  add        x12, x12, w8, uxth
+  003f5558  add        w11, w8, #1
+  003f555c  eor        w10, w10, #0x20
+  003f5560  strb       w13, [x12, #3]
+  003f5564  mov        w12, #2      ; 0x2
+  003f5568  b          #0x3f5588
+  003f556c  and        w11, w8, #0xffff      ; 0xffff
+  003f5570  cmp        w11, #0xffa      ; 0xffa
+  003f5574  mov        w12, #1      ; 0x1
+  003f5578  mov        w11, w8
+  003f557c  b.lo       #0x3f5588
+  003f5580  strb       w12, [sp, #2]
+  003f5584  b          #0x3f561c
+  003f5588  add        w8, w8, w12
+  003f558c  mov        x12, sp
+  003f5590  sub        w13, w9, #0x7d
+  003f5594  add        x11, x12, w11, uxth
+  003f5598  strh       w8, [sp]
+  003f559c  cmp        w13, #1      ; 0x1
+  003f55a0  strb       w10, [x11, #3]
+  003f55a4  and        w10, w8, #0xffff      ; 0xffff
+  003f55a8  b.hi       #0x3f55c0
+  003f55ac  cmp        w10, #0xff9      ; 0xff9
+  003f55b0  b.lo       #0x3f55d8
+  003f55b4  mov        w9, #1      ; 0x1
+  003f55b8  strb       w9, [sp, #2]
+  003f55bc  b          #0x3f561c
+  003f55c0  cmp        w10, #0xffa      ; 0xffa
+  003f55c4  b.lo       #0x3f5608
+  003f55c8  mov        w8, #1      ; 0x1
+  003f55cc  strb       w8, [sp, #2]
+  003f55d0  mov        w8, #0xffa      ; 0xffa
+  003f55d4  b          #0x3f561c
+  003f55d8  add        w10, w8, #1
+  003f55dc  mov        x12, sp
+  003f55e0  and        x11, x8, #0xffff      ; 0xffff
+  003f55e4  mov        w13, #0x7d      ; 0x7d
+  003f55e8  eor        w9, w9, #0x20
+  003f55ec  add        w8, w8, #2
+  003f55f0  orr        x12, x12, #3      ; 0x3
+  003f55f4  and        x10, x10, #0xffff      ; 0xffff
+  003f55f8  strb       w13, [x12, x11]
+  003f55fc  strh       w8, [sp]
+  003f5600  strb       w9, [x12, x10]
+  003f5604  b          #0x3f561c
+  003f5608  mov        x10, sp
+  003f560c  add        x10, x10, w8, uxth
+  003f5610  add        w8, w8, #1
+  003f5614  strh       w8, [sp]
+  003f5618  strb       w9, [x10, #3]
+  003f561c  mov        x9, sp
+  003f5620  add        x8, x9, w8, uxth
+  003f5624  mov        w9, #0x7e      ; 0x7e
+  003f5628  strb       w9, [x8, #3]
+  003f562c  mov        x0, sp
+  003f5630  bl         #0x3f4cd4      ; -> transmit_packet
+  003f5634  tst        w0, #0xff      ; 0xff
+  003f5638  cset       w0, ne
+  003f563c  ldr        x8, [x19, #0x28]
+  003f5640  ldur       x9, [x29, #-0x18]
+  003f5644  cmp        x8, x9
+  003f5648  b.ne       #0x3f5660
+  003f564c  add        sp, sp, #1, lsl #12
+  003f5650  add        sp, sp, #0x10
+  003f5654  ldp        x29, x30, [sp, #0x10]
+  003f5658  ldp        x28, x19, [sp], #0x20
+  003f565c  ret        
+  003f5660  bl         #0x4e824c      ; -> __stack_chk_fail
+
+======================================================================
+### RecvPackage  @0x3f4f78  (612 字节)
+======================================================================
+  003f4f78  sub        sp, sp, #0x70
+  003f4f7c  stp        x28, x27, [sp, #0x10]
+  003f4f80  stp        x26, x25, [sp, #0x20]
+  003f4f84  stp        x24, x23, [sp, #0x30]
+  003f4f88  stp        x22, x21, [sp, #0x40]
+  003f4f8c  stp        x20, x19, [sp, #0x50]
+  003f4f90  stp        x29, x30, [sp, #0x60]
+  003f4f94  add        x29, sp, #0x60
+  003f4f98  mrs        x23, tpidr_el0
+  003f4f9c  ldr        x8, [x23, #0x28]
+  003f4fa0  str        x8, [sp, #8]
+  003f4fa4  cbz        x0, #0x3f5178
+  003f4fa8  cbz        x1, #0x3f5178
+  003f4fac  mov        x19, x0
+  003f4fb0  add        x0, sp, #4
+  003f4fb4  bl         #0x3f51dc      ; -> get_next_char
+  003f4fb8  tst        w0, #0xff      ; 0xff
+  003f4fbc  b.eq       #0x3f5198
+  003f4fc0  adrp       x26, #0x54a000
+  003f4fc4  ldr        x26, [x26, #0x328]
+  003f4fc8  adrp       x20, #0x22f000
+  003f4fcc  adrp       x21, #0x220000
+  003f4fd0  adrp       x22, #0x211000
+  003f4fd4  mov        w24, wzr
+  003f4fd8  mov        w27, wzr
+  003f4fdc  mov        w25, wzr
+  003f4fe0  add        x20, x20, #0xf5c
+  003f4fe4  add        x21, x21, #0xbed
+  003f4fe8  add        x22, x22, #0x768
+  003f4fec  cmp        w24, #2      ; 0x2
+  003f4ff0  b.eq       #0x3f5024
+  003f4ff4  cmp        w24, #1      ; 0x1
+  003f4ff8  b.eq       #0x3f5010
+  003f4ffc  cbnz       w24, #0x3f5160
+  003f5000  ldrb       w8, [sp, #4]
+  003f5004  cmp        w8, #0x7e      ; 0x7e
+  003f5008  cset       w24, eq
+  003f500c  b          #0x3f5164
+  003f5010  ldrb       w8, [sp, #4]
+  003f5014  cmp        w8, #0x7e      ; 0x7e
+  003f5018  b.ne       #0x3f506c
+  003f501c  mov        w24, #1      ; 0x1
+  003f5020  b          #0x3f5164
+  003f5024  ldrb       w8, [sp, #4]
+  003f5028  cmp        w8, #0x7d      ; 0x7d
+  003f502c  b.eq       #0x3f507c
+  003f5030  cmp        w8, #0x7e      ; 0x7e
+  003f5034  b.ne       #0x3f5098
+  003f5038  and        w28, w27, #0xffff      ; 0xffff
+  003f503c  cmp        w28, #2      ; 0x2
+  003f5040  b.hi       #0x3f5100
+  003f5044  adrp       x0, #0x20a000
+  003f5048  mov        w2, #0x2a5      ; 0x2a5
+  003f504c  add        x0, x0, #0xcd5
+  003f5050  mov        x1, x22
+  003f5054  bl         #0x4f3cb4      ; -> printf
+  003f5058  mov        w0, #4      ; 0x4
+  003f505c  bl         #0x3f4eb8      ; -> transmit_response
+  003f5060  tst        w0, #0xff      ; 0xff
+  003f5064  b.ne       #0x3f5160
+  003f5068  b          #0x3f5198
+  003f506c  mov        w27, wzr
+  003f5070  mov        w25, #0xffff      ; 0xffff
+  003f5074  cmp        w8, #0x7d      ; 0x7d
+  003f5078  b.ne       #0x3f5030
+  003f507c  add        x0, sp, #4
+  003f5080  bl         #0x3f51dc      ; -> get_next_char
+  003f5084  tst        w0, #0xff      ; 0xff
+  003f5088  b.eq       #0x3f5198
+  003f508c  ldrb       w8, [sp, #4]
+  003f5090  eor        w8, w8, #0x20
+  003f5094  strb       w8, [sp, #4]
+  003f5098  mvn        w9, w27
+  003f509c  tst        w9, #0xffff      ; 0xffff
+  003f50a0  b.eq       #0x3f50d0
+  003f50a4  eor        w10, w8, w25
+  003f50a8  and        x10, x10, #0xff      ; 0xff
+  003f50ac  ldrh       w10, [x26, x10, lsl #1]
+  003f50b0  add        w11, w27, #1
+  003f50b4  and        w12, w25, #0xff00      ; 0xff00
+  003f50b8  and        x9, x27, #0xffff      ; 0xffff
+  003f50bc  eor        w25, w10, w12, lsr #8
+  003f50c0  mov        w24, #2      ; 0x2
+  003f50c4  mov        w27, w11
+  003f50c8  strb       w8, [x19, x9]
+  003f50cc  b          #0x3f5164
+  003f50d0  mov        w3, #0x2c0      ; 0x2c0
+  003f50d4  mov        x0, x20
+  003f50d8  mov        x1, x21
+  003f50dc  mov        x2, x22
+  003f50e0  bl         #0x3770f8      ; -> recovery_print
+  003f50e4  mov        w0, #5      ; 0x5
+  003f50e8  bl         #0x3f4eb8      ; -> transmit_response
+  003f50ec  tst        w0, #0xff      ; 0xff
+  003f50f0  b.eq       #0x3f5198
+  003f50f4  mov        w24, wzr
+  003f50f8  mov        w27, #0xffff      ; 0xffff
+  003f50fc  b          #0x3f5164
+  003f5100  mov        w8, #0xf0b8      ; 0xf0b8
+  003f5104  cmp        w8, w25, uxth
+  003f5108  b.eq       #0x3f51cc
+  003f510c  adrp       x0, #0x247000
+  003f5110  adrp       x1, #0x241000
+  003f5114  mov        w3, #0x2ab      ; 0x2ab
+  003f5118  add        x0, x0, #0xad1
+  003f511c  add        x1, x1, #0xe14
+  003f5120  mov        x2, x22
+  003f5124  and        w24, w25, #0xffff      ; 0xffff
+  003f5128  bl         #0x3770f8      ; -> recovery_print
+  003f512c  mov        x0, x19
+  003f5130  mov        w1, w28
+  003f5134  bl         #0x3ef344      ; -> print_hex
+  003f5138  mov        w0, #0xa      ; 0xa
+  003f513c  bl         #0x4f3da0      ; -> putchar
+  003f5140  adrp       x0, #0x22b000
+  003f5144  adrp       x1, #0x20c000
+  003f5148  mov        w3, #0x2ae      ; 0x2ae
+  003f514c  add        x0, x0, #0x17a
+  003f5150  add        x1, x1, #0x42f
+  003f5154  mov        x2, x22
+  003f5158  mov        w4, w24
+  003f515c  bl         #0x3770f8      ; -> recovery_print
+  003f5160  mov        w24, wzr
+  003f5164  add        x0, sp, #4
+  003f5168  bl         #0x3f51dc      ; -> get_next_char
+  003f516c  tst        w0, #0xff      ; 0xff
+  003f5170  b.ne       #0x3f4fec
+  003f5174  b          #0x3f5198
+  003f5178  adrp       x0, #0x21a000
+  003f517c  adrp       x1, #0x220000
+  003f5180  adrp       x2, #0x211000
+  003f5184  add        x0, x0, #0xb9e
+  003f5188  add        x1, x1, #0xbed
+  003f518c  add        x2, x2, #0x768
+  003f5190  mov        w3, #0x26e      ; 0x26e
+  003f5194  bl         #0x3770f8      ; -> recovery_print
+  003f5198  mov        w0, #-1      ; 0xffffffff
+  003f519c  ldr        x8, [x23, #0x28]
+  003f51a0  ldr        x9, [sp, #8]
+  003f51a4  cmp        x8, x9
+  003f51a8  b.ne       #0x3f51d8
+  003f51ac  ldp        x29, x30, [sp, #0x60]
+  003f51b0  ldp        x20, x19, [sp, #0x50]
+  003f51b4  ldp        x22, x21, [sp, #0x40]
+  003f51b8  ldp        x24, x23, [sp, #0x30]
+  003f51bc  ldp        x26, x25, [sp, #0x20]
+  003f51c0  ldp        x28, x27, [sp, #0x10]
+  003f51c4  add        sp, sp, #0x70
+  003f51c8  ret        
+  003f51cc  and        w8, w27, #0xffff      ; 0xffff
+  003f51d0  sub        w0, w8, #2
+  003f51d4  b          #0x3f519c
+  003f51d8  bl         #0x4e824c      ; -> __stack_chk_fail
+
+======================================================================
+### ReceivePackage  @0x40fce0  (1336 字节)
+======================================================================
+  0040fce0  sub        sp, sp, #0x80
+  0040fce4  stp        x28, x27, [sp, #0x20]
+  0040fce8  stp        x26, x25, [sp, #0x30]
+  0040fcec  stp        x24, x23, [sp, #0x40]
+  0040fcf0  stp        x22, x21, [sp, #0x50]
+  0040fcf4  stp        x20, x19, [sp, #0x60]
+  0040fcf8  stp        x29, x30, [sp, #0x70]
+  0040fcfc  add        x29, sp, #0x70
+  0040fd00  mrs        x25, tpidr_el0
+  0040fd04  ldr        x8, [x25, #0x28]
+  0040fd08  str        x8, [sp, #0x18]
+  0040fd0c  str        xzr, [sp, #8]
+  0040fd10  bl         #0x3f589c      ; -> get_receiving_property_buf
+  0040fd14  cbz        x0, #0x40fd84
+  0040fd18  adrp       x19, #0x11b9000
+  0040fd1c  mov        x23, x0
+  0040fd20  ldr        x0, [x19, #0x548]
+  0040fd24  bl         #0x40f774      ; -> is_not_empty
+  0040fd28  ldr        x0, [x19, #0x548]
+  0040fd2c  add        x1, sp, #8
+  0040fd30  bl         #0x40f684      ; -> pool_get
+  0040fd34  cbz        w0, #0x40fd58
+  0040fd38  adrp       x0, #0x237000
+  0040fd3c  adrp       x1, #0x241000
+  0040fd40  adrp       x2, #0x239000
+  0040fd44  add        x0, x0, #0x68f
+  0040fd48  add        x1, x1, #0xe14
+  0040fd4c  add        x2, x2, #0xb69
+  0040fd50  mov        w3, #0x1df      ; 0x1df
+  0040fd54  bl         #0x3770f8      ; -> recovery_print
+  0040fd58  ldr        x8, [sp, #8]
+  0040fd5c  cbz        x8, #0x40fda4
+  0040fd60  adrp       x19, #0x11b9000
+  0040fd64  ldrb       w8, [x19, #0x550]
+  0040fd68  cbz        w8, #0x40fdf8
+  0040fd6c  adrp       x8, #0x11b9000
+  0040fd70  ldr        x0, [x8, #0x548]
+  0040fd74  ldr        x1, [sp, #8]
+  0040fd78  bl         #0x40f568      ; -> pool_add
+  0040fd7c  mov        w0, wzr
+  0040fd80  b          #0x40fdc8
+  0040fd84  adrp       x0, #0x237000
+  0040fd88  adrp       x1, #0x220000
+  0040fd8c  adrp       x2, #0x239000
+  0040fd90  add        x0, x0, #0x65c
+  0040fd94  add        x1, x1, #0xbed
+  0040fd98  add        x2, x2, #0xb69
+  0040fd9c  mov        w3, #0x1d8      ; 0x1d8
+  0040fda0  b          #0x40fdc0
+  0040fda4  adrp       x0, #0x243000
+  0040fda8  adrp       x1, #0x220000
+  0040fdac  adrp       x2, #0x239000
+  0040fdb0  add        x0, x0, #0x3ef
+  0040fdb4  add        x1, x1, #0xbed
+  0040fdb8  add        x2, x2, #0xb69
+  0040fdbc  mov        w3, #0x1e3      ; 0x1e3
+  0040fdc0  bl         #0x3770f8      ; -> recovery_print
+  0040fdc4  mov        w0, #-1      ; 0xffffffff
+  0040fdc8  ldr        x8, [x25, #0x28]
+  0040fdcc  ldr        x9, [sp, #0x18]
+  0040fdd0  cmp        x8, x9
+  0040fdd4  b.ne       #0x410214
+  0040fdd8  ldp        x29, x30, [sp, #0x70]
+  0040fddc  ldp        x20, x19, [sp, #0x60]
+  0040fde0  ldp        x22, x21, [sp, #0x50]
+  0040fde4  ldp        x24, x23, [sp, #0x40]
+  0040fde8  ldp        x26, x25, [sp, #0x30]
+  0040fdec  ldp        x28, x27, [sp, #0x20]
+  0040fdf0  add        sp, sp, #0x80
+  0040fdf4  ret        
+  0040fdf8  mov        w9, #0x1918      ; 0x1918
+  0040fdfc  movk       w9, #0x940, lsl #16      ; 0x940
+  0040fe00  adrp       x20, #0x229000
+  0040fe04  adrp       x21, #0x241000
+  0040fe08  adrp       x22, #0x239000
+  0040fe0c  mov        x8, xzr
+  0040fe10  mov        w28, wzr
+  0040fe14  add        x20, x20, #0x8cc
+  0040fe18  add        x21, x21, #0xe14
+  0040fe1c  add        x22, x22, #0xb69
+  0040fe20  add        x27, x23, x9
+  0040fe24  adrp       x9, #0x9b9000
+  0040fe28  add        x9, x9, #0x530
+  0040fe2c  add        x24, x9, x8
+  0040fe30  mov        w8, #0x13      ; 0x13
+  0040fe34  movk       w8, #0x80, lsl #16      ; 0x80
+  0040fe38  sub        w23, w8, w28
+  0040fe3c  ldr        w8, [x27]
+  0040fe40  cmp        w8, #1      ; 0x1
+  0040fe44  b.ne       #0x40fd6c
+  0040fe48  bl         #0x3f5864      ; -> get_usb_port_fd
+  0040fe4c  mov        x1, x24
+  0040fe50  mov        w2, w23
+  0040fe54  bl         #0x40fae8      ; -> read_from_com_port
+  0040fe58  tbz        w0, #0x1f, #0x40fec0
+  0040fe5c  bl         #0x4cca58      ; -> __errno
+  0040fe60  mov        x26, x0
+  0040fe64  ldr        w0, [x0]
+  0040fe68  bl         #0x4d1b30      ; -> strerror
+  0040fe6c  mov        x4, x0
+  0040fe70  mov        w3, #0x1eb      ; 0x1eb
+  0040fe74  mov        x0, x20
+  0040fe78  mov        x1, x21
+  0040fe7c  mov        x2, x22
+  0040fe80  bl         #0x3770f8      ; -> recovery_print
+  0040fe84  ldr        w8, [x26]
+  0040fe88  cmp        w8, #4      ; 0x4
+  0040fe8c  b.eq       #0x40feb4
+  0040fe90  adrp       x8, #0x9b9000
+  0040fe94  ldr        w26, [x8, #0x52c]
+  0040fe98  bl         #0x3f5864      ; -> get_usb_port_fd
+  0040fe9c  bl         #0x4ce264      ; -> close
+  0040fea0  cbnz       w26, #0x40ffcc
+  0040fea4  bl         #0x3f4a28      ; -> reopen_usb_port
+  0040fea8  and        w8, w0, #0xff      ; 0xff
+  0040feac  cmp        w8, #1      ; 0x1
+  0040feb0  b.ne       #0x410004
+  0040feb4  ldrb       w8, [x19, #0x550]
+  0040feb8  cbz        w8, #0x40fe3c
+  0040febc  b          #0x40fd6c
+  0040fec0  add        w28, w0, w28
+  0040fec4  cmp        w28, #1      ; 0x1
+  0040fec8  b.lt       #0x40ffac
+  0040fecc  sxtw       x8, w28
+  0040fed0  sub        x1, x8, #1
+  0040fed4  adrp       x8, #0x9b9000
+  0040fed8  add        x8, x8, #0x530
+  0040fedc  ldrb       w8, [x8, x1]
+  0040fee0  cmp        w8, #0x7e      ; 0x7e
+  0040fee4  b.ne       #0x40ff0c
+  0040fee8  adrp       x8, #0x9b9000
+  0040feec  ldrb       w8, [x8, #0x530]
+  0040fef0  cmp        w8, #0x7e      ; 0x7e
+  0040fef4  b.ne       #0x40ff34
+  0040fef8  ldr        x2, [sp, #8]
+  0040fefc  adrp       x0, #0x9b9000
+  0040ff00  sub        w1, w28, #2
+  0040ff04  add        x0, x0, #0x531
+  0040ff08  b          #0x40ff40
+  0040ff0c  mov        w8, #0x13      ; 0x13
+  0040ff10  movk       w8, #0x80, lsl #16      ; 0x80
+  0040ff14  cmp        w28, w8
+  0040ff18  b.ne       #0x40ffac
+  0040ff1c  adrp       x0, #0x234000
+  0040ff20  adrp       x1, #0x220000
+  0040ff24  mov        w3, #0x23d      ; 0x23d
+  0040ff28  add        x0, x0, #0xd29
+  0040ff2c  add        x1, x1, #0xbed
+  0040ff30  b          #0x40ffa0
+  0040ff34  ldr        x2, [sp, #8]
+  0040ff38  adrp       x0, #0x9b9000
+  0040ff3c  add        x0, x0, #0x530
+  0040ff40  bl         #0x40f97c      ; -> get_valid_pkg
+  0040ff44  ldr        x1, [sp, #8]
+  0040ff48  mov        w8, #0x400000      ; 0x400000
+  0040ff4c  ldr        w8, [x1, x8]
+  0040ff50  cmp        w8, #1      ; 0x1
+  0040ff54  b.ge       #0x410028
+  0040ff58  tbz        w8, #0x1f, #0x40ffa8
+  0040ff5c  adrp       x8, #0x9b9000
+  0040ff60  ldr        w8, [x8, #0x52c]
+  0040ff64  cbnz       w8, #0x4100f4
+  0040ff68  adrp       x23, #0x20c000
+  0040ff6c  adrp       x0, #0x224000
+  0040ff70  add        x23, x23, #0x42f
+  0040ff74  mov        w3, #0x22e      ; 0x22e
+  0040ff78  add        x0, x0, #0x946
+  0040ff7c  mov        x1, x23
+  0040ff80  mov        x2, x22
+  0040ff84  bl         #0x3770f8      ; -> recovery_print
+  0040ff88  mov        w0, #1      ; 0x1
+  0040ff8c  bl         #0x3f4eb8      ; -> transmit_response
+  0040ff90  adrp       x0, #0x22e000
+  0040ff94  mov        w3, #0x230      ; 0x230
+  0040ff98  add        x0, x0, #0x32f
+  0040ff9c  mov        x1, x23
+  0040ffa0  mov        x2, x22
+  0040ffa4  bl         #0x3770f8      ; -> recovery_print
+  0040ffa8  mov        w28, wzr
+  0040ffac  mov        w8, #0x13      ; 0x13
+  0040ffb0  movk       w8, #0x80, lsl #16      ; 0x80
+  0040ffb4  cmp        w28, w8
+  0040ffb8  b.hs       #0x40fd6c
+  0040ffbc  ldrb       w9, [x19, #0x550]
+  0040ffc0  sxtw       x8, w28
+  0040ffc4  cbz        w9, #0x40fe24
+  0040ffc8  b          #0x40fd6c
+  0040ffcc  adrp       x8, #0x11b9000
+  0040ffd0  ldr        x0, [x8, #0x548]
+  0040ffd4  ldr        x1, [sp, #8]
+  0040ffd8  bl         #0x40f568      ; -> pool_add
+  0040ffdc  adrp       x0, #0x24a000
+  0040ffe0  adrp       x1, #0x20c000
+  0040ffe4  adrp       x2, #0x239000
+  0040ffe8  add        x0, x0, #0xb9c
+  0040ffec  add        x1, x1, #0x42f
+  0040fff0  add        x2, x2, #0xb69
+  0040fff4  mov        w3, #0x1f5      ; 0x1f5
+  0040fff8  bl         #0x3770f8      ; -> recovery_print
+  0040fffc  mov        w0, wzr
+  00410000  b          #0x40fdc8
+  00410004  adrp       x0, #0x23e000
+  00410008  adrp       x1, #0x220000
+  0041000c  adrp       x2, #0x239000
+  00410010  add        x0, x0, #0x887
+  00410014  add        x1, x1, #0xbed
+  00410018  add        x2, x2, #0xb69
+  0041001c  mov        w3, #0x1fe      ; 0x1fe
+  00410020  bl         #0x3770f8      ; -> recovery_print
+  00410024  b          #0x40fd6c
+  00410028  adrp       x8, #0x11b9000
+  0041002c  ldr        x0, [x8, #0x558]
+  00410030  bl         #0x40f568      ; -> pool_add
+  00410034  adrp       x20, #0x9b9000
+  00410038  ldr        w8, [x20, #0x52c]
+  0041003c  cbz        w8, #0x4100c0
+  00410040  adrp       x0, #0x202000
+  00410044  adrp       x1, #0x220000
+  00410048  adrp       x2, #0x239000
+  0041004c  add        x0, x0, #0x54
+  00410050  add        x1, x1, #0xbed
+  00410054  add        x2, x2, #0xb69
+  00410058  mov        w3, #0x212      ; 0x212
+  0041005c  bl         #0x3770f8      ; -> recovery_print
+  00410060  ldr        w19, [x20, #0x52c]
+  00410064  add        x0, sp, #0x14
+  00410068  mov        w1, #4      ; 0x4
+  0041006c  mov        w3, #4      ; 0x4
+  00410070  mov        w2, wzr
+  00410074  str        wzr, [sp, #0x14]
+  00410078  bl         #0x45a614      ; -> memset_s
+  0041007c  cbz        w0, #0x4100a0
+  00410080  adrp       x0, #0x22d000
+  00410084  adrp       x1, #0x241000
+  00410088  adrp       x2, #0x214000
+  0041008c  add        x0, x0, #0x76
+  00410090  add        x1, x1, #0xe14
+  00410094  add        x2, x2, #0x70e
+  00410098  mov        w3, #0x8b      ; 0x8b
+  0041009c  bl         #0x3770f8      ; -> recovery_print
+  004100a0  and        w8, w19, #0xff      ; 0xff
+  004100a4  cmp        w8, #2      ; 0x2
+  004100a8  strb       w19, [sp, #0x14]
+  004100ac  b.eq       #0x410178
+  004100b0  cmp        w8, #3      ; 0x3
+  004100b4  b.ne       #0x410184
+  004100b8  mov        w8, #4      ; 0x4
+  004100bc  b          #0x41017c
+  004100c0  mov        w0, wzr
+  004100c4  bl         #0x3f4eb8      ; -> transmit_response
+  004100c8  tst        w0, #0xff      ; 0xff
+  004100cc  mov        w0, wzr
+  004100d0  b.ne       #0x40fdc8
+  004100d4  adrp       x0, #0x20b000
+  004100d8  adrp       x1, #0x241000
+  004100dc  adrp       x2, #0x239000
+  004100e0  add        x0, x0, #0x537
+  004100e4  add        x1, x1, #0xe14
+  004100e8  add        x2, x2, #0xb69
+  004100ec  mov        w3, #0x21d      ; 0x21d
+  004100f0  b          #0x40fff8
+  004100f4  adrp       x0, #0x24a000
+  004100f8  adrp       x1, #0x220000
+  004100fc  adrp       x2, #0x239000
+  00410100  add        x0, x0, #0xbbc
+  00410104  add        x1, x1, #0xbed
+  00410108  add        x2, x2, #0xb69
+  0041010c  mov        w3, #0x226      ; 0x226
+  00410110  bl         #0x3770f8      ; -> recovery_print
+  00410114  adrp       x20, #0x9b9000
+  00410118  ldr        w19, [x20, #0x52c]
+  0041011c  add        x0, sp, #0x14
+  00410120  mov        w1, #4      ; 0x4
+  00410124  mov        w3, #4      ; 0x4
+  00410128  mov        w2, wzr
+  0041012c  str        wzr, [sp, #0x14]
+  00410130  bl         #0x45a614      ; -> memset_s
+  00410134  cbz        w0, #0x410158
+  00410138  adrp       x0, #0x22d000
+  0041013c  adrp       x1, #0x241000
+  00410140  adrp       x2, #0x214000
+  00410144  add        x0, x0, #0x76
+  00410148  add        x1, x1, #0xe14
+  0041014c  add        x2, x2, #0x70e
+  00410150  mov        w3, #0x8b      ; 0x8b
+  00410154  bl         #0x3770f8      ; -> recovery_print
+  00410158  and        w8, w19, #0xff      ; 0xff
+  0041015c  cmp        w8, #2      ; 0x2
+  00410160  strb       w19, [sp, #0x14]
+  00410164  b.eq       #0x4101c8
+  00410168  cmp        w8, #3      ; 0x3
+  0041016c  b.ne       #0x4101d4
+  00410170  mov        w8, #4      ; 0x4
+  00410174  b          #0x4101cc
+  00410178  mov        w8, #0xc      ; 0xc
+  0041017c  strb       w8, [sp, #0x14]
+  00410180  strb       w19, [sp, #0x15]
+  00410184  add        x0, sp, #0x14
+  00410188  mov        w1, #3      ; 0x3
+  0041018c  bl         #0x3f536c      ; -> send_package
+  00410190  ldr        w4, [x20, #0x52c]
+  00410194  adrp       x0, #0x21d000
+  00410198  adrp       x1, #0x20c000
+  0041019c  adrp       x2, #0x239000
+  004101a0  add        x0, x0, #0xa37
+  004101a4  add        x1, x1, #0x42f
+  004101a8  add        x2, x2, #0xb69
+  004101ac  mov        w3, #0x214      ; 0x214
+  004101b0  bl         #0x3770f8      ; -> recovery_print
+  004101b4  mov        w0, wzr
+  004101b8  adrp       x8, #0x11b9000
+  004101bc  mov        w9, #1      ; 0x1
+  004101c0  strb       w9, [x8, #0x560]
+  004101c4  b          #0x40fdc8
+  004101c8  mov        w8, #0xc      ; 0xc
+  004101cc  strb       w8, [sp, #0x14]
+  004101d0  strb       w19, [sp, #0x15]
+  004101d4  add        x0, sp, #0x14
+  004101d8  mov        w1, #3      ; 0x3
+  004101dc  bl         #0x3f536c      ; -> send_package
+  004101e0  ldr        w4, [x20, #0x52c]
+  004101e4  adrp       x0, #0x20f000
+  004101e8  adrp       x1, #0x220000
+  004101ec  adrp       x2, #0x239000
+  004101f0  adrp       x8, #0x11b9000
+  004101f4  mov        w9, #1      ; 0x1
+  004101f8  add        x0, x0, #0xc20
+  004101fc  add        x1, x1, #0xbed
+  00410200  add        x2, x2, #0xb69
+  00410204  mov        w3, #0x22b      ; 0x22b
+  00410208  strb       w9, [x8, #0x560]
+  0041020c  bl         #0x3770f8      ; -> recovery_print
+  00410210  b          #0x40fd6c
+  00410214  bl         #0x4e824c      ; -> __stack_chk_fail
+
+======================================================================
+### change_to_usb_dload_mode  @0x3ee1c8  (388 字节)
+======================================================================
+  003ee1c8  sub        sp, sp, #0x30
+  003ee1cc  str        x19, [sp, #0x10]
+  003ee1d0  stp        x29, x30, [sp, #0x20]
+  003ee1d4  add        x29, sp, #0x20
+  003ee1d8  mrs        x19, tpidr_el0
+  003ee1dc  ldr        x8, [x19, #0x28]
+  003ee1e0  mov        x0, sp
+  003ee1e4  str        x8, [sp, #8]
+  003ee1e8  str        xzr, [sp]
+  003ee1ec  bl         #0x3f5664      ; -> check_usb_update_port
+  003ee1f0  tst        w0, #0xff      ; 0xff
+  003ee1f4  b.ne       #0x3ee2d0
+  003ee1f8  mov        w0, #1      ; 0x1
+  003ee1fc  bl         #0x4d7604      ; -> sleep
+  003ee200  mov        x0, sp
+  003ee204  bl         #0x3f5664      ; -> check_usb_update_port
+  003ee208  tst        w0, #0xff      ; 0xff
+  003ee20c  b.ne       #0x3ee2d0
+  003ee210  mov        w0, #1      ; 0x1
+  003ee214  bl         #0x4d7604      ; -> sleep
+  003ee218  mov        x0, sp
+  003ee21c  bl         #0x3f5664      ; -> check_usb_update_port
+  003ee220  tst        w0, #0xff      ; 0xff
+  003ee224  b.ne       #0x3ee2d0
+  003ee228  mov        w0, #1      ; 0x1
+  003ee22c  bl         #0x4d7604      ; -> sleep
+  003ee230  mov        x0, sp
+  003ee234  bl         #0x3f5664      ; -> check_usb_update_port
+  003ee238  tst        w0, #0xff      ; 0xff
+  003ee23c  b.ne       #0x3ee2d0
+  003ee240  mov        w0, #1      ; 0x1
+  003ee244  bl         #0x4d7604      ; -> sleep
+  003ee248  mov        x0, sp
+  003ee24c  bl         #0x3f5664      ; -> check_usb_update_port
+  003ee250  tst        w0, #0xff      ; 0xff
+  003ee254  b.ne       #0x3ee2d0
+  003ee258  mov        w0, #1      ; 0x1
+  003ee25c  bl         #0x4d7604      ; -> sleep
+  003ee260  mov        x0, sp
+  003ee264  bl         #0x3f5664      ; -> check_usb_update_port
+  003ee268  tst        w0, #0xff      ; 0xff
+  003ee26c  b.ne       #0x3ee2d0
+  003ee270  mov        w0, #1      ; 0x1
+  003ee274  bl         #0x4d7604      ; -> sleep
+  003ee278  mov        x0, sp
+  003ee27c  bl         #0x3f5664      ; -> check_usb_update_port
+  003ee280  tst        w0, #0xff      ; 0xff
+  003ee284  b.ne       #0x3ee2d0
+  003ee288  mov        w0, #1      ; 0x1
+  003ee28c  bl         #0x4d7604      ; -> sleep
+  003ee290  mov        x0, sp
+  003ee294  bl         #0x3f5664      ; -> check_usb_update_port
+  003ee298  tst        w0, #0xff      ; 0xff
+  003ee29c  b.ne       #0x3ee2d0
+  003ee2a0  mov        w0, #1      ; 0x1
+  003ee2a4  bl         #0x4d7604      ; -> sleep
+  003ee2a8  mov        x0, sp
+  003ee2ac  bl         #0x3f5664      ; -> check_usb_update_port
+  003ee2b0  tst        w0, #0xff      ; 0xff
+  003ee2b4  b.ne       #0x3ee2d0
+  003ee2b8  mov        w0, #1      ; 0x1
+  003ee2bc  bl         #0x4d7604      ; -> sleep
+  003ee2c0  mov        x0, sp
+  003ee2c4  bl         #0x3f5664      ; -> check_usb_update_port
+  003ee2c8  tst        w0, #0xff      ; 0xff
+  003ee2cc  b.eq       #0x3ee318
+  003ee2d0  ldr        x4, [sp]
+  003ee2d4  adrp       x0, #0x213000
+  003ee2d8  adrp       x1, #0x20c000
+  003ee2dc  adrp       x2, #0x211000
+  003ee2e0  add        x0, x0, #0xade
+  003ee2e4  add        x1, x1, #0x42f
+  003ee2e8  add        x2, x2, #0x5ac
+  003ee2ec  mov        w3, #0x4af      ; 0x4af
+  003ee2f0  bl         #0x3770f8      ; -> recovery_print
+  003ee2f4  mov        w0, #1      ; 0x1
+  003ee2f8  ldr        x8, [x19, #0x28]
+  003ee2fc  ldr        x9, [sp, #8]
+  003ee300  cmp        x8, x9
+  003ee304  b.ne       #0x3ee348
+  003ee308  ldp        x29, x30, [sp, #0x20]
+  003ee30c  ldr        x19, [sp, #0x10]
+  003ee310  add        sp, sp, #0x30
+  003ee314  ret        
+  003ee318  mov        w0, #1      ; 0x1
+  003ee31c  bl         #0x4d7604      ; -> sleep
+  003ee320  adrp       x0, #0x24a000
+  003ee324  adrp       x1, #0x220000
+  003ee328  adrp       x2, #0x211000
+  003ee32c  add        x0, x0, #0xe
+  003ee330  add        x1, x1, #0xbed
+  003ee334  add        x2, x2, #0x5ac
+  003ee338  mov        w3, #0x4b3      ; 0x4b3
+  003ee33c  bl         #0x3770f8      ; -> recovery_print
+  003ee340  mov        w0, wzr
+  003ee344  b          #0x3ee2f8
+  003ee348  bl         #0x4e824c      ; -> __stack_chk_fail

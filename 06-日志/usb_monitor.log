@@ -1,0 +1,83 @@
+=== 监控启动 21:57:38 ===
+基线 COM: 
+[21:57:39] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:57:39] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:57:45] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:57:45] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:57:50] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:57:50] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:57:56] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:57:56] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:01] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:01] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:07] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:07] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:12] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:12] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:17] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:17] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:23] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:23] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:28] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:28] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:33] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:33] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:39] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:39] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:44] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:44] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:49] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:49] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:58:55] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:58:55] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:00] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:00] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:06] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:06] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:11] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:11] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:16] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:16] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:22] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:22] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:27] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:27] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:32] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:32] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:38] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:38] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:43] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:43] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:49] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:49] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:54] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:54] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[21:59:59] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[21:59:59] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:05] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:05] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:10] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:10] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:15] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:15] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:20] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:20] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:26] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:26] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:31] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:31] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:37] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:37] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:42] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:42] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:47] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:47] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:53] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:53] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:00:58] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:00:58] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:01:03] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:01:03] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+[22:01:09] USB: Android Composite ADB Interface[6&4820402&5&0003] | DBAdapter Reserved Interface (COM4)[6&4820402&5&0002] | Android Adapter PCUI (COM5)[6&4820402&5&0001] | HUAWEI Mobile Connect - Fake Acm Interface (COM6)[6&4820402&5&0000] | USB Composite Device[XXXXXXXXXXXXXXXXX]
+[22:01:09] COM: DBAdapter Reserved Interface (COM4);Android Adapter PCUI (COM5);HUAWEI Mobile Connect - Fake Acm Interface (COM6)
+=== 监控结束 22:01:14 ===

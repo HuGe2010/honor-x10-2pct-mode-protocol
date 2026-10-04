@@ -1,0 +1,358 @@
+########## 命令与包处理相关符号 ##########
+  0x0031bfb8  size=432    _Z19PackageExtractDirFnPKcP5StateRKNSt3__16vectorINS3_10unique_ptrI4ExprNS3_14default_deleteIS6_EEEENS3_9allocatorIS9_EEEE
+  0x0031c168  size=848    _Z25PackageExtractDirExtendFnPKcP5StateRKNSt3__16vectorINS3_10unique_ptrI4ExprNS3_14default_deleteIS6_EEEENS3_9allocatorIS9_EEEE
+  0x0031c4b8  size=2100   _Z20PackageExtractFileFnPKcP5StateRKNSt3__16vectorINS3_10unique_ptrI4ExprNS3_14default_deleteIS6_EEEENS3_9allocatorIS9_EEEE
+  0x0031ccec  size=1396   _Z26PackageExtractFileExtendFnPKcP5StateRKNSt3__16vectorINS3_10unique_ptrI4ExprNS3_14default_deleteIS6_EEEENS3_9allocatorIS9_EEEE
+  0x00334068  size=12     _Z16set_ota_cmd_pipeP7__sFILE
+  0x0036e270  size=352    _ZL15get_pid_cmdlineiPci
+  0x0037152c  size=780    _Z21GetKernelCmdlineValueRKNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+  0x00371838  size=36     _GLOBAL__sub_I_kernel_cmdline.cpp
+  0x0037536c  size=228    _Z8exec_cmdPKcPKPc
+  0x00376860  size=104    IsNeedUpdateAuth
+  0x003769f8  size=76     exec_cmd
+  0x00378a78  size=28     _Z13IsBasePackageP10ZipArchive
+  0x003798e4  size=252    _Z21ProcessOtaPackagePathPKc
+  0x003799e0  size=208    _ZL20ModifyOtaPackagePathPKcS0_S0_
+  0x0037eb40  size=316    _Z42fs_mgr_get_boot_config_from_kernel_cmdlineRKNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPS5_
+  0x0037f9a0  size=932    _ZL24IsCmdlineValueEqualToStrNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES5_
+  0x003d7460  size=656    _ZL20ProcRecvDataFunctionPKhiPv
+  0x003d7b78  size=968    _ZL24ProcRecvUserDataFunctionPKhiPv
+  0x003d98f8  size=340    _ZL21huawei_write_raw_dataPN12_GLOBAL__N_112recvDataPropEPv
+  0x003e3314  size=12     set_huawei_cmd_pipe
+  0x003e3320  size=12     get_huawei_cmd_pipe
+  0x003e87d4  size=504    get_all_pkg_size
+  0x003e9220  size=812    update_package_list
+  0x003ec4c0  size=928    cmd_update_auth_func
+  0x003ec860  size=540    handshake_cmd
+  0x003eca7c  size=228    unlock_cmd
+  0x003ecb60  size=3552   cmd_unit_write_begin_func
+  0x003ed9d0  size=520    cmd_unit_write_post_func
+  0x003edbd8  size=592    write_cmd
+  0x003ee1c8  size=388    _Z24change_to_usb_dload_modev
+  0x003ee9f8  size=260    getAuthResult
+  0x003eeafc  size=84     setAuthResult
+  0x003eeb50  size=212    save_update_auth_file
+  0x003eec24  size=232    check_update_auth
+  0x003f4f78  size=612    RecvPackage
+  0x003f536c  size=760    send_package
+  0x003f7638  size=564    process_write_cmd_data
+  0x003fb5d4  size=2128   _Z23package_type_write_funcPvPhj
+  0x003fd1f8  size=960    AuthorizationCertVerify
+  0x00401d3c  size=48     set_data_package_info
+  0x00407e34  size=240    _Z28init_update_package_from_zipP10ZipArchive
+  0x0040b060  size=40     sg_cmds_open_device
+  0x0040b088  size=4      sg_cmds_close_device
+  0x0040b08c  size=840    sg_cmds_process_resp
+  0x0040b3d4  size=396    sg_cmds_process_helper
+  0x0040f35c  size=16     get_total_pkg_size
+  0x0040f36c  size=508    pool_init
+  0x0040f568  size=284    pool_add
+  0x0040f684  size=240    pool_get
+  0x0040f870  size=268    pool_destroy
+  0x0040fce0  size=1336   ReceivePackage
+  0x00410218  size=748    process_data_thread
+  0x00410504  size=120    new_shake_hand_cmd
+  0x0041057c  size=212    reboot_device_cmd
+  0x00410650  size=224    force_reboot_device_cmd
+  0x00410730  size=364    transmit_write_cmd
+  0x0041089c  size=228    unlock_device_cmd
+  0x00410980  size=112    transmit_write_begin_cmd
+  0x004109f0  size=88     transmit_write_post_cmd
+  0x00410a48  size=120    new_update_auth_cmd
+  0x00410ac0  size=428    get_total_pkg_size_cmd
+  0x00410c6c  size=400    new_write_cmd
+  0x00410dfc  size=96     new_process_shake_hand_cmd
+  0x00410e5c  size=444    new_write_begin_cmd
+  0x00411018  size=404    new_write_post_cmd
+  0x00411208  size=96     new_process_update_auth_cmd
+  0x00416fb4  size=112    is_first_package
+  0x004171d4  size=296    newapp_send_cmd_to_recovery
+  0x004220bc  size=348    write_auth_and_software_version_to_oeminfo
+  0x00422a48  size=36     _GLOBAL__sub_I_usb_auth_version.cpp
+  0x004232c8  size=420    updateAuthorizationCheck
+  0x0042346c  size=360    saveUpdateAuthFile
+  0x004235d4  size=168    _ZN7android22SystemUpdateAuthNormalC2Ev
+  0x0042367c  size=156    _ZN7android22SystemUpdateAuthNormalD2Ev
+  0x00423718  size=36     _ZN7android22SystemUpdateAuthNormalD0Ev
+  0x0042373c  size=304    _ZN7android22SystemUpdateAuthNormal19preCheckAuthContentERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE
+  0x0042386c  size=1008   _ZNK7android22SystemUpdateAuthNormal16departAuthStringERNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES8_S8_RKS7_
+  0x00423c5c  size=356    _ZNK7android22SystemUpdateAuthNormal15verifySignatureERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_S9_
+  0x00423dc0  size=1828   _ZN7android22SystemUpdateAuthNormal17analyzeAuthStringERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE
+  0x004244e4  size=1296   _ZN7android22SystemUpdateAuthNormal24updateAuthorizationCheckERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_
+  0x004249f4  size=236    _ZNK7android22SystemUpdateAuthNormal14departAuthFileERNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES8_S8_RKS7_
+  0x00424ae0  size=208    _ZN7android22SystemUpdateAuthNormal21verifyUpdateAuthTokenEv
+  0x00424bb0  size=516    _ZN7android22SystemUpdateAuthNormal14verifyDeviceIDEv
+  0x00424db4  size=568    _ZN7android22SystemUpdateAuthNormal19verifyVersionNumberERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE
+  0x004251a4  size=812    _ZN7android22SystemUpdateAuthNormal18saveUpdateAuthFileERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_
+  0x0043bb00  size=12     AUTHORITY_KEYID_new
+  0x0043bb0c  size=12     AUTHORITY_KEYID_free
+  0x004490a4  size=212    i2v_AUTHORITY_KEYID
+  0x00449178  size=816    v2i_AUTHORITY_KEYID
+  0x0044a32c  size=452    i2v_AUTHORITY_INFO_ACCESS
+  0x0044a4f0  size=552    v2i_AUTHORITY_INFO_ACCESS
+  0x0045940c  size=1136   OinvRecvReturn
+  0x00459b24  size=100    OinvSendCmd
+  0x00459b88  size=104    OinvSendCmdForReused
+  0x0045e398  size=240    ConnectAndSendCmd
+  0x0045e948  size=260    ConnectAndSendCmdForReused
+  0x004d6f6c  size=64     __recvfrom_chk
+  0x004e8a00  size=24     recvfrom
+  0x00528008  size=8      FORCE_FULL_PACKAGE
+  0x005290b0  size=4      authErrno_s
+  0x00535b70  size=32     _ZTVN7android22SystemUpdateAuthNormalE
+  0x0053fc58  size=56     AUTHORITY_KEYID_it
+  0x00541fb0  size=56     AUTHORITY_INFO_ACCESS_it
+
+########## send_package  @0x3f536c (760 字节) ##########
+  003f536c  stp        x28, x19, [sp, #-0x20]!
+  003f5370  stp        x29, x30, [sp, #0x10]
+  003f5374  add        x29, sp, #0x10
+  003f5378  sub        sp, sp, #1, lsl #12
+  003f537c  sub        sp, sp, #0x10
+  003f5380  mrs        x19, tpidr_el0
+  003f5384  ldr        x8, [x19, #0x28]
+  003f5388  mov        w4, w1
+  003f538c  stur       x8, [x29, #-0x18]
+  003f5390  cbz        x0, #0x3f5494
+  003f5394  cmp        w4, #0    ; #0x0
+  003f5398  b.le       #0x3f5494
+  003f539c  mov        x11, sp
+  003f53a0  mov        w9, wzr
+  003f53a4  mov        w8, wzr
+  003f53a8  mov        w14, wzr
+  003f53ac  mov        w10, w4
+  003f53b0  orr        x12, x11, #3    ; #0x3
+  003f53b4  mov        w13, #0x7d    ; #0x7d
+  003f53b8  strh       wzr, [sp]
+  003f53bc  strb       wzr, [sp, #2]
+  003f53c0  tst        w14, #0xff    ; #0xff
+  003f53c4  b.ne       #0x3f543c
+  003f53c8  ldrb       w15, [x0]
+  003f53cc  sub        w14, w15, #0x7d
+  003f53d0  cmp        w14, #1    ; #0x1
+  003f53d4  b.hi       #0x3f540c
+  003f53d8  and        w14, w8, #0xffff    ; #0xffff
+  003f53dc  cmp        w14, #0xff9    ; #0xff9
+  003f53e0  b.hs       #0x3f5418
+  003f53e4  add        w16, w8, #1
+  003f53e8  and        x17, x8, #0xffff    ; #0xffff
+  003f53ec  eor        w15, w15, #0x20
+  003f53f0  add        w8, w8, #2
+  003f53f4  and        x16, x16, #0xffff    ; #0xffff
+  003f53f8  mov        w14, wzr
+  003f53fc  strb       w13, [x12, x17]
+  003f5400  strh       w8, [sp]
+  003f5404  strb       w15, [x12, x16]
+  003f5408  b          #0x3f543c
+  003f540c  and        w14, w8, #0xffff    ; #0xffff
+  003f5410  cmp        w14, #0xffa    ; #0xffa
+  003f5414  b.lo       #0x3f5428
+  003f5418  mov        w9, #1    ; #0x1
+  003f541c  strb       w9, [sp, #2]
+  003f5420  mov        w14, #1    ; #0x1
+  003f5424  b          #0x3f543c
+  003f5428  mov        w14, wzr
+  003f542c  add        x16, x11, w8, uxth
+  003f5430  add        w8, w8, #1
+  003f5434  strh       w8, [sp]
+  003f5438  strb       w15, [x16, #3]
+  003f543c  subs       x10, x10, #1
+  003f5440  add        x0, x0, #1
+  003f5444  b.ne       #0x3f53c0
+  003f5448  tst        w9, #0xff    ; #0xff
+  003f544c  b.eq       #0x3f54bc
+  003f5450  mov        x8, sp
+  003f5454  adrp       x2, #0x272000
+  003f5458  orr        x0, x8, #3    ; #0x3
+  003f545c  add        x2, x2, #0xed0
+  003f5460  mov        w1, #0x1000    ; #0x1000
+  003f5464  mov        w3, #6    ; #0x6
+  003f5468  bl         #0x45a230    ; -> memcpy_s
+  003f546c  cbz        w0, #0x3f562c
+  003f5470  adrp       x0, #0x23f000
+  003f5474  adrp       x1, #0x241000
+  003f5478  adrp       x2, #0x236000
+  003f547c  add        x0, x0, #0x9d9
+  003f5480  add        x1, x1, #0xe14
+  003f5484  add        x2, x2, #0xc33
+  003f5488  mov        w3, #0x189    ; #0x189
+  003f548c  bl         #0x3770f8    ; -> recovery_print
+  003f5490  b          #0x3f562c
+  003f5494  adrp       x0, #0x240000
+  003f5498  adrp       x1, #0x220000
+  003f549c  adrp       x2, #0x213000
+  003f54a0  add        x0, x0, #0x2c6
+  003f54a4  add        x1, x1, #0xbed
+  003f54a8  add        x2, x2, #0xb5b
+  003f54ac  mov        w3, #0x2ea    ; #0x2ea
+  003f54b0  bl         #0x3770f8    ; -> recovery_print
+  003f54b4  mov        w0, wzr
+  003f54b8  b          #0x3f563c
+  003f54bc  tst        w8, #0xffff    ; #0xffff
+  003f54c0  b.eq       #0x3f5528
+  003f54c4  adrp       x11, #0x54a000
+  003f54c8  ldr        x11, [x11, #0x328]
+  003f54cc  mov        w9, wzr
+  003f54d0  mov        w12, #0xffff    ; #0xffff
+  003f54d4  mov        x10, sp
+  003f54d8  add        x13, x10, w9, uxth
+  003f54dc  ldrb       w13, [x13, #3]
+  003f54e0  cmp        w13, #0x7d    ; #0x7d
+  003f54e4  b.ne       #0x3f54f8
+  003f54e8  add        w9, w9, #1
+  003f54ec  add        x13, x10, w9, uxth
+  003f54f0  ldrb       w13, [x13, #3]
+  003f54f4  eor        w13, w13, #0x20
+  003f54f8  and        w14, w12, #0xff00    ; #0xff00
+  003f54fc  eor        w12, w13, w12
+  003f5500  and        x12, x12, #0xff    ; #0xff
+  003f5504  ldrh       w12, [x11, x12, lsl #1]
+  003f5508  add        w9, w9, #1
+  003f550c  and        w13, w9, #0xffff    ; #0xffff
+  003f5510  cmp        w13, w8, uxth
+  003f5514  eor        w12, w12, w14, lsr #8
+  003f5518  b.lo       #0x3f54d8
+  003f551c  mvn        w10, w12
+  003f5520  ubfx       w9, w10, #8, #8    ; #0x8    ; #0x8
+  003f5524  b          #0x3f5530
+  003f5528  mov        w10, wzr
+  003f552c  mov        w9, wzr
+  003f5530  sub        w11, w10, #0x7d
+  003f5534  and        w11, w11, #0xff    ; #0xff
+  003f5538  cmp        w11, #1    ; #0x1
+  003f553c  b.hi       #0x3f556c
+  003f5540  and        w11, w8, #0xffff    ; #0xffff
+  003f5544  cmp        w11, #0xff9    ; #0xff9
+  003f5548  b.hs       #0x3f55b4
+  003f554c  mov        x12, sp
+  003f5550  mov        w13, #0x7d    ; #0x7d
+  003f5554  add        x12, x12, w8, uxth
+  003f5558  add        w11, w8, #1
+  003f555c  eor        w10, w10, #0x20
+  003f5560  strb       w13, [x12, #3]
+  003f5564  mov        w12, #2    ; #0x2
+  003f5568  b          #0x3f5588
+  003f556c  and        w11, w8, #0xffff    ; #0xffff
+  003f5570  cmp        w11, #0xffa    ; #0xffa
+  003f5574  mov        w12, #1    ; #0x1
+  003f5578  mov        w11, w8
+  003f557c  b.lo       #0x3f5588
+  003f5580  strb       w12, [sp, #2]
+  003f5584  b          #0x3f561c
+  003f5588  add        w8, w8, w12
+  003f558c  mov        x12, sp
+  003f5590  sub        w13, w9, #0x7d
+  003f5594  add        x11, x12, w11, uxth
+  003f5598  strh       w8, [sp]
+  003f559c  cmp        w13, #1    ; #0x1
+  003f55a0  strb       w10, [x11, #3]
+  003f55a4  and        w10, w8, #0xffff    ; #0xffff
+  003f55a8  b.hi       #0x3f55c0
+  003f55ac  cmp        w10, #0xff9    ; #0xff9
+  003f55b0  b.lo       #0x3f55d8
+  003f55b4  mov        w9, #1    ; #0x1
+  003f55b8  strb       w9, [sp, #2]
+  003f55bc  b          #0x3f561c
+  003f55c0  cmp        w10, #0xffa    ; #0xffa
+  003f55c4  b.lo       #0x3f5608
+  003f55c8  mov        w8, #1    ; #0x1
+  003f55cc  strb       w8, [sp, #2]
+  003f55d0  mov        w8, #0xffa    ; #0xffa
+  003f55d4  b          #0x3f561c
+  003f55d8  add        w10, w8, #1
+  003f55dc  mov        x12, sp
+  003f55e0  and        x11, x8, #0xffff    ; #0xffff
+  003f55e4  mov        w13, #0x7d    ; #0x7d
+  003f55e8  eor        w9, w9, #0x20
+  003f55ec  add        w8, w8, #2
+  003f55f0  orr        x12, x12, #3    ; #0x3
+  003f55f4  and        x10, x10, #0xffff    ; #0xffff
+  003f55f8  strb       w13, [x12, x11]
+  003f55fc  strh       w8, [sp]
+  003f5600  strb       w9, [x12, x10]
+  003f5604  b          #0x3f561c
+  003f5608  mov        x10, sp
+  003f560c  add        x10, x10, w8, uxth
+  003f5610  add        w8, w8, #1
+  003f5614  strh       w8, [sp]
+  003f5618  strb       w9, [x10, #3]
+  003f561c  mov        x9, sp
+  003f5620  add        x8, x9, w8, uxth
+  003f5624  mov        w9, #0x7e    ; #0x7e
+  003f5628  strb       w9, [x8, #3]
+  003f562c  mov        x0, sp
+  003f5630  bl         #0x3f4cd4    ; -> transmit_packet
+  003f5634  tst        w0, #0xff    ; #0xff
+  003f5638  cset       w0, ne
+  003f563c  ldr        x8, [x19, #0x28]
+  003f5640  ldur       x9, [x29, #-0x18]
+  003f5644  cmp        x8, x9
+  003f5648  b.ne       #0x3f5660
+  003f564c  add        sp, sp, #1, lsl #12
+  003f5650  add        sp, sp, #0x10
+  003f5654  ldp        x29, x30, [sp, #0x10]
+  003f5658  ldp        x28, x19, [sp], #0x20
+  003f565c  ret        
+  003f5660  bl         #0x4e824c    ; -> __stack_chk_fail
+
+########## opcode 分发区域  @0x4102e0 (128 字节) ##########
+  004102e0  mov        x0, x24
+  004102e4  mov        x1, x20
+  004102e8  mov        x2, x21
+  004102ec  bl         #0x3770f8    ; -> recovery_print
+  004102f0  ldr        x23, [sp, #8]
+  004102f4  cbz        x23, #0x41034c
+  004102f8  ldr        w22, [x26, #0x52c]
+  004102fc  ldr        w8, [x27, #0x528]
+  00410300  ldrb       w5, [x23]
+  00410304  orr        w8, w8, w22
+  00410308  cbz        w8, #0x410368
+  0041030c  cmp        w5, #0x41    ; #0x41
+  00410310  b.eq       #0x4103c4
+  00410314  cmp        w5, #0x43    ; #0x43
+  00410318  b.eq       #0x4103c4
+  0041031c  cmp        w5, #0x44    ; #0x44
+  00410320  b.ne       #0x41041c
+  00410324  adrp       x0, #0x230000
+  00410328  mov        w8, #1    ; #0x1
+  0041032c  mov        w3, #0x278    ; #0x278
+  00410330  mov        w4, #1    ; #0x1
+  00410334  add        x0, x0, #0x887
+  00410338  mov        x1, x20
+  0041033c  mov        x2, x21
+  00410340  strb       w8, [x28, #0xd6a]
+  00410344  bl         #0x3770f8    ; -> recovery_print
+  00410348  b          #0x410484
+  0041034c  adrp       x0, #0x229000
+  00410350  mov        w3, #0x287    ; #0x287
+  00410354  add        x0, x0, #0x8e9
+  00410358  mov        x1, x20
+  0041035c  mov        x2, x21
+
+########## 全局搜索 opcode 比较 (0x41/0x43/0x44/0x0f/0x0b/0x0a/0x32) ##########
+  0x0a REBOOT         出现 9 次
+      0x0031f14c  _ZL11ExecProgramRKNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERKNS_6vectorINS_10unique_ptrI4ExprNS_14default_deleteISA_EEEENS3_ISD_EEEERNS8_IS5_NS3_IS5_EEEERi
+      0x00320fc8  _Z13HuaweiOtaSyncPKcP5StateRKNSt3__16vectorINS3_10unique_ptrI4ExprNS3_14default_deleteIS6_EEEENS3_9allocatorIS9_EEEE
+      0x003211b4  _Z13HuaweiOtaSyncPKcP5StateRKNSt3__16vectorINS3_10unique_ptrI4ExprNS3_14default_deleteIS6_EEEENS3_9allocatorIS9_EEEE
+      0x003238e0  _ZL16ApplyParsedPermsP5StatePKcPK4stat16perm_parsed_args
+      0x0032b760  _ZL23PerformBlockImageUpdatePKcP5StateRKNSt3__16vectorINS3_10unique_ptrI4ExprNS3_14default_deleteIS6_EEEENS3_9allocatorIS9_EEEEPK7Commandmb
+      0x00338eec  _ZL9parse_hexPhjPKc
+      0x003579d8  RSA_padding_add_PKCS1_type_1
+      0x00357be4  RSA_padding_add_PKCS1_type_2
+  0x0b UNLOCK         出现 3 次
+      0x00320fc0  _Z13HuaweiOtaSyncPKcP5StateRKNSt3__16vectorINS3_10unique_ptrI4ExprNS3_14default_deleteIS6_EEEENS3_9allocatorIS9_EEEE
+      0x00333154  _Z23PostVerifyAndUpdateFuncP7__sFILE
+      0x00357584  init_once
+  0x0f DATA           出现 12 次
+      0x0033b110  CRYPTO_cbc128_encrypt
+      0x0033b22c  CRYPTO_cbc128_encrypt
+      0x0033b250  CRYPTO_cbc128_encrypt
+      0x0033b3b8  CRYPTO_cbc128_decrypt
+      0x0033b44c  CRYPTO_cbc128_decrypt
+      0x0033b614  CRYPTO_cbc128_decrypt
+      0x0033b630  CRYPTO_cbc128_decrypt
+      0x00347cd8  bn_sqr_consttime
+  0x32 FORCEREBOOT    出现 0 次
+  0x41 HEAD('A')      出现 0 次
+  0x43 TAIL('C')      出现 0 次
+  0x44 0x44('D')      出现 0 次

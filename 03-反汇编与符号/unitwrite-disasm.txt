@@ -1,0 +1,888 @@
+  003ecb60  sub        sp, sp, #0x150    ; 0x150
+  003ecb64  stp        x28, x27, [sp, #0xf0]
+  003ecb68  stp        x26, x25, [sp, #0x100]
+  003ecb6c  stp        x24, x23, [sp, #0x110]
+  003ecb70  stp        x22, x21, [sp, #0x120]
+  003ecb74  stp        x20, x19, [sp, #0x130]
+  003ecb78  stp        x29, x30, [sp, #0x140]
+  003ecb7c  add        x29, sp, #0x140    ; 0x140
+  003ecb80  mrs        x28, tpidr_el0
+  003ecb84  ldr        x8, [x28, #0x28]
+  003ecb88  movi       v0.2d, #0000000000000000
+  003ecb8c  mov        w21, w3
+  003ecb90  mov        w20, w2
+  003ecb94  mov        w22, w1
+  003ecb98  mov        x23, x0
+  003ecb9c  stur       x8, [x29, #-0x60]
+  003ecba0  stp        q0, q0, [sp, #0x60]
+  003ecba4  stp        q0, q0, [sp, #0x40]
+  003ecba8  stp        q0, q0, [sp, #0x20]
+  003ecbac  stp        q0, q0, [sp]
+  003ecbb0  bl         #0x3f589c    -> e
+  003ecbb4  cbz        x0, #0x3ecd50
+  003ecbb8  mov        w8, #0x858    ; 0x858
+  003ecbbc  adrp       x24, #0x95c000
+  003ecbc0  movk       w8, #0x940, lsl #16    ; 0x940
+  003ecbc4  add        x24, x24, #0xbd8    ; 0xbd8
+  003ecbc8  mov        x19, x0
+  003ecbcc  str        w21, [x0, x8]
+  003ecbd0  mov        w1, #0x64    ; 0x64
+  003ecbd4  mov        w3, #0x62    ; 0x62
+  003ecbd8  mov        x0, x24
+  003ecbdc  mov        x2, x23
+  003ecbe0  bl         #0x45a230    -> e
+  003ecbe4  cbz        w0, #0x3ecc08
+  003ecbe8  adrp       x0, #0x23f000
+  003ecbec  adrp       x1, #0x241000
+  003ecbf0  adrp       x2, #0x21f000
+  003ecbf4  add        x0, x0, #0x9d9    ; 0x9d9      ; STR='%s:%s,line=%d:memcpy_s fail\n'
+  003ecbf8  add        x1, x1, #0xe14    ; 0xe14      ; STR='Warn'
+  003ecbfc  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ecc00  mov        w3, #0x25f    ; 0x25f
+  003ecc04  bl         #0x3770f8    -> e
+  003ecc08  ldrb       w8, [x23, #0x61]
+  003ecc0c  ldr        w5, [x24, #0x14]
+  003ecc10  adrp       x25, #0x20c000
+  003ecc14  adrp       x27, #0x21f000
+  003ecc18  lsl        w9, w8, #8
+  003ecc1c  strh       w9, [x24, #0x60]
+  003ecc20  ldrb       w9, [x23, #0x60]
+  003ecc24  add        x26, x24, #0x3c    ; 0x3c
+  003ecc28  adrp       x0, #0x249000
+  003ecc2c  add        x25, x25, #0x42f    ; 0x42f      ; STR='Info'
+  003ecc30  bfi        w9, w8, #8, #0x18
+  003ecc34  strh       w9, [x24, #0x60]
+  003ecc38  ldrb       w8, [x23, #0x5f]
+  003ecc3c  add        x27, x27, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ecc40  add        x0, x0, #0xfcf    ; 0xfcf      ; STR='%s:%s,line=%d:\n========Module name:%s,module ID:%.8X ========\n'
+  003ecc44  mov        w3, #0x268    ; 0x268
+  003ecc48  lsl        w9, w8, #8
+  003ecc4c  strh       w9, [x24, #0x5e]
+  003ecc50  ldrb       w9, [x23, #0x5e]
+  003ecc54  mov        x1, x25
+  003ecc58  mov        x2, x27
+  003ecc5c  mov        x4, x26
+  003ecc60  bfi        w9, w8, #8, #0x18
+  003ecc64  strh       w9, [x24, #0x5e]
+  003ecc68  bl         #0x3770f8    -> e
+  003ecc6c  ldr        w4, [x24]
+  003ecc70  adrp       x0, #0x208000
+  003ecc74  add        x0, x0, #0x3ef    ; 0x3ef      ; STR='%s:%s,line=%d:dwMagicNum      :%.4X\n'
+  003ecc78  mov        w3, #0x269    ; 0x269
+  003ecc7c  mov        x1, x25
+  003ecc80  mov        x2, x27
+  003ecc84  bl         #0x3770f8    -> e
+  003ecc88  adrp       x0, #0x216000
+  003ecc8c  add        x0, x0, #0x243    ; 0x243      ; STR='%s:%s,line=%d:szDispName      :%s\n'
+  003ecc90  mov        w3, #0x26a    ; 0x26a
+  003ecc94  mov        x1, x25
+  003ecc98  mov        x2, x27
+  003ecc9c  mov        x4, x26
+  003ecca0  bl         #0x3770f8    -> e
+  003ecca4  adrp       x0, #0x223000
+  003ecca8  add        x4, x24, #0xc    ; 0xc
+  003eccac  add        x0, x0, #0xcec    ; 0xcec      ; STR='%s:%s,line=%d:UnlockCode      :%s\n'
+  003eccb0  mov        w3, #0x26b    ; 0x26b
+  003eccb4  mov        x1, x25
+  003eccb8  mov        x2, x27
+  003eccbc  bl         #0x3770f8    -> e
+  003eccc0  ldr        w4, [x24, #0x14]
+  003eccc4  adrp       x0, #0x231000
+  003eccc8  add        x0, x0, #0xf47    ; 0xf47      ; STR='%s:%s,line=%d:dwDataStartAddr :0x%.8X\n'
+  003ecccc  mov        w3, #0x26c    ; 0x26c
+  003eccd0  mov        x1, x25
+  003eccd4  mov        x2, x27
+  003eccd8  bl         #0x3770f8    -> e
+  003eccdc  ldr        w4, [x24, #0x18]
+  003ecce0  adrp       x0, #0x211000
+  003ecce4  add        x0, x0, #0x564    ; 0x564      ; STR='%s:%s,line=%d:dwDataLen       :0x%.8X\n'
+  003ecce8  mov        w3, #0x26d    ; 0x26d
+  003eccec  mov        x1, x25
+  003eccf0  mov        x2, x27
+  003eccf4  bl         #0x3770f8    -> e
+  003eccf8  ldrh       w4, [x24, #0x60]
+  003eccfc  adrp       x0, #0x21a000
+  003ecd00  add        x0, x0, #0xc49    ; 0xc49      ; STR='%s:%s,line=%d:dwBlockSize_hw :0x%.2X\n'
+  003ecd04  mov        w3, #0x26e    ; 0x26e
+  003ecd08  mov        x1, x25
+  003ecd0c  mov        x2, x27
+  003ecd10  bl         #0x3770f8    -> e
+  003ecd14  ldrh       w4, [x24, #0x5e]
+  003ecd18  adrp       x0, #0x205000
+  003ecd1c  add        x0, x0, #0xd59    ; 0xd59      ; STR='%s:%s,line=%d:dwBlockSize     :0x%.2X\n'
+  003ecd20  mov        w3, #0x26f    ; 0x26f
+  003ecd24  mov        x1, x25
+  003ecd28  mov        x2, x27
+  003ecd2c  bl         #0x3770f8    -> e
+  003ecd30  adrp       x25, #0x240000
+  003ecd34  add        x25, x25, #0x155    ; 0x155      ; STR='XLOADER_ES'
+  003ecd38  mov        x0, x26
+  003ecd3c  mov        x1, x25
+  003ecd40  bl         #0x3ed940    -> Z
+  003ecd44  tbz        w0, #0, #0x3ecd70
+  003ecd48  mov        x8, xzr
+  003ecd4c  b          #0x3eceb0
+  003ecd50  adrp       x0, #0x218000
+  003ecd54  adrp       x1, #0x220000
+  003ecd58  adrp       x2, #0x21f000
+  003ecd5c  add        x0, x0, #0x821    ; 0x821      ; STR='%s:%s,line=%d:NULL == cur_ptr_receiving_buf_property\n'
+  003ecd60  add        x1, x1, #0xbed    ; 0xbed      ; STR='Err'
+  003ecd64  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ecd68  mov        w3, #0x254    ; 0x254
+  003ecd6c  b          #0x3ed580
+  003ecd70  adrp       x25, #0x22b000
+  003ecd74  adrp       x0, #0x95c000
+  003ecd78  add        x25, x25, #0x5d    ; 0x5d      ; STR='FW_LPM3_ES'
+  003ecd7c  add        x0, x0, #0xc14    ; 0xc14
+  003ecd80  mov        x1, x25
+  003ecd84  bl         #0x3ed940    -> Z
+  003ecd88  tbz        w0, #0, #0x3ecd94
+  003ecd8c  mov        w8, #1    ; 0x1
+  003ecd90  b          #0x3eceb0
+  003ecd94  adrp       x25, #0x21a000
+  003ecd98  adrp       x0, #0x95c000
+  003ecd9c  add        x25, x25, #0xca7    ; 0xca7      ; STR='TRUSTFIRMWARE_ES'
+  003ecda0  add        x0, x0, #0xc14    ; 0xc14
+  003ecda4  mov        x1, x25
+  003ecda8  bl         #0x3ed940    -> Z
+  003ecdac  tbz        w0, #0, #0x3ecdb8
+  003ecdb0  mov        w8, #2    ; 0x2
+  003ecdb4  b          #0x3eceb0
+  003ecdb8  adrp       x25, #0x24a000
+  003ecdbc  adrp       x0, #0x95c000
+  003ecdc0  add        x25, x25, #0x61    ; 0x61      ; STR='ISP_FIRMWARE_ES'
+  003ecdc4  add        x0, x0, #0xc14    ; 0xc14
+  003ecdc8  mov        x1, x25
+  003ecdcc  bl         #0x3ed940    -> Z
+  003ecdd0  tbz        w0, #0, #0x3ecddc
+  003ecdd4  mov        w8, #3    ; 0x3
+  003ecdd8  b          #0x3eceb0
+  003ecddc  adrp       x25, #0x240000
+  003ecde0  adrp       x0, #0x95c000
+  003ecde4  add        x25, x25, #0x160    ; 0x160      ; STR='HISEE_IMG_ES'
+  003ecde8  add        x0, x0, #0xc14    ; 0xc14
+  003ecdec  mov        x1, x25
+  003ecdf0  bl         #0x3ed940    -> Z
+  003ecdf4  tbz        w0, #0, #0x3ece00
+  003ecdf8  mov        w8, #4    ; 0x4
+  003ecdfc  b          #0x3eceb0
+  003ece00  adrp       x25, #0x22b000
+  003ece04  adrp       x0, #0x95c000
+  003ece08  add        x25, x25, #0x68    ; 0x68      ; STR='HISEE_FS_ES'
+  003ece0c  add        x0, x0, #0xc14    ; 0xc14
+  003ece10  mov        x1, x25
+  003ece14  bl         #0x3ed940    -> Z
+  003ece18  tbz        w0, #0, #0x3ece24
+  003ece1c  mov        w8, #5    ; 0x5
+  003ece20  b          #0x3eceb0
+  003ece24  adrp       x25, #0x21d000
+  003ece28  adrp       x0, #0x95c000
+  003ece2c  add        x25, x25, #0x22d    ; 0x22d      ; STR='FASTBOOT_ES'
+  003ece30  add        x0, x0, #0xc14    ; 0xc14
+  003ece34  mov        x1, x25
+  003ece38  bl         #0x3ed940    -> Z
+  003ece3c  tbz        w0, #0, #0x3ece48
+  003ece40  mov        w8, #6    ; 0x6
+  003ece44  b          #0x3eceb0
+  003ece48  adrp       x25, #0x226000
+  003ece4c  adrp       x0, #0x95c000
+  003ece50  add        x25, x25, #0x748    ; 0x748      ; STR='BL2_ES'
+  003ece54  add        x0, x0, #0xc14    ; 0xc14
+  003ece58  mov        x1, x25
+  003ece5c  bl         #0x3ed940    -> Z
+  003ece60  tbz        w0, #0, #0x3ece6c
+  003ece64  mov        w8, #7    ; 0x7
+  003ece68  b          #0x3eceb0
+  003ece6c  adrp       x25, #0x205000
+  003ece70  adrp       x0, #0x95c000
+  003ece74  add        x25, x25, #0xdab    ; 0xdab      ; STR='HHEE_ES'
+  003ece78  add        x0, x0, #0xc14    ; 0xc14
+  003ece7c  mov        x1, x25
+  003ece80  bl         #0x3ed940    -> Z
+  003ece84  tbz        w0, #0, #0x3ece90
+  003ece88  mov        w8, #8    ; 0x8
+  003ece8c  b          #0x3eceb0
+  003ece90  adrp       x25, #0x240000
+  003ece94  adrp       x0, #0x95c000
+  003ece98  add        x25, x25, #0x16d    ; 0x16d      ; STR='HIEPS_ES'
+  003ece9c  add        x0, x0, #0xc14    ; 0xc14
+  003ecea0  mov        x1, x25
+  003ecea4  bl         #0x3ed940    -> Z
+  003ecea8  tbz        w0, #0, #0x3ed934
+  003eceac  mov        w8, #9    ; 0x9
+  003eceb0  adrp       x9, #0x535000
+  003eceb4  add        x9, x9, #0x3b8    ; 0x3b8      ; STR='U\x01$'
+  003eceb8  add        x8, x9, x8, lsl #4
+  003ecebc  ldr        x26, [x8, #8]
+  003ecec0  adrp       x0, #0x218000
+  003ecec4  adrp       x1, #0x20c000
+  003ecec8  adrp       x2, #0x21f000
+  003ececc  add        x0, x0, #0x857    ; 0x857      ; STR='%s:%s,line=%d:rename es spec module name from %s to %s\n'
+  003eced0  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003eced4  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003eced8  mov        w3, #0x276    ; 0x276
+  003ecedc  mov        x4, x25
+  003ecee0  mov        x5, x26
+  003ecee4  bl         #0x3770f8    -> e
+  003ecee8  adrp       x0, #0x95c000
+  003eceec  add        x0, x0, #0xc14    ; 0xc14
+  003ecef0  mov        w1, #0x20    ; 0x20
+  003ecef4  mov        w3, #0x20    ; 0x20
+  003ecef8  mov        w2, wzr
+  003ecefc  bl         #0x45a614    -> e
+  003ecf00  cbz        w0, #0x3ecf24
+  003ecf04  adrp       x0, #0x22d000
+  003ecf08  adrp       x1, #0x241000
+  003ecf0c  adrp       x2, #0x21f000
+  003ecf10  add        x0, x0, #0x913    ; 0x913      ; STR='%s:%s,line=%d:clear module_head.szDispName fail\n'
+  003ecf14  add        x1, x1, #0xe14    ; 0xe14      ; STR='Warn'
+  003ecf18  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ecf1c  mov        w3, #0x27a    ; 0x27a
+  003ecf20  bl         #0x3770f8    -> e
+  003ecf24  mov        x0, x26
+  003ecf28  bl         #0x4cc0a0    -> t
+  003ecf2c  mov        x3, x0
+  003ecf30  adrp       x0, #0x95c000
+  003ecf34  add        x0, x0, #0xc14    ; 0xc14
+  003ecf38  mov        w1, #0x20    ; 0x20
+  003ecf3c  mov        x2, x26
+  003ecf40  bl         #0x45e1d0    -> t
+  003ecf44  cbz        w0, #0x3ecf68
+  003ecf48  adrp       x0, #0x242000
+  003ecf4c  adrp       x1, #0x220000
+  003ecf50  adrp       x2, #0x21f000
+  003ecf54  add        x0, x0, #0x929    ; 0x929      ; STR='%s:%s,line=%d:strncpy_s module_head failed\n'
+  003ecf58  add        x1, x1, #0xbed    ; 0xbed      ; STR='Err'
+  003ecf5c  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ecf60  mov        w3, #0x27f    ; 0x27f
+  003ecf64  bl         #0x3770f8    -> e
+  003ecf68  mov        w25, #1    ; 0x1
+  003ecf6c  str        x24, [x19, #0x18]
+  003ecf70  ldr        w0, [x24, #0x14]
+  003ecf74  add        x1, x24, #0x3c    ; 0x3c
+  003ecf78  bl         #0x3fc73c    -> e
+  003ecf7c  str        x0, [x19, #0x20]
+  003ecf80  adrp       x24, #0x95c000
+  003ecf84  ldrb       w8, [x24, #0xc3c]
+  003ecf88  tbnz       w8, #0, #0x3ed070
+  003ecf8c  adrp       x0, #0x240000
+  003ecf90  adrp       x1, #0x241000
+  003ecf94  adrp       x2, #0x21f000
+  003ecf98  add        x0, x0, #0x101    ; 0x101      ; STR='%s:%s,line=%d:try to get ro.board.chiptype value\n'
+  003ecf9c  add        x1, x1, #0xe14    ; 0xe14      ; STR='Warn'
+  003ecfa0  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ecfa4  mov        w3, #0x28b    ; 0x28b
+  003ecfa8  bl         #0x3770f8    -> e
+  003ecfac  adrp       x0, #0x205000
+  003ecfb0  adrp       x2, #0x23f000
+  003ecfb4  movi       v0.2d, #0000000000000000
+  003ecfb8  add        x0, x0, #0xdb9    ; 0xdb9      ; STR='ro.board.chiptype'
+  003ecfbc  add        x2, x2, #0x58d    ; 0x58d
+  003ecfc0  add        x1, sp, #0x80    ; 0x80
+  003ecfc4  stur       q0, [sp, #0xcd]
+  003ecfc8  stp        q0, q0, [sp, #0xb0]
+  003ecfcc  stp        q0, q0, [sp, #0x90]
+  003ecfd0  str        q0, [sp, #0x80]
+  003ecfd4  bl         #0x458f78    -> r
+  003ecfd8  cmp        w0, #1    ; 0x1
+  003ecfdc  b.lt       #0x3ecffc
+  003ecfe0  adrp       x1, #0x211000
+  003ecfe4  add        x1, x1, #0x623    ; 0x623      ; STR='kirin980_es'
+  003ecfe8  add        x0, sp, #0x80    ; 0x80
+  003ecfec  bl         #0x3ed940    -> Z
+  003ecff0  tbz        w0, #0, #0x3ed028
+  003ecff4  mov        w26, #1    ; 0x1
+  003ecff8  b          #0x3ed040
+  003ecffc  adrp       x0, #0x203000
+  003ed000  adrp       x1, #0x220000
+  003ed004  adrp       x2, #0x221000
+  003ed008  add        x0, x0, #0xc6e    ; 0xc6e      ; STR='%s:%s,line=%d:get ro.board.chiptype value failed\n'
+  003ed00c  add        x1, x1, #0xbed    ; 0xbed      ; STR='Err'
+  003ed010  add        x2, x2, #0x898    ; 0x898      ; STR='GetChipTypeProp'
+  003ed014  mov        w3, #0xb2    ; 0xb2
+  003ed018  bl         #0x3770f8    -> e
+  003ed01c  mov        w8, wzr
+  003ed020  mov        w26, wzr
+  003ed024  b          #0x3ed064
+  003ed028  adrp       x1, #0x23b000
+  003ed02c  add        x1, x1, #0x77b    ; 0x77b      ; STR='kirin980_cs'
+  003ed030  add        x0, sp, #0x80    ; 0x80
+  003ed034  bl         #0x3ed940    -> Z
+  003ed038  tbz        w0, #0, #0x3ed668
+  003ed03c  mov        w26, wzr
+  003ed040  adrp       x0, #0x242000
+  003ed044  adrp       x1, #0x20c000
+  003ed048  adrp       x2, #0x221000
+  003ed04c  add        x0, x0, #0x9bc    ; 0x9bc      ; STR='%s:%s,line=%d:g_chipTypeNameList[i].chipName\n'
+  003ed050  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed054  add        x2, x2, #0x898    ; 0x898      ; STR='GetChipTypeProp'
+  003ed058  mov        w3, #0xbc    ; 0xbc
+  003ed05c  bl         #0x3770f8    -> e
+  003ed060  mov        w8, #1    ; 0x1
+  003ed064  strb       w8, [x24, #0xc3c]
+  003ed068  adrp       x8, #0x95c000
+  003ed06c  strb       w26, [x8, #0xc40]
+  003ed070  adrp       x0, #0x95c000
+  003ed074  adrp       x1, #0x211000
+  003ed078  add        x0, x0, #0xc14    ; 0xc14
+  003ed07c  add        x1, x1, #0x59    ; 0x59      ; STR='XLOADER'
+  003ed080  bl         #0x3ed940    -> Z
+  003ed084  tbnz       w0, #0, #0x3ed160
+  003ed088  adrp       x0, #0x95c000
+  003ed08c  adrp       x1, #0x22d000
+  003ed090  add        x0, x0, #0xc14    ; 0xc14
+  003ed094  add        x1, x1, #0x97a    ; 0x97a      ; STR='FW_LPM3'
+  003ed098  bl         #0x3ed940    -> Z
+  003ed09c  tbnz       w0, #0, #0x3ed160
+  003ed0a0  adrp       x0, #0x95c000
+  003ed0a4  adrp       x1, #0x205000
+  003ed0a8  add        x0, x0, #0xc14    ; 0xc14
+  003ed0ac  add        x1, x1, #0xd93    ; 0xd93      ; STR='TRUSTFIRMWARE'
+  003ed0b0  bl         #0x3ed940    -> Z
+  003ed0b4  tbnz       w0, #0, #0x3ed160
+  003ed0b8  adrp       x0, #0x95c000
+  003ed0bc  adrp       x1, #0x23d000
+  003ed0c0  add        x0, x0, #0xc14    ; 0xc14
+  003ed0c4  add        x1, x1, #0xc63    ; 0xc63      ; STR='ISP_FIRMWARE'
+  003ed0c8  bl         #0x3ed940    -> Z
+  003ed0cc  tbnz       w0, #0, #0x3ed160
+  003ed0d0  adrp       x0, #0x95c000
+  003ed0d4  adrp       x1, #0x205000
+  003ed0d8  add        x0, x0, #0xc14    ; 0xc14
+  003ed0dc  add        x1, x1, #0xda1    ; 0xda1      ; STR='HISEE_IMG'
+  003ed0e0  bl         #0x3ed940    -> Z
+  003ed0e4  tbnz       w0, #0, #0x3ed160
+  003ed0e8  adrp       x0, #0x95c000
+  003ed0ec  adrp       x1, #0x226000
+  003ed0f0  add        x0, x0, #0xc14    ; 0xc14
+  003ed0f4  add        x1, x1, #0x73f    ; 0x73f      ; STR='HISEE_FS'
+  003ed0f8  bl         #0x3ed940    -> Z
+  003ed0fc  tbnz       w0, #0, #0x3ed160
+  003ed100  adrp       x0, #0x95c000
+  003ed104  adrp       x1, #0x238000
+  003ed108  add        x0, x0, #0xc14    ; 0xc14
+  003ed10c  add        x1, x1, #0xaf9    ; 0xaf9      ; STR='FASTBOOT'
+  003ed110  bl         #0x3ed940    -> Z
+  003ed114  tbnz       w0, #0, #0x3ed160
+  003ed118  adrp       x0, #0x95c000
+  003ed11c  adrp       x1, #0x20c000
+  003ed120  add        x0, x0, #0xc14    ; 0xc14
+  003ed124  add        x1, x1, #0x923    ; 0x923      ; STR='BL2'
+  003ed128  bl         #0x3ed940    -> Z
+  003ed12c  tbnz       w0, #0, #0x3ed160
+  003ed130  adrp       x0, #0x95c000
+  003ed134  adrp       x1, #0x234000
+  003ed138  add        x0, x0, #0xc14    ; 0xc14
+  003ed13c  add        x1, x1, #0x2ff    ; 0x2ff      ; STR='HHEE'
+  003ed140  bl         #0x3ed940    -> Z
+  003ed144  tbnz       w0, #0, #0x3ed160
+  003ed148  adrp       x0, #0x95c000
+  003ed14c  adrp       x1, #0x205000
+  003ed150  add        x0, x0, #0xc14    ; 0xc14
+  003ed154  add        x1, x1, #0xdb3    ; 0xdb3      ; STR='HIEPS'
+  003ed158  bl         #0x3ed940    -> Z
+  003ed15c  tbz        w0, #0, #0x3ed16c
+  003ed160  ldr        x8, [x19, #0x20]
+  003ed164  mov        w9, #1    ; 0x1
+  003ed168  strb       w9, [x8, #0x71]
+  003ed16c  adrp       x24, #0x95c000
+  003ed170  ldrb       w8, [x24, #0xc40]
+  003ed174  cmp        w8, #0    ; 0x0
+  003ed178  cset       w8, eq
+  003ed17c  orr        w8, w25, w8
+  003ed180  tbnz       w8, #0, #0x3ed2a4
+  003ed184  adrp       x0, #0x95c000
+  003ed188  adrp       x1, #0x211000
+  003ed18c  add        x0, x0, #0xc14    ; 0xc14
+  003ed190  add        x1, x1, #0x59    ; 0x59      ; STR='XLOADER'
+  003ed194  bl         #0x3ed940    -> Z
+  003ed198  tbnz       w0, #0, #0x3ed274
+  003ed19c  adrp       x0, #0x95c000
+  003ed1a0  adrp       x1, #0x22d000
+  003ed1a4  add        x0, x0, #0xc14    ; 0xc14
+  003ed1a8  add        x1, x1, #0x97a    ; 0x97a      ; STR='FW_LPM3'
+  003ed1ac  bl         #0x3ed940    -> Z
+  003ed1b0  tbnz       w0, #0, #0x3ed274
+  003ed1b4  adrp       x0, #0x95c000
+  003ed1b8  adrp       x1, #0x205000
+  003ed1bc  add        x0, x0, #0xc14    ; 0xc14
+  003ed1c0  add        x1, x1, #0xd93    ; 0xd93      ; STR='TRUSTFIRMWARE'
+  003ed1c4  bl         #0x3ed940    -> Z
+  003ed1c8  tbnz       w0, #0, #0x3ed274
+  003ed1cc  adrp       x0, #0x95c000
+  003ed1d0  adrp       x1, #0x23d000
+  003ed1d4  add        x0, x0, #0xc14    ; 0xc14
+  003ed1d8  add        x1, x1, #0xc63    ; 0xc63      ; STR='ISP_FIRMWARE'
+  003ed1dc  bl         #0x3ed940    -> Z
+  003ed1e0  tbnz       w0, #0, #0x3ed274
+  003ed1e4  adrp       x0, #0x95c000
+  003ed1e8  adrp       x1, #0x205000
+  003ed1ec  add        x0, x0, #0xc14    ; 0xc14
+  003ed1f0  add        x1, x1, #0xda1    ; 0xda1      ; STR='HISEE_IMG'
+  003ed1f4  bl         #0x3ed940    -> Z
+  003ed1f8  tbnz       w0, #0, #0x3ed274
+  003ed1fc  adrp       x0, #0x95c000
+  003ed200  adrp       x1, #0x226000
+  003ed204  add        x0, x0, #0xc14    ; 0xc14
+  003ed208  add        x1, x1, #0x73f    ; 0x73f      ; STR='HISEE_FS'
+  003ed20c  bl         #0x3ed940    -> Z
+  003ed210  tbnz       w0, #0, #0x3ed274
+  003ed214  adrp       x0, #0x95c000
+  003ed218  adrp       x1, #0x238000
+  003ed21c  add        x0, x0, #0xc14    ; 0xc14
+  003ed220  add        x1, x1, #0xaf9    ; 0xaf9      ; STR='FASTBOOT'
+  003ed224  bl         #0x3ed940    -> Z
+  003ed228  tbnz       w0, #0, #0x3ed274
+  003ed22c  adrp       x0, #0x95c000
+  003ed230  adrp       x1, #0x20c000
+  003ed234  add        x0, x0, #0xc14    ; 0xc14
+  003ed238  add        x1, x1, #0x923    ; 0x923      ; STR='BL2'
+  003ed23c  bl         #0x3ed940    -> Z
+  003ed240  tbnz       w0, #0, #0x3ed274
+  003ed244  adrp       x0, #0x95c000
+  003ed248  adrp       x1, #0x234000
+  003ed24c  add        x0, x0, #0xc14    ; 0xc14
+  003ed250  add        x1, x1, #0x2ff    ; 0x2ff      ; STR='HHEE'
+  003ed254  bl         #0x3ed940    -> Z
+  003ed258  tbnz       w0, #0, #0x3ed274
+  003ed25c  adrp       x0, #0x95c000
+  003ed260  adrp       x1, #0x205000
+  003ed264  add        x0, x0, #0xc14    ; 0xc14
+  003ed268  add        x1, x1, #0xdb3    ; 0xdb3      ; STR='HIEPS'
+  003ed26c  bl         #0x3ed940    -> Z
+  003ed270  tbz        w0, #0, #0x3ed2a4
+  003ed274  adrp       x0, #0x201000
+  003ed278  adrp       x1, #0x20c000
+  003ed27c  adrp       x2, #0x21f000
+  003ed280  adrp       x4, #0x95c000
+  003ed284  add        x0, x0, #0x54c    ; 0x54c      ; STR='%s:%s,line=%d:ignore cs spec module:%s\n'
+  003ed288  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed28c  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed290  add        x4, x4, #0xc14    ; 0xc14
+  003ed294  mov        w3, #0x29c    ; 0x29c
+  003ed298  bl         #0x3770f8    -> e
+  003ed29c  ldr        x8, [x19, #0x20]
+  003ed2a0  strb       wzr, [x8, #0x71]
+  003ed2a4  ldrb       w8, [x24, #0xc40]
+  003ed2a8  cbnz       w8, #0x3ed2e4
+  003ed2ac  eor        w8, w25, #1
+  003ed2b0  tbnz       w8, #0, #0x3ed2e4
+  003ed2b4  adrp       x0, #0x21a000
+  003ed2b8  adrp       x1, #0x20c000
+  003ed2bc  adrp       x2, #0x21f000
+  003ed2c0  adrp       x4, #0x95c000
+  003ed2c4  add        x0, x0, #0xc6f    ; 0xc6f      ; STR='%s:%s,line=%d:ignore es spec module:%s\n'
+  003ed2c8  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed2cc  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed2d0  add        x4, x4, #0xc14    ; 0xc14
+  003ed2d4  mov        w3, #0x2a4    ; 0x2a4
+  003ed2d8  bl         #0x3770f8    -> e
+  003ed2dc  ldr        x8, [x19, #0x20]
+  003ed2e0  strb       wzr, [x8, #0x71]
+  003ed2e4  mov        w8, #1    ; 0x1
+  003ed2e8  adrp       x24, #0x95c000
+  003ed2ec  strb       w8, [x19, #0x2c]
+  003ed2f0  ldr        w8, [x24, #0xbec]
+  003ed2f4  mov        w9, #0x84c    ; 0x84c
+  003ed2f8  movk       w9, #0x940, lsl #16    ; 0x940
+  003ed2fc  str        wzr, [x19, #4]
+  003ed300  str        w8, [x19, #0x10]
+  003ed304  str        wzr, [x19, x9]
+  003ed308  ldr        x8, [x19, #0x20]
+  003ed30c  strb       wzr, [x19, #0x2d]
+  003ed310  cbz        x8, #0x3ed564
+  003ed314  ldr        w9, [x8, #0x80]
+  003ed318  cmp        w9, #1    ; 0x1
+  003ed31c  b.eq       #0x3ed330
+  003ed320  ldrb       w9, [x19, #0x2e]
+  003ed324  cbz        w9, #0x3ed618
+  003ed328  ldrb       w9, [x19, #0x2f]
+  003ed32c  cbz        w9, #0x3ed698
+  003ed330  mov        w9, #0x860    ; 0x860
+  003ed334  movk       w9, #0x940, lsl #16    ; 0x940
+  003ed338  add        x25, x19, x9
+  003ed33c  ldr        w9, [x25]
+  003ed340  cmp        w9, #2    ; 0x2
+  003ed344  b.eq       #0x3ed358
+  003ed348  bl         #0x401c14    -> h
+  003ed34c  tst        w0, #0xff    ; 0xff
+  003ed350  b.eq       #0x3ed644
+  003ed354  ldr        x8, [x19, #0x20]
+  003ed358  adrp       x26, #0x95c000
+  003ed35c  ldr        w4, [x26, #0xbf0]
+  003ed360  ldr        x9, [x8, #0x78]
+  003ed364  cmp        x9, x4
+  003ed368  b.hs       #0x3ed5a8
+  003ed36c  adrp       x20, #0x21f000
+  003ed370  adrp       x0, #0x216000
+  003ed374  adrp       x1, #0x220000
+  003ed378  add        x20, x20, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed37c  add        x0, x0, #0x266    ; 0x266      ; STR='%s:%s,line=%d:module_head.dwDataLen(0x%.8X) too large\n'
+  003ed380  add        x1, x1, #0xbed    ; 0xbed      ; STR='Err'
+  003ed384  mov        w3, #0x2cc    ; 0x2cc
+  003ed388  mov        x2, x20
+  003ed38c  bl         #0x3770f8    -> e
+  003ed390  ldr        x8, [x19, #0x20]
+  003ed394  adrp       x0, #0x234000
+  003ed398  adrp       x1, #0x20c000
+  003ed39c  add        x0, x0, #0x273    ; 0x273      ; STR='%s:%s,line=%d:current partition size:0x%.8llx\n'
+  003ed3a0  ldr        x4, [x8, #0x78]
+  003ed3a4  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed3a8  mov        w3, #0x2ce    ; 0x2ce
+  003ed3ac  mov        x2, x20
+  003ed3b0  bl         #0x3770f8    -> e
+  003ed3b4  ldr        x8, [x19, #0x20]
+  003ed3b8  adrp       x3, #0x20a000
+  003ed3bc  add        x3, x3, #0xb14    ; 0xb14      ; STR='name:%s\n'
+  003ed3c0  mov        x0, sp
+  003ed3c4  ldr        x4, [x8, #8]
+  003ed3c8  mov        w1, #0x80    ; 0x80
+  003ed3cc  mov        w2, #0x7f    ; 0x7f
+  003ed3d0  bl         #0x45a584    -> n
+  003ed3d4  cmn        w0, #1
+  003ed3d8  b.ne       #0x3ed3fc
+  003ed3dc  adrp       x0, #0x21e000
+  003ed3e0  adrp       x1, #0x241000
+  003ed3e4  adrp       x2, #0x21f000
+  003ed3e8  add        x0, x0, #0xb5e    ; 0xb5e      ; STR='%s:%s,line=%d:snprintf_s fail\n'
+  003ed3ec  add        x1, x1, #0xe14    ; 0xe14      ; STR='Warn'
+  003ed3f0  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed3f4  mov        w3, #0x2d1    ; 0x2d1
+  003ed3f8  bl         #0x3770f8    -> e
+  003ed3fc  adrp       x0, #0x20c000
+  003ed400  adrp       x1, #0x20c000
+  003ed404  adrp       x2, #0x21f000
+  003ed408  add        x0, x0, #0xe6b    ; 0xe6b      ; STR='%s:%s,line=%d:%s\n'
+  003ed40c  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed410  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed414  mov        x4, sp
+  003ed418  mov        w3, #0x2d3    ; 0x2d3
+  003ed41c  bl         #0x3770f8    -> e
+  003ed420  ldr        w4, [x24, #0xbec]
+  003ed424  adrp       x3, #0x239000
+  003ed428  add        x3, x3, #0xe7    ; 0xe7      ; STR='image id:0x%.8X\n'
+  003ed42c  mov        x0, sp
+  003ed430  mov        w1, #0x80    ; 0x80
+  003ed434  mov        w2, #0x7f    ; 0x7f
+  003ed438  bl         #0x45a584    -> n
+  003ed43c  cmn        w0, #1
+  003ed440  b.ne       #0x3ed464
+  003ed444  adrp       x0, #0x21e000
+  003ed448  adrp       x1, #0x241000
+  003ed44c  adrp       x2, #0x21f000
+  003ed450  add        x0, x0, #0xb5e    ; 0xb5e      ; STR='%s:%s,line=%d:snprintf_s fail\n'
+  003ed454  add        x1, x1, #0xe14    ; 0xe14      ; STR='Warn'
+  003ed458  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed45c  mov        w3, #0x2d6    ; 0x2d6
+  003ed460  bl         #0x3770f8    -> e
+  003ed464  adrp       x0, #0x20c000
+  003ed468  adrp       x1, #0x20c000
+  003ed46c  adrp       x2, #0x21f000
+  003ed470  add        x0, x0, #0xe6b    ; 0xe6b      ; STR='%s:%s,line=%d:%s\n'
+  003ed474  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed478  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed47c  mov        x4, sp
+  003ed480  mov        w3, #0x2d8    ; 0x2d8
+  003ed484  bl         #0x3770f8    -> e
+  003ed488  ldr        w4, [x26, #0xbf0]
+  003ed48c  adrp       x3, #0x242000
+  003ed490  add        x3, x3, #0x955    ; 0x955      ; STR='current image size(%d) too large!\n'
+  003ed494  mov        x0, sp
+  003ed498  mov        w1, #0x80    ; 0x80
+  003ed49c  mov        w2, #0x7f    ; 0x7f
+  003ed4a0  bl         #0x45a584    -> n
+  003ed4a4  cmn        w0, #1
+  003ed4a8  b.ne       #0x3ed4cc
+  003ed4ac  adrp       x0, #0x21e000
+  003ed4b0  adrp       x1, #0x241000
+  003ed4b4  adrp       x2, #0x21f000
+  003ed4b8  add        x0, x0, #0xb5e    ; 0xb5e      ; STR='%s:%s,line=%d:snprintf_s fail\n'
+  003ed4bc  add        x1, x1, #0xe14    ; 0xe14      ; STR='Warn'
+  003ed4c0  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed4c4  mov        w3, #0x2db    ; 0x2db
+  003ed4c8  bl         #0x3770f8    -> e
+  003ed4cc  adrp       x0, #0x20c000
+  003ed4d0  adrp       x1, #0x20c000
+  003ed4d4  adrp       x2, #0x21f000
+  003ed4d8  add        x0, x0, #0xe6b    ; 0xe6b      ; STR='%s:%s,line=%d:%s\n'
+  003ed4dc  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed4e0  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed4e4  mov        x4, sp
+  003ed4e8  mov        w3, #0x2dd    ; 0x2dd
+  003ed4ec  bl         #0x3770f8    -> e
+  003ed4f0  ldr        x8, [x19, #0x20]
+  003ed4f4  adrp       x3, #0x228000
+  003ed4f8  add        x3, x3, #0xc0e    ; 0xc0e      ; STR='current partition size:%llu.'
+  003ed4fc  mov        x0, sp
+  003ed500  ldr        x4, [x8, #0x78]
+  003ed504  mov        w1, #0x80    ; 0x80
+  003ed508  mov        w2, #0x7f    ; 0x7f
+  003ed50c  bl         #0x45a584    -> n
+  003ed510  cmn        w0, #1
+  003ed514  b.ne       #0x3ed538
+  003ed518  adrp       x0, #0x21e000
+  003ed51c  adrp       x1, #0x220000
+  003ed520  adrp       x2, #0x21f000
+  003ed524  add        x0, x0, #0xb5e    ; 0xb5e      ; STR='%s:%s,line=%d:snprintf_s fail\n'
+  003ed528  add        x1, x1, #0xbed    ; 0xbed      ; STR='Err'
+  003ed52c  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed530  mov        w3, #0x2e2    ; 0x2e2
+  003ed534  bl         #0x3770f8    -> e
+  003ed538  adrp       x0, #0x20c000
+  003ed53c  adrp       x1, #0x20c000
+  003ed540  adrp       x2, #0x21f000
+  003ed544  add        x0, x0, #0xe6b    ; 0xe6b      ; STR='%s:%s,line=%d:%s\n'
+  003ed548  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed54c  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed550  mov        x4, sp
+  003ed554  mov        w3, #0x2e3    ; 0x2e3
+  003ed558  bl         #0x3770f8    -> e
+  003ed55c  mov        w20, #9    ; 0x9
+  003ed560  b          #0x3ed798
+  003ed564  adrp       x0, #0x208000
+  003ed568  adrp       x1, #0x220000
+  003ed56c  adrp       x2, #0x21f000
+  003ed570  add        x0, x0, #0x414    ; 0x414      ; STR='%s:%s,line=%d:NULL == cur_ptr_receiving_buf_property->cur_ptr_partitio'
+  003ed574  add        x1, x1, #0xbed    ; 0xbed      ; STR='Err'
+  003ed578  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed57c  mov        w3, #0x2af    ; 0x2af
+  003ed580  bl         #0x3770f8    -> e
+  003ed584  and        w8, w20, #0xff    ; 0xff
+  003ed588  cmp        w8, #1    ; 0x1
+  003ed58c  b.ne       #0x3ed5a0
+  003ed590  mov        w0, #7    ; 0x7
+  003ed594  bl         #0x3f4eb8    -> r
+  003ed598  tst        w0, #0xff    ; 0xff
+  003ed59c  b.eq       #0x3ed794
+  003ed5a0  mov        w20, #5    ; 0x5
+  003ed5a4  b          #0x3ed798
+  003ed5a8  ldr        x9, [x8, #0x68]
+  003ed5ac  cbz        x9, #0x3ed5bc
+  003ed5b0  ldr        w10, [x25, #4]
+  003ed5b4  tst        x9, x10
+  003ed5b8  b.eq       #0x3ed7cc
+  003ed5bc  ldr        x4, [x8, #0x50]
+  003ed5c0  adrp       x0, #0x213000
+  003ed5c4  adrp       x1, #0x20c000
+  003ed5c8  adrp       x2, #0x21f000
+  003ed5cc  add        x0, x0, #0xa62    ; 0xa62      ; STR='%s:%s,line=%d:module_offset_in_emmc_or_nand : 0x%.8llx\n'
+  003ed5d0  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed5d4  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed5d8  mov        w3, #0x300    ; 0x300
+  003ed5dc  bl         #0x3770f8    -> e
+  003ed5e0  ldr        w8, [x26, #0xbf0]
+  003ed5e4  mov        w9, #0x848    ; 0x848
+  003ed5e8  movk       w9, #0x940, lsl #16    ; 0x940
+  003ed5ec  mov        x1, x23
+  003ed5f0  str        w8, [x19, x9]
+  003ed5f4  ldr        x0, [x19, #0x20]
+  003ed5f8  mov        w2, w22
+  003ed5fc  ldr        x8, [x0, #0x10]
+  003ed600  blr        x8
+  003ed604  and        w8, w20, #0xff    ; 0xff
+  003ed608  cmp        w8, #1    ; 0x1
+  003ed60c  cbz        w0, #0x3ed6c4
+  003ed610  b.eq       #0x3ed590
+  003ed614  b          #0x3ed5a0
+  003ed618  adrp       x0, #0x23b000
+  003ed61c  adrp       x1, #0x220000
+  003ed620  adrp       x2, #0x21f000
+  003ed624  add        x0, x0, #0x6e5    ; 0x6e5
+  003ed628  add        x1, x1, #0xbed    ; 0xbed      ; STR='Err'
+  003ed62c  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed630  mov        w3, #0x2b8    ; 0x2b8
+  003ed634  mov        w4, #0xd    ; 0xd
+  003ed638  mov        w20, #0xd    ; 0xd
+  003ed63c  bl         #0x3770f8    -> e
+  003ed640  b          #0x3ed798
+  003ed644  and        w8, w20, #0xff    ; 0xff
+  003ed648  cmp        w8, #1    ; 0x1
+  003ed64c  b.ne       #0x3ed660
+  003ed650  mov        w0, #7    ; 0x7
+  003ed654  bl         #0x3f4eb8    -> r
+  003ed658  tst        w0, #0xff    ; 0xff
+  003ed65c  b.eq       #0x3ed794
+  003ed660  mov        w20, #8    ; 0x8
+  003ed664  b          #0x3ed798
+  003ed668  adrp       x1, #0x228000
+  003ed66c  add        x1, x1, #0xcda    ; 0xcda      ; STR='kirin990_es'
+  003ed670  add        x0, sp, #0x80    ; 0x80
+  003ed674  bl         #0x3ed940    -> Z
+  003ed678  tbnz       w0, #0, #0x3ecff4
+  003ed67c  adrp       x1, #0x236000
+  003ed680  add        x1, x1, #0xb93    ; 0xb93      ; STR='kirin990_cs'
+  003ed684  add        x0, sp, #0x80    ; 0x80
+  003ed688  bl         #0x3ed940    -> Z
+  003ed68c  mov        w26, wzr
+  003ed690  tbz        w0, #0, #0x3ed060
+  003ed694  b          #0x3ed040
+  003ed698  adrp       x0, #0x231000
+  003ed69c  adrp       x1, #0x220000
+  003ed6a0  adrp       x2, #0x21f000
+  003ed6a4  add        x0, x0, #0xf6e    ; 0xf6e      ; STR='%s:%s,line=%d:This pkg is not sign verified! ret-value 0x%x.\n'
+  003ed6a8  add        x1, x1, #0xbed    ; 0xbed      ; STR='Err'
+  003ed6ac  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed6b0  mov        w3, #0x2ba    ; 0x2ba
+  003ed6b4  mov        w4, #8    ; 0x8
+  003ed6b8  mov        w20, #8    ; 0x8
+  003ed6bc  bl         #0x3770f8    -> e
+  003ed6c0  b          #0x3ed798
+  003ed6c4  b.ne       #0x3ed6d8
+  003ed6c8  mov        w0, wzr
+  003ed6cc  bl         #0x3f4eb8    -> r
+  003ed6d0  tst        w0, #0xff    ; 0xff
+  003ed6d4  b.eq       #0x3ed794
+  003ed6d8  cmp        w21, #1    ; 0x1
+  003ed6dc  b.ne       #0x3ed774
+  003ed6e0  mov        w8, #0x834    ; 0x834
+  003ed6e4  movk       w8, #0x940, lsl #16    ; 0x940
+  003ed6e8  ldrb       w8, [x19, x8]
+  003ed6ec  cbnz       w8, #0x3ed774
+  003ed6f0  ldr        w8, [x25]
+  003ed6f4  cmp        w8, #2    ; 0x2
+  003ed6f8  b.eq       #0x3ed774
+  003ed6fc  adrp       x0, #0x21f000
+  003ed700  add        x0, x0, #0x13f    ; 0x13f      ; STR='--update_protect'
+  003ed704  bl         #0x3ec1d8    -> Z
+  003ed708  mov        w0, #1    ; 0x1
+  003ed70c  bl         #0x3fd0a4    -> e
+  003ed710  mov        w0, wzr
+  003ed714  bl         #0x3fc4a8    -> e
+  003ed718  bl         #0x3fa0f8    -> e
+  003ed71c  cmp        w0, #1    ; 0x1
+  003ed720  b.ne       #0x3ed774
+  003ed724  bl         #0x4166f8    -> i
+  003ed728  adrp       x20, #0x20c000
+  003ed72c  adrp       x21, #0x21f000
+  003ed730  mov        w4, w0
+  003ed734  adrp       x0, #0x213000
+  003ed738  add        x20, x20, #0x42f    ; 0x42f      ; STR='Info'
+  003ed73c  add        x21, x21, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed740  add        x0, x0, #0xa9a    ; 0xa9a      ; STR='%s:%s,line=%d:wipe_patch_partition:ret=%d\n'
+  003ed744  mov        w3, #0x31c    ; 0x31c
+  003ed748  mov        x1, x20
+  003ed74c  mov        x2, x21
+  003ed750  bl         #0x3770f8    -> e
+  003ed754  bl         #0x416d0c    -> i
+  003ed758  mov        w4, w0
+  003ed75c  adrp       x0, #0x20a000
+  003ed760  add        x0, x0, #0xb1d    ; 0xb1d      ; STR='%s:%s,line=%d:wipe_nv_patch_partition:ret=%d\n'
+  003ed764  mov        w3, #0x31e    ; 0x31e
+  003ed768  mov        x1, x20
+  003ed76c  mov        x2, x21
+  003ed770  bl         #0x3770f8    -> e
+  003ed774  mov        w8, #0x1914    ; 0x1914
+  003ed778  movk       w8, #0x940, lsl #16    ; 0x940
+  003ed77c  mov        w9, #1    ; 0x1
+  003ed780  strb       w9, [x19, x8]
+  003ed784  ldr        w8, [x19, #0x10]
+  003ed788  mov        w20, wzr
+  003ed78c  str        w8, [x19, #0x14]
+  003ed790  b          #0x3ed798
+  003ed794  mov        w20, #2    ; 0x2
+  003ed798  ldr        x8, [x28, #0x28]
+  003ed79c  ldur       x9, [x29, #-0x60]
+  003ed7a0  cmp        x8, x9
+  003ed7a4  b.ne       #0x3ed93c
+  003ed7a8  mov        w0, w20
+  003ed7ac  ldp        x29, x30, [sp, #0x140]
+  003ed7b0  ldp        x20, x19, [sp, #0x130]
+  003ed7b4  ldp        x22, x21, [sp, #0x120]
+  003ed7b8  ldp        x24, x23, [sp, #0x110]
+  003ed7bc  ldp        x26, x25, [sp, #0x100]
+  003ed7c0  ldp        x28, x27, [sp, #0xf0]
+  003ed7c4  add        sp, sp, #0x150    ; 0x150
+  003ed7c8  ret        
+  003ed7cc  ldr        x4, [x8, #8]
+  003ed7d0  adrp       x3, #0x20a000
+  003ed7d4  add        x3, x3, #0xb14    ; 0xb14      ; STR='name:%s\n'
+  003ed7d8  mov        x0, sp
+  003ed7dc  mov        w1, #0x80    ; 0x80
+  003ed7e0  mov        w2, #0x7f    ; 0x7f
+  003ed7e4  bl         #0x45a584    -> n
+  003ed7e8  cmn        w0, #1
+  003ed7ec  b.ne       #0x3ed810
+  003ed7f0  adrp       x0, #0x21e000
+  003ed7f4  adrp       x1, #0x241000
+  003ed7f8  adrp       x2, #0x21f000
+  003ed7fc  add        x0, x0, #0xb5e    ; 0xb5e      ; STR='%s:%s,line=%d:snprintf_s fail\n'
+  003ed800  add        x1, x1, #0xe14    ; 0xe14      ; STR='Warn'
+  003ed804  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed808  mov        w3, #0x2ed    ; 0x2ed
+  003ed80c  bl         #0x3770f8    -> e
+  003ed810  adrp       x0, #0x20c000
+  003ed814  adrp       x1, #0x20c000
+  003ed818  adrp       x2, #0x21f000
+  003ed81c  add        x0, x0, #0xe6b    ; 0xe6b      ; STR='%s:%s,line=%d:%s\n'
+  003ed820  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed824  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed828  mov        x4, sp
+  003ed82c  mov        w3, #0x2ef    ; 0x2ef
+  003ed830  bl         #0x3770f8    -> e
+  003ed834  ldr        w4, [x24, #0xbec]
+  003ed838  adrp       x3, #0x239000
+  003ed83c  add        x3, x3, #0xe7    ; 0xe7      ; STR='image id:0x%.8X\n'
+  003ed840  mov        x0, sp
+  003ed844  mov        w1, #0x80    ; 0x80
+  003ed848  mov        w2, #0x7f    ; 0x7f
+  003ed84c  bl         #0x45a584    -> n
+  003ed850  cmn        w0, #1
+  003ed854  b.ne       #0x3ed878
+  003ed858  adrp       x0, #0x21e000
+  003ed85c  adrp       x1, #0x241000
+  003ed860  adrp       x2, #0x21f000
+  003ed864  add        x0, x0, #0xb5e    ; 0xb5e      ; STR='%s:%s,line=%d:snprintf_s fail\n'
+  003ed868  add        x1, x1, #0xe14    ; 0xe14      ; STR='Warn'
+  003ed86c  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed870  mov        w3, #0x2f2    ; 0x2f2
+  003ed874  bl         #0x3770f8    -> e
+  003ed878  adrp       x0, #0x20c000
+  003ed87c  adrp       x1, #0x20c000
+  003ed880  adrp       x2, #0x21f000
+  003ed884  add        x0, x0, #0xe6b    ; 0xe6b      ; STR='%s:%s,line=%d:%s\n'
+  003ed888  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed88c  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed890  mov        x4, sp
+  003ed894  mov        w3, #0x2f4    ; 0x2f4
+  003ed898  bl         #0x3770f8    -> e
+  003ed89c  ldr        x8, [x19, #0x20]
+  003ed8a0  ldr        w4, [x25, #4]
+  003ed8a4  adrp       x3, #0x223000
+  003ed8a8  add        x3, x3, #0xd0f    ; 0xd0f      ; STR='dely error,calc:0x%0.8X,curr ptr need:0x%0.8llu.'
+  003ed8ac  ldr        x5, [x8, #0x68]
+  003ed8b0  mov        x0, sp
+  003ed8b4  mov        w1, #0x80    ; 0x80
+  003ed8b8  mov        w2, #0x7f    ; 0x7f
+  003ed8bc  bl         #0x45a584    -> n
+  003ed8c0  cmn        w0, #1
+  003ed8c4  b.ne       #0x3ed8e8
+  003ed8c8  adrp       x0, #0x247000
+  003ed8cc  adrp       x1, #0x220000
+  003ed8d0  adrp       x2, #0x21f000
+  003ed8d4  add        x0, x0, #0xa00    ; 0xa00      ; STR='%s:%s,line=%d:snprintf_s failed.\n'
+  003ed8d8  add        x1, x1, #0xbed    ; 0xbed      ; STR='Err'
+  003ed8dc  add        x2, x2, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed8e0  mov        w3, #0x2f9    ; 0x2f9
+  003ed8e4  bl         #0x3770f8    -> e
+  003ed8e8  adrp       x19, #0x21f000
+  003ed8ec  adrp       x0, #0x20c000
+  003ed8f0  adrp       x1, #0x20c000
+  003ed8f4  add        x19, x19, #0x2b3    ; 0x2b3      ; STR='cmd_unit_write_begin_func'
+  003ed8f8  add        x0, x0, #0xe6b    ; 0xe6b      ; STR='%s:%s,line=%d:%s\n'
+  003ed8fc  add        x1, x1, #0x42f    ; 0x42f      ; STR='Info'
+  003ed900  mov        x4, sp
+  003ed904  mov        w3, #0x2fa    ; 0x2fa
+  003ed908  mov        x2, x19
+  003ed90c  bl         #0x3770f8    -> e
+  003ed910  adrp       x0, #0x247000
+  003ed914  adrp       x1, #0x220000
+  003ed918  add        x0, x0, #0xa22    ; 0xa22      ; STR='%s:%s,line=%d:version checked failure,please check your software versi'
+  003ed91c  add        x1, x1, #0xbed    ; 0xbed      ; STR='Err'
+  003ed920  mov        w3, #0x2fb    ; 0x2fb
+  003ed924  mov        x2, x19
+  003ed928  bl         #0x3770f8    -> e
+  003ed92c  mov        w20, #0xc    ; 0xc
+  003ed930  b          #0x3ed798
+  003ed934  mov        w25, wzr
+  003ed938  b          #0x3ecf6c
+  003ed93c  bl         #0x4e824c    -> _

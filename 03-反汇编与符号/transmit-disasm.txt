@@ -1,0 +1,181 @@
+
+============================================================
+### transmit_packet @0x3f4cd4 (184 字节)
+============================================================
+  003f4cd4  str        x19, [sp, #-0x20]!
+  003f4cd8  stp        x29, x30, [sp, #0x10]
+  003f4cdc  add        x29, sp, #0x10
+  003f4ce0  mov        x19, x0
+  003f4ce4  mov        w0, #0x7e    ; 0x7e
+  003f4ce8  bl         #0x3f4d8c    -> transmit_byte
+  003f4cec  tst        w0, #0xff    ; 0xff
+  003f4cf0  b.eq       #0x3f4d1c
+  003f4cf4  add        x19, x19, #3
+  003f4cf8  ldrb       w0, [x19]
+  003f4cfc  bl         #0x3f4d8c    -> transmit_byte
+  003f4d00  tst        w0, #0xff    ; 0xff
+  003f4d04  b.eq       #0x3f4d4c
+  003f4d08  ldrb       w8, [x19], #1
+  003f4d0c  cmp        w8, #0x7e    ; 0x7e
+  003f4d10  b.ne       #0x3f4cf8
+  003f4d14  mov        w0, #1    ; 0x1
+  003f4d18  b          #0x3f4d80
+  003f4d1c  bl         #0x4cca58    -> __errno
+  003f4d20  ldr        w0, [x0]
+  003f4d24  bl         #0x4d1b30    -> strerror
+  003f4d28  mov        x4, x0
+  003f4d2c  adrp       x0, #0x223000
+  003f4d30  adrp       x1, #0x220000
+  003f4d34  adrp       x2, #0x22b000
+  003f4d38  add        x0, x0, #0xe6d
+  003f4d3c  add        x1, x1, #0xbed
+  003f4d40  add        x2, x2, #0x16a
+  003f4d44  mov        w3, #0x1e9    ; 0x1e9
+  003f4d48  b          #0x3f4d78
+  003f4d4c  bl         #0x4cca58    -> __errno
+  003f4d50  ldr        w0, [x0]
+  003f4d54  bl         #0x4d1b30    -> strerror
+  003f4d58  mov        x4, x0
+  003f4d5c  adrp       x0, #0x223000
+  003f4d60  adrp       x1, #0x220000
+  003f4d64  adrp       x2, #0x22b000
+  003f4d68  add        x0, x0, #0xe6d
+  003f4d6c  add        x1, x1, #0xbed
+  003f4d70  add        x2, x2, #0x16a
+  003f4d74  mov        w3, #0x1ef    ; 0x1ef
+  003f4d78  bl         #0x3770f8    -> recovery_print
+  003f4d7c  mov        w0, wzr
+  003f4d80  ldp        x29, x30, [sp, #0x10]
+  003f4d84  ldr        x19, [sp], #0x20
+  003f4d88  ret        
+
+============================================================
+### transmit_byte @0x3f4d8c (300 字节)
+============================================================
+  003f4d8c  stp        x28, x27, [sp, #-0x60]!
+  003f4d90  stp        x26, x25, [sp, #0x10]
+  003f4d94  stp        x24, x23, [sp, #0x20]
+  003f4d98  stp        x22, x21, [sp, #0x30]
+  003f4d9c  stp        x20, x19, [sp, #0x40]
+  003f4da0  stp        x29, x30, [sp, #0x50]
+  003f4da4  add        x29, sp, #0x50
+  003f4da8  adrp       x24, #0x96c000
+  003f4dac  ldr        w8, [x24, #0xc80]
+  003f4db0  adrp       x25, #0x96c000
+  003f4db4  and        w9, w0, #0xff    ; 0xff
+  003f4db8  add        x25, x25, #0xc84
+  003f4dbc  cmp        w9, #0x7e    ; 0x7e
+  003f4dc0  add        w26, w8, #1
+  003f4dc4  strb       w0, [x25, x8]
+  003f4dc8  mov        w0, #1    ; 0x1
+  003f4dcc  str        w26, [x24, #0xc80]
+  003f4dd0  b.ne       #0x3f4e94
+  003f4dd4  cbz        w8, #0x3f4e94
+  003f4dd8  cbz        w26, #0x3f4e8c
+  003f4ddc  adrp       x19, #0x218000
+  003f4de0  adrp       x20, #0x241000
+  003f4de4  adrp       x21, #0x203000
+  003f4de8  adrp       x27, #0x96c000
+  003f4dec  add        x19, x19, #0x91d
+  003f4df0  add        x20, x20, #0xe14
+  003f4df4  add        x21, x21, #0xd31
+  003f4df8  mov        w28, #-1    ; 0xffffffff
+  003f4dfc  mov        w8, w26
+  003f4e00  ldr        w0, [x27, #0xc7c]
+  003f4e04  sub        w9, w26, w8
+  003f4e08  add        x1, x25, x9
+  003f4e0c  mov        w2, w8
+  003f4e10  bl         #0x4e8cc0    -> write
+  003f4e14  mov        x22, x0
+  003f4e18  tbnz       w22, #0x1f, #0x3f4e30
+  003f4e1c  ldr        w8, [x24, #0xc80]
+  003f4e20  subs       w8, w8, w22
+  003f4e24  str        w8, [x24, #0xc80]
+  003f4e28  b.ne       #0x3f4e00
+  003f4e2c  b          #0x3f4e8c
+  003f4e30  bl         #0x4cca58    -> __errno
+  003f4e34  mov        x23, x0
+  003f4e38  ldr        w0, [x0]
+  003f4e3c  bl         #0x4d1b30    -> strerror
+  003f4e40  mov        x5, x0
+  003f4e44  mov        w3, #0x1bb    ; 0x1bb
+  003f4e48  mov        x0, x19
+  003f4e4c  mov        x1, x20
+  003f4e50  mov        x2, x21
+  003f4e54  mov        w4, w22
+  003f4e58  bl         #0x3770f8    -> recovery_print
+  003f4e5c  ldr        w8, [x23]
+  003f4e60  cmp        w8, #4    ; 0x4
+  003f4e64  b.eq       #0x3f4e84
+  003f4e68  ldr        w0, [x27, #0xc7c]
+  003f4e6c  bl         #0x4ce264    -> close
+  003f4e70  str        w28, [x27, #0xc7c]
+  003f4e74  bl         #0x3f4a28    -> reopen_usb_port
+  003f4e78  and        w8, w0, #0xff    ; 0xff
+  003f4e7c  cmp        w8, #1    ; 0x1
+  003f4e80  b.ne       #0x3f4eb0
+  003f4e84  ldr        w8, [x24, #0xc80]
+  003f4e88  cbnz       w8, #0x3f4e00
+  003f4e8c  mov        w0, #1    ; 0x1
+  003f4e90  str        wzr, [x24, #0xc80]
+  003f4e94  ldp        x29, x30, [sp, #0x50]
+  003f4e98  ldp        x20, x19, [sp, #0x40]
+  003f4e9c  ldp        x22, x21, [sp, #0x30]
+  003f4ea0  ldp        x24, x23, [sp, #0x20]
+  003f4ea4  ldp        x26, x25, [sp, #0x10]
+  003f4ea8  ldp        x28, x27, [sp], #0x60
+  003f4eac  ret        
+  003f4eb0  mov        w0, wzr
+  003f4eb4  b          #0x3f4e94
+
+============================================================
+### transmit_response @0x3f4eb8 (192 字节)
+============================================================
+  003f4eb8  str        x19, [sp, #-0x20]!
+  003f4ebc  stp        x29, x30, [sp, #0x10]
+  003f4ec0  add        x29, sp, #0x10
+  003f4ec4  mov        w19, w0
+  003f4ec8  mov        w0, #0x7e    ; 0x7e
+  003f4ecc  bl         #0x3f4d8c    -> transmit_byte
+  003f4ed0  tst        w0, #0xff    ; 0xff
+  003f4ed4  b.eq       #0x3f4f08
+  003f4ed8  adrp       x8, #0x535000
+  003f4edc  add        x8, x8, #0x458
+  003f4ee0  ldr        x19, [x8, w19, uxtw #3]
+  003f4ee4  ldrb       w0, [x19]
+  003f4ee8  bl         #0x3f4d8c    -> transmit_byte
+  003f4eec  tst        w0, #0xff    ; 0xff
+  003f4ef0  b.eq       #0x3f4f38
+  003f4ef4  ldrb       w8, [x19], #1
+  003f4ef8  cmp        w8, #0x7e    ; 0x7e
+  003f4efc  b.ne       #0x3f4ee4
+  003f4f00  mov        w0, #1    ; 0x1
+  003f4f04  b          #0x3f4f6c
+  003f4f08  bl         #0x4cca58    -> __errno
+  003f4f0c  ldr        w0, [x0]
+  003f4f10  bl         #0x4d1b30    -> strerror
+  003f4f14  mov        x4, x0
+  003f4f18  adrp       x0, #0x223000
+  003f4f1c  adrp       x1, #0x220000
+  003f4f20  adrp       x2, #0x22f000
+  003f4f24  add        x0, x0, #0xe6d
+  003f4f28  add        x1, x1, #0xbed
+  003f4f2c  add        x2, x2, #0xf4a
+  003f4f30  mov        w3, #0x213    ; 0x213
+  003f4f34  b          #0x3f4f64
+  003f4f38  bl         #0x4cca58    -> __errno
+  003f4f3c  ldr        w0, [x0]
+  003f4f40  bl         #0x4d1b30    -> strerror
+  003f4f44  mov        x4, x0
+  003f4f48  adrp       x0, #0x223000
+  003f4f4c  adrp       x1, #0x220000
+  003f4f50  adrp       x2, #0x22f000
+  003f4f54  add        x0, x0, #0xe6d
+  003f4f58  add        x1, x1, #0xbed
+  003f4f5c  add        x2, x2, #0xf4a
+  003f4f60  mov        w3, #0x219    ; 0x219
+  003f4f64  bl         #0x3770f8    -> recovery_print
+  003f4f68  mov        w0, wzr
+  003f4f6c  ldp        x29, x30, [sp, #0x10]
+  003f4f70  ldr        x19, [sp], #0x20
+  003f4f74  ret        

@@ -1,0 +1,518 @@
+########## 1) 含 pkg_process / process 表的符号 ##########
+  0x0031a050  size=12     __atexit_handler_wrapper
+  0x00335d08  size=928    _ZL16parse_ecc_headerP10fec_handlem
+  0x003360a8  size=376    _ZL13get_ext4_sizeP10fec_handlePm
+  0x00336220  size=452    _ZL17get_squashfs_sizeP10fec_handlePm
+  0x003365e8  size=248    _Z9raw_preadP10fec_handlePvmm
+  0x003366e0  size=248    _Z10raw_pwriteP10fec_handlePKvmm
+  0x003367d8  size=1516   _ZL11verity_readP10fec_handlePhmmPm
+  0x00336dc4  size=664    _ZL8ecc_readP10fec_handlePhmmPm
+  0x0033705c  size=284    _ZL8ecc_initP10fec_handleRNSt3__110unique_ptrIvPFvPvEEERNS2_IA_hNS1_14default_deleteIS8_EEEE
+  0x00337178  size=1896   _ZL10__ecc_readP10fec_handlePvPhmbS2_Pm
+  0x00337b98  size=448    _Z18verity_check_blockP10fec_handlePKhS2_
+  0x00337d58  size=1200   _Z19verity_parse_headerP10fec_handlem
+  0x00338208  size=360    _ZL15validate_headerPK10fec_handlePK13verity_headerm
+  0x00338370  size=2464   _ZL11parse_tableP10fec_handlemjb
+  0x00339048  size=1912   _ZL11verify_treeP10fec_handlePKh
+  0x003397c0  size=1088   _Z7processP10fec_handlePhmmPFlS0_S1_mmPmE
+  0x003bb2f0  size=492    selinux_android_file_context_handle
+  0x003bb7f8  size=12     selinux_android_set_sehandle
+  0x003fc20c  size=76     get_partition_process_table
+  0x003fc6c4  size=120    get_platform_special_partition_process_table
+  0x004072e8  size=88     get_special_partition_process_table
+  0x0046c1bc  size=304    option_handle_function
+  0x00492710  size=116    handle_exit
+  0x00495a58  size=16     _ZSt15get_new_handlerv
+  0x00496f7c  size=288    _ZL28demangling_terminate_handlerv
+  0x0049709c  size=28     _ZL29demangling_unexpected_handlerv
+  0x004cae0c  size=28     __ubsan_handle_add_overflow_minimal_abort
+  0x004cae28  size=28     __ubsan_handle_sub_overflow_minimal_abort
+  0x004cae44  size=28     __ubsan_handle_mul_overflow_minimal_abort
+  0x004cae60  size=28     __ubsan_handle_divrem_overflow_minimal_abort
+  0x004cae7c  size=28     __ubsan_handle_shift_out_of_bounds_minimal_abort
+  0x004cae98  size=28     __ubsan_handle_implicit_conversion_minimal_abort
+  0x004d0490  size=20     _ZL23arc4random_fork_handlerv
+  0x004f8f2c  size=56     _ZL25HandleUsingDestroyedMutexP15pthread_mutex_tPKc
+  0x00529330  size=12784  data_partition_process_table
+  0x00532c48  size=8      __cxa_terminate_handler
+  0x00532c50  size=8      __cxa_unexpected_handler
+
+########## 2) 0x535000-0x535900 区域（找函数指针表）##########
+  文件偏移 0x335000
+    +0x000  0x00000000003c7a88  (有效地址)  <-- _ZN6bsdiff15BZ2Decompressor4ReadEPhm
+    +0x008  0x00000000003c7c34  (有效地址)  <-- _ZN6bsdiff15BZ2Decompressor5CloseEv
+    +0x010  0
+    +0x018  0
+    +0x020  0x00000000003c7d1c  (有效地址)  <-- _ZN6bsdiff18BrotliDecompressorD2Ev
+    +0x028  0x00000000003c7d40  (有效地址)  <-- _ZN6bsdiff18BrotliDecompressorD0Ev
+    +0x030  0x00000000003c7d7c  (有效地址)  <-- _ZN6bsdiff18BrotliDecompressor12SetInputDataEPKhm
+    +0x038  0x00000000003c7e38  (有效地址)  <-- _ZN6bsdiff18BrotliDecompressor4ReadEPhm
+    +0x040  0x00000000003c8000  (有效地址)  <-- _ZN6bsdiff18BrotliDecompressor5CloseEv
+    +0x048  0
+    +0x050  0
+    +0x058  0x00000000003c81d0  (有效地址)  <-- _ZN6bsdiff8SinkFileD2Ev
+    +0x060  0x00000000003c8214  (有效地址)  <-- _ZN6bsdiff8SinkFileD0Ev
+    +0x068  0x00000000003c6d88  (有效地址)  <-- _ZNKSt3__17codecvtIwc9mbstate_tE16do_always_noconvEv
+    +0x070  0x00000000003c8160  (有效地址)  <-- _ZN6bsdiff8SinkFile5WriteEPKvmPm
+    +0x078  0x00000000003c6d88  (有效地址)  <-- _ZNKSt3__17codecvtIwc9mbstate_tE16do_always_noconvEv
+    +0x080  0x00000000003c6db4  (有效地址)  <-- _ZNKSt3__17codecvtIcc9mbstate_tE16do_always_noconvEv
+    +0x088  0x00000000003c6d88  (有效地址)  <-- _ZNKSt3__17codecvtIwc9mbstate_tE16do_always_noconvEv
+    +0x090  0x000000000021eeab  (有效地址)
+    +0x098  0x000000000023fcd3  (有效地址)
+    +0x0a0  0x000000000023b2af  (有效地址)
+    +0x0a8  0x000000000022142b  (有效地址)
+    +0x0b0  0x00000000002184fa  (有效地址)
+    +0x0b8  0x0000000000215f3b  (有效地址)
+    +0x0c0  0x0000000000201122  (有效地址)
+    +0x0c8  0x0000000000249a61  (有效地址)
+    +0x0d0  0x0000000000213569  (有效地址)
+    +0x0d8  0x0000000000223912  (有效地址)
+    +0x0e0  0x0000000000233eac  (有效地址)
+    +0x0e8  0x0000000000231b34  (有效地址)
+    +0x0f0  0x000000000020581e  (有效地址)
+    +0x0f8  0x000000000023fcd9  (有效地址)
+    +0x100  0x000000000023d840  (有效地址)
+    +0x108  0x0000000000203661  (有效地址)
+    +0x110  0x0000000000215f42  (有效地址)
+    +0x118  0x000000000021eeb0  (有效地址)
+    +0x120  0x0000000000223915  (有效地址)
+    +0x128  0x0000000000247647  (有效地址)
+    +0x130  0x000000000022142f  (有效地址)
+    +0x138  0x000000000022d4ae  (有效地址)
+    +0x140  0x0000000000231b39  (有效地址)
+    +0x148  0x00000000002112b3  (有效地址)
+    +0x150  0x000000000021eeb4  (有效地址)
+    +0x158  0
+    +0x160  0x000000000023d90e  (有效地址)
+    +0x168  0x000000000020a722  (有效地址)
+    +0x170  0x00000000002185c2  (有效地址)
+    +0x178  0x0000000000228a11  (有效地址)
+    +0x180  0x000000000022d614  (有效地址)
+    +0x188  0x0000000000231bdb  (有效地址)
+    +0x190  0x0000000000228a26  (有效地址)
+    +0x198  0x000000000020393d  (有效地址)
+    +0x1a0  0x00000000002262da  (有效地址)
+    +0x1a8  0x00000000003ded18  (有效地址)  <-- _ZL19InitVerFifthPkgInfoPN12_GLOBAL__N_120CompressSdUpdateParaE
+    +0x1b0  0x000000000022fc5a  (有效地址)
+    +0x1b8  0x00000000003ded8c  (有效地址)  <-- _ZL20GetAndSetFactoryModePN12_GLOBAL__N_120CompressSdUpdateParaE
+    +0x1c0  0x00000000002136e6  (有效地址)
+    +0x1c8  0x00000000003dee10  (有效地址)  <-- _ZL12ExePreAppPkgPN12_GLOBAL__N_120CompressSdUpdateParaE
+    +0x1d0  0x0000000000236917  (有效地址)
+    +0x1d8  0x00000000003defa0  (有效地址)  <-- _ZL17ProcessAppFromZipPN12_GLOBAL__N_120CompressSdUpdateParaE
+    +0x1e0  0x0000000000213709  (有效地址)
+    +0x1e8  0x00000000003df0f8  (有效地址)  <-- _ZL12WriteVersionPN12_GLOBAL__N_120CompressSdUpdateParaE
+    +0x1f0  0x000000000022adf6  (有效地址)
+    +0x1f8  0x00000000003df19c  (有效地址)  <-- _ZL15FormateUserDataPN12_GLOBAL__N_120CompressSdUpdateParaE
+    +0x200  0x000000000021ef9e  (有效地址)
+    +0x208  0x00000000003df20c  (有效地址)  <-- _ZL15ClearLockStatusPN12_GLOBAL__N_120CompressSdUpdateParaE
+    +0x210  0x000000000022d688  (有效地址)
+    +0x218  0x00000000003df2ac  (有效地址)  <-- _ZL19InternalUpdateCheckPN12_GLOBAL__N_120CompressSdUpdateParaE
+    +0x220  0x000000000021cf39  (有效地址)
+    +0x228  0x00000000002362a1  (有效地址)
+    +0x230  0x0000000000403ec0  (有效地址)  <-- user_sd_update_prefunc
+    +0x238  0x00000000003ebaa8  (有效地址)  <-- update_sd_update
+    +0x240  0x00000000003e35bc  (有效地址)  <-- _Z23default_update_postfuncP5parag
+    +0x248  0
+    +0x250  0x0000000000242743  (有效地址)
+    +0x258  0x0000000000403ec0  (有效地址)  <-- user_sd_update_prefunc
+    +0x260  0x00000000003ebaa8  (有效地址)  <-- update_sd_update
+    +0x268  0x00000000003e35bc  (有效地址)  <-- _Z23default_update_postfuncP5parag
+    +0x270  0
+    +0x278  0x0000000000203a5c  (有效地址)
+    +0x280  0x0000000000403e04  (有效地址)  <-- factory_sd_update_prefunc
+    +0x288  0x00000000003ebaa8  (有效地址)  <-- update_sd_update
+    +0x290  0x00000000003e35bc  (有效地址)  <-- _Z23default_update_postfuncP5parag
+    +0x298  0
+    +0x2a0  0x0000000000242752  (有效地址)
+    +0x2a8  0x00000000003e3518  (有效地址)  <-- _Z22default_update_prefuncP5parag
+    +0x2b0  0x00000000003ebaa8  (有效地址)  <-- update_sd_update
+    +0x2b8  0x00000000003e35bc  (有效地址)  <-- _Z23default_update_postfuncP5parag
+    +0x2c0  0
+    +0x2c8  0x000000000022d7e0  (有效地址)
+    +0x2d0  0x00000000003ee774  (有效地址)  <-- usb_update_prefunc
+    +0x2d8  0x00000000003ee8ec  (有效地址)  <-- usb_update_func
+    +0x2e0  0x00000000003ee9a0  (有效地址)  <-- usb_update_postfunc
+    +0x2e8  0x0000000000000001
+    +0x2f0  0x0000000000247290  (有效地址)
+    +0x2f8  0x00000000003e3518  (有效地址)  <-- _Z22default_update_prefuncP5parag
+    +0x300  0x00000000003ebaa8  (有效地址)  <-- update_sd_update
+    +0x308  0x00000000003e35bc  (有效地址)  <-- _Z23default_update_postfuncP5parag
+    +0x310  0
+    +0x318  0x0000000000210f38  (有效地址)
+    +0x320  0x00000000003e3518  (有效地址)  <-- _Z22default_update_prefuncP5parag
+    +0x328  0x00000000003ebaa8  (有效地址)  <-- update_sd_update
+    +0x330  0x00000000003e35bc  (有效地址)  <-- _Z23default_update_postfuncP5parag
+    +0x338  0
+    +0x340  0x000000000022f77a  (有效地址)
+    +0x348  0x00000000003ebae4  (有效地址)  <-- update_datapkg_prefunc
+    +0x350  0x00000000003ebe90  (有效地址)  <-- update_datapkg_func
+    +0x358  0x00000000003ebe94  (有效地址)  <-- update_datapkg_postfunc
+    +0x360  0x0000000000000003
+    +0x368  0x000000000021ea19  (有效地址)
+    +0x370  0x00000000003ee774  (有效地址)  <-- usb_update_prefunc
+    +0x378  0x00000000003ee8ec  (有效地址)  <-- usb_update_func
+    +0x380  0x00000000003ee9a0  (有效地址)  <-- usb_update_postfunc
+    +0x388  0x0000000000000001
+    +0x390  0x0000000000223464  (有效地址)
+    +0x398  0x00000000003ee770  (有效地址)  <-- hisuite_update_prefunc
+    +0x3a0  0x00000000003ee8ec  (有效地址)  <-- usb_update_func
+    +0x3a8  0x00000000003ee9a0  (有效地址)  <-- usb_update_postfunc
+    +0x3b0  0x0000000000000001
+    +0x3b8  0x0000000000240155  (有效地址)
+    +0x3c0  0x0000000000211059  (有效地址)
+    +0x3c8  0x000000000022b05d  (有效地址)
+    +0x3d0  0x000000000022d97a  (有效地址)
+    +0x3d8  0x000000000021aca7  (有效地址)
+    +0x3e0  0x0000000000205d93  (有效地址)
+    +0x3e8  0x000000000024a061  (有效地址)
+    +0x3f0  0x000000000023dc63  (有效地址)
+    +0x3f8  0x0000000000240160  (有效地址)
+    +0x400  0x0000000000205da1  (有效地址)
+    +0x408  0x000000000022b068  (有效地址)
+    +0x410  0x000000000022673f  (有效地址)
+    +0x418  0x000000000021d22d  (有效地址)
+    +0x420  0x0000000000238af9  (有效地址)
+    +0x428  0x0000000000226748  (有效地址)
+    +0x430  0x000000000020c923  (有效地址)
+    +0x438  0x0000000000205dab  (有效地址)
+    +0x440  0x00000000002342ff  (有效地址)
+    +0x448  0x000000000024016d  (有效地址)
+    +0x450  0x0000000000205db3  (有效地址)
+    +0x458  0x0000000000272ec0  (有效地址)
+    +0x460  0x0000000000272ec4  (有效地址)
+    +0x468  0x0000000000272eca  (有效地址)
+    +0x470  0x0000000000272ed0  (有效地址)
+    +0x478  0x0000000000272ed6  (有效地址)
+    +0x480  0x0000000000272edc  (有效地址)
+    +0x488  0x0000000000272ee3  (有效地址)
+    +0x490  0x0000000000272ee9  (有效地址)
+    +0x498  0x0000000000272eef  (有效地址)
+    +0x4a0  0x0000000000272ef5  (有效地址)
+    +0x4a8  0x0000000000272efb  (有效地址)
+    +0x4b0  0x0000000000272f01  (有效地址)
+    +0x4b8  0x0000000000272f07  (有效地址)
+    +0x4c0  0x0000000000272f0d  (有效地址)
+    +0x4c8  0x0000000000272f13  (有效地址)
+    +0x4d0  0x0000000000272f58  (有效地址)
+    +0x4d8  0x00000000003f89a4  (有效地址)  <-- _Z33base_verlist_write_pre_write_funcP21_partition_func_tablePhj
+    +0x4e0  0x0000000000272f19  (有效地址)
+    +0x4e8  0x00000000003f89c0  (有效地址)  <-- _Z33cust_verlist_write_pre_write_funcP21_partition_func_tablePhj
+    +0x4f0  0x0000000000272f26  (有效地址)
+    +0x4f8  0x00000000003f89dc  (有效地址)  <-- _Z36preload_verlist_write_pre_write_funcP21_partition_func_tablePhj
+    +0x500  0x0000000000272fa9  (有效地址)
+    +0x508  0x0000000000272fcc  (有效地址)
+    +0x510  0x0000000000272fba  (有效地址)
+    +0x518  0x0000000000272fdc  (有效地址)
+    +0x520  0x0000000000272f92  (有效地址)
+    +0x528  0x0000000000272f89  (有效地址)
+    +0x530  0x0000000000272ff8  (有效地址)
+    +0x538  0x0000000000272f89  (有效地址)
+    +0x540  0x000000000021f567  (有效地址)
+    +0x548  0x0000000000238983  (有效地址)
+    +0x550  0x000000000022ada2  (有效地址)
+    +0x558  0x0000000000209fde  (有效地址)
+    +0x560  0x00000000002017c5  (有效地址)
+    +0x568  0x0000000000223539  (有效地址)
+    +0x570  0x0000000000205fa0  (有效地址)
+    +0x578  0x0000000000201804  (有效地址)
+    +0x580  0x0000000000213512  (有效地址)
+    +0x588  0x000000000021e7c5  (有效地址)
+    +0x590  0x000000000024039f  (有效地址)
+    +0x598  0x000000000023019a  (有效地址)
+    +0x5a0  0x000000000023dec5  (有效地址)
+    +0x5a8  0x00000000002301a6  (有效地址)
+    +0x5b0  0x0000000000221b6f  (有效地址)
+    +0x5b8  0x000000000022aa03  (有效地址)
+    +0x5c0  0x000000000020d181  (有效地址)
+    +0x5c8  0x000000000020a25f  (有效地址)
+    +0x5d0  0x000000000022673f  (有效地址)
+    +0x5d8  0x0000000000247cc7  (有效地址)
+    +0x5e0  0x000000000024a282  (有效地址)
+    +0x5e8  0x000000000021f567  (有效地址)
+    +0x5f0  0x00000000002017c5  (有效地址)
+    +0x5f8  0x0000000000272f58  (有效地址)
+    +0x600  0x0000000000272f65  (有效地址)
+    +0x608  0x0000000000272f4b  (有效地址)
+    +0x610  0x0000000000273034  (有效地址)
+    +0x618  0x0000000000272fdc  (有效地址)
+    +0x620  0x0000000000272fcc  (有效地址)
+    +0x628  0x0000000000272fed  (有效地址)
+    +0x630  0x0000000000211059  (有效地址)
+    +0x638  0x0000000000272f89  (有效地址)
+    +0x640  0x0000000000272f19  (有效地址)
+    +0x648  0x0000000000272f36  (有效地址)
+    +0x650  0x0000000000272f4b  (有效地址)
+    +0x658  0
+    +0x660  0
+    +0x668  0
+    +0x670  0
+    +0x678  0
+    +0x680  0
+    +0x688  0x0000000000272f26  (有效地址)
+    +0x690  0x0000000000272f3f  (有效地址)
+    +0x698  0x0000000000272f4b  (有效地址)
+    +0x6a0  0
+    +0x6a8  0
+    +0x6b0  0
+    +0x6b8  0
+    +0x6c0  0
+    +0x6c8  0
+    +0x6d0  0x00000000005355f8  (有效地址)
+    +0x6d8  0x0000000000535640  (有效地址)
+    +0x6e0  0x0000000000535688  (有效地址)
+    +0x6e8  0x000000000021aefe  (有效地址)
+    +0x6f0  0x0000000000242308  (有效地址)
+    +0x6f8  0
+    +0x700  0x0000000000407f24  (有效地址)  <-- _ZL28update_from_zip_module_beginPhxPv
+    +0x708  0x00000000004080cc  (有效地址)  <-- _ZL34update_from_zip_module_processdataPhxPv
+    +0x710  0x00000000004082ac  (有效地址)  <-- _ZL27update_from_zip_module_postPhxPv
+    +0x718  0x00000000004083a0  (有效地址)  <-- _ZL31update_from_zip_module_skipdataPhxPv
+    +0x720  0
+    +0x728  0x0000000000218dce  (有效地址)
+    +0x730  0x00000000002063a2  (有效地址)
+    +0x738  0x0000000000208883  (有效地址)
+    +0x740  0x000000000021d5c4  (有效地址)
+    +0x748  0x00000000002480cf  (有效地址)
+    +0x750  0x000000000021d5d1  (有效地址)
+    +0x758  0x0000000000218dd5  (有效地址)
+    +0x760  0x000000000023247c  (有效地址)
+    +0x768  0x000000000022df95  (有效地址)
+    +0x770  0x0000000000237204  (有效地址)
+    +0x778  0x0000000000201cc0  (有效地址)
+    +0x780  0x000000000020f75c  (有效地址)
+    +0x788  0x000000000023e364  (有效地址)
+    +0x790  0x000000000021d5db  (有效地址)
+    +0x798  0x000000000020b0f2  (有效地址)
+    +0x7a0  0x0000000000204207  (有效地址)
+    +0x7a8  0x0000000000226b7e  (有效地址)
+    +0x7b0  0x000000000021d5e7  (有效地址)
+    +0x7b8  0x000000000021f9cf  (有效地址)
+    +0x7c0  0x0000000000243022  (有效地址)
+    +0x7c8  0x0000000000232486  (有效地址)
+    +0x7d0  0x00000000002304e4  (有效地址)
+    +0x7d8  0x00000000002408ae  (有效地址)
+    +0x7e0  0x000000000022b5e3  (有效地址)
+    +0x7e8  0x000000000020421e  (有效地址)
+    +0x7f0  0x000000000024a73f  (有效地址)
+    +0x7f8  0x000000000020f76b  (有效地址)
+    +0x800  0x00000000002480de  (有效地址)
+    +0x808  0x000000000020d47e  (有效地址)
+    +0x810  0x00000000002244d7  (有效地址)
+    +0x818  0x00000000002089fe  (有效地址)
+    +0x820  0x000000000020f8a9  (有效地址)
+    +0x828  0x00000000002294de  (有效地址)
+    +0x830  0x0000000000248149  (有效地址)
+    +0x838  0x000000000022b6dd  (有效地址)
+    +0x840  0x0000000000222019  (有效地址)
+    +0x848  0x0000000000208a05  (有效地址)
+    +0x850  0x0000000000214308  (有效地址)
+    +0x858  0x0000000000234837  (有效地址)
+    +0x860  0x0000000000216aba  (有效地址)
+    +0x868  0x00000000002294e4  (有效地址)
+    +0x870  0x0000000000226c10  (有效地址)
+    +0x878  0x000000000022e054  (有效地址)
+    +0x880  0x000000000023e44b  (有效地址)
+    +0x888  0x0000000000204301  (有效地址)
+    +0x890  0x000000000022e063  (有效地址)
+    +0x898  0x00000000002409f3  (有效地址)
+    +0x8a0  0x000000000021b3ff  (有效地址)
+    +0x8a8  0x00000000002294f3  (有效地址)
+    +0x8b0  0x00000000002244e6  (有效地址)
+    +0x8b8  0x000000000021b428  (有效地址)
+    +0x8c0  0x000000000020f8af  (有效地址)
+    +0x8c8  0x0000000000230548  (有效地址)
+    +0x8d0  0x0000000000229502  (有效地址)
+    +0x8d8  0x000000000021b442  (有效地址)
+    +0x8e0  0x0000000000216ac9  (有效地址)
+    +0x8e8  0x0000000000222028  (有效地址)
+    +0x8f0  0x000000000023054c  (有效地址)
+    +0x8f8  0x0000000000248158  (有效地址)
+
+########## 3) process_data_thread 完整反汇编 ##########
+  00410218  sub        sp, sp, #0x80
+  0041021c  stp        x28, x27, [sp, #0x20]
+  00410220  stp        x26, x25, [sp, #0x30]
+  00410224  stp        x24, x23, [sp, #0x40]
+  00410228  stp        x22, x21, [sp, #0x50]
+  0041022c  stp        x20, x19, [sp, #0x60]
+  00410230  stp        x29, x30, [sp, #0x70]
+  00410234  add        x29, sp, #0x70
+  00410238  mrs        x8, tpidr_el0
+  0041023c  str        x8, [sp]
+  00410240  ldr        x8, [x8, #0x28]
+  00410244  str        x8, [sp, #0x18]
+  00410248  cbnz       x0, #0x41026c
+  0041024c  adrp       x0, #0x23f000
+  00410250  adrp       x1, #0x220000
+  00410254  adrp       x2, #0x20d000
+  00410258  add        x0, x0, #0xa73
+  0041025c  add        x1, x1, #0xbed
+  00410260  add        x2, x2, #0x8b4
+  00410264  mov        w3, #0x263      ; imm=0x263
+  00410268  bl         #0x3770f8      ; -> recovery_print
+  0041026c  adrp       x0, #0x20b000
+  00410270  adrp       x1, #0x20c000
+  00410274  adrp       x2, #0x20d000
+  00410278  add        x0, x0, #0x590
+  0041027c  add        x1, x1, #0x42f
+  00410280  add        x2, x2, #0x8b4
+  00410284  mov        w3, #0x264      ; imm=0x264
+  00410288  bl         #0x3770f8      ; -> recovery_print
+  0041028c  adrp       x28, #0x11b9000
+  00410290  ldrb       w8, [x28, #0xd6a]
+  00410294  str        xzr, [sp, #8]
+  00410298  tbnz       w8, #0, #0x41049c
+  0041029c  adrp       x20, #0x241000
+  004102a0  adrp       x21, #0x20d000
+  004102a4  adrp       x24, #0x237000
+  004102a8  adrp       x25, #0x11b9000
+  004102ac  add        x20, x20, #0xe14
+  004102b0  add        x21, x21, #0x8b4
+  004102b4  adrp       x26, #0x9b9000
+  004102b8  adrp       x27, #0x9b9000
+  004102bc  adrp       x19, #0x11b9000
+  004102c0  add        x24, x24, #0x68f
+  004102c4  ldr        x0, [x25, #0x558]
+  004102c8  bl         #0x40f774      ; -> is_not_empty
+  004102cc  ldr        x0, [x25, #0x558]
+  004102d0  add        x1, sp, #8
+  004102d4  bl         #0x40f684      ; -> pool_get
+  004102d8  cbz        w0, #0x4102f0
+  004102dc  mov        w3, #0x26d      ; imm=0x26d
+  004102e0  mov        x0, x24
+  004102e4  mov        x1, x20
+  004102e8  mov        x2, x21
+  004102ec  bl         #0x3770f8      ; -> recovery_print
+  004102f0  ldr        x23, [sp, #8]
+  004102f4  cbz        x23, #0x41034c
+  004102f8  ldr        w22, [x26, #0x52c]
+  004102fc  ldr        w8, [x27, #0x528]
+  00410300  ldrb       w5, [x23]
+  00410304  orr        w8, w8, w22
+  00410308  cbz        w8, #0x410368
+  0041030c  cmp        w5, #0x41      ; imm=0x41
+  00410310  b.eq       #0x4103c4
+  00410314  cmp        w5, #0x43      ; imm=0x43
+  00410318  b.eq       #0x4103c4
+  0041031c  cmp        w5, #0x44      ; imm=0x44
+  00410320  b.ne       #0x41041c
+  00410324  adrp       x0, #0x230000
+  00410328  mov        w8, #1      ; imm=0x1
+  0041032c  mov        w3, #0x278      ; imm=0x278
+  00410330  mov        w4, #1      ; imm=0x1
+  00410334  add        x0, x0, #0x887
+  00410338  mov        x1, x20
+  0041033c  mov        x2, x21
+  00410340  strb       w8, [x28, #0xd6a]
+  00410344  bl         #0x3770f8      ; -> recovery_print
+  00410348  b          #0x410484
+  0041034c  adrp       x0, #0x229000
+  00410350  mov        w3, #0x287      ; imm=0x287
+  00410354  add        x0, x0, #0x8e9
+  00410358  mov        x1, x20
+  0041035c  mov        x2, x21
+  00410360  bl         #0x3770f8      ; -> recovery_print
+  00410364  b          #0x410490
+  00410368  adrp       x8, #0x11b9000
+  0041036c  add        x8, x8, #0x568
+  00410370  ldr        x8, [x8, x5, lsl #3]
+  00410374  cbz        x8, #0x410438
+  00410378  mov        w9, #0x400000      ; imm=0x400000
+  0041037c  ldr        w9, [x23, x9]
+  00410380  add        x0, x23, #1
+  00410384  mov        x2, x23
+  00410388  sub        w1, w9, #1
+  0041038c  blr        x8
+  00410390  mov        w22, w0
+  00410394  cbz        w0, #0x4103bc
+  00410398  ldrb       w4, [x23]
+  0041039c  adrp       x0, #0x208000
+  004103a0  adrp       x1, #0x220000
+  004103a4  adrp       x2, #0x219000
+  004103a8  mov        w3, #0x251      ; imm=0x251
+  004103ac  add        x0, x0, #0xdf1
+  004103b0  add        x1, x1, #0xbed
+  004103b4  add        x2, x2, #0xb4
+  004103b8  bl         #0x3770f8      ; -> recovery_print
+  004103bc  str        w22, [x26, #0x52c]
+  004103c0  b          #0x410484
+  004103c4  add        x0, sp, #0x14
+  004103c8  mov        w1, #4      ; imm=0x4
+  004103cc  mov        w3, #4      ; imm=0x4
+  004103d0  mov        w2, wzr
+  004103d4  str        wzr, [sp, #0x14]
+  004103d8  bl         #0x45a614      ; -> memset_s
+  004103dc  cbz        w0, #0x4103fc
+  004103e0  adrp       x0, #0x22d000
+  004103e4  adrp       x2, #0x214000
+  004103e8  mov        w3, #0x8b      ; imm=0x8b
+  004103ec  add        x0, x0, #0x76
+  004103f0  mov        x1, x20
+  004103f4  add        x2, x2, #0x70e
+  004103f8  bl         #0x3770f8      ; -> recovery_print
+  004103fc  and        w8, w22, #0xff      ; imm=0xff
+  00410400  cmp        w8, #2      ; imm=0x2
+  00410404  strb       w22, [sp, #0x14]
+  00410408  b.eq       #0x410444
+  0041040c  cmp        w8, #3      ; imm=0x3
+  00410410  b.ne       #0x410450
+  00410414  mov        w8, #4      ; imm=0x4
+  00410418  b          #0x410448
+  0041041c  adrp       x0, #0x239000
+  00410420  mov        w3, #0x281      ; imm=0x281
+  00410424  add        x0, x0, #0xb9d
+  00410428  mov        x1, x20
+  0041042c  mov        x2, x21
+  00410430  mov        w4, w22
+  00410434  b          #0x410480
+  00410438  mov        w22, wzr
+  0041043c  str        wzr, [x26, #0x52c]
+  00410440  b          #0x410484
+  00410444  mov        w8, #0xc      ; imm=0xc
+  00410448  strb       w8, [sp, #0x14]
+  0041044c  strb       w22, [sp, #0x15]
+  00410450  add        x0, sp, #0x14
+  00410454  mov        w1, #3      ; imm=0x3
+  00410458  bl         #0x3f536c      ; -> send_package
+  0041045c  ldr        x8, [sp, #8]
+  00410460  ldr        w4, [x26, #0x52c]
+  00410464  adrp       x0, #0x239000
+  00410468  adrp       x1, #0x20c000
+  0041046c  ldrb       w5, [x8]
+  00410470  mov        w3, #0x27d      ; imm=0x27d
+  00410474  add        x0, x0, #0xb78
+  00410478  add        x1, x1, #0x42f
+  0041047c  mov        x2, x21
+  00410480  bl         #0x3770f8      ; -> recovery_print
+  00410484  ldr        x0, [x19, #0x548]
+  00410488  ldr        x1, [sp, #8]
+  0041048c  bl         #0x40f568      ; -> pool_add
+  00410490  ldrb       w8, [x28, #0xd6a]
+  00410494  cmp        w8, #1      ; imm=0x1
+  00410498  b.ne       #0x4102c4
+  0041049c  adrp       x0, #0x21b000
+  004104a0  adrp       x1, #0x20c000
+  004104a4  adrp       x2, #0x20d000
+  004104a8  add        x0, x0, #0x848
+  004104ac  add        x1, x1, #0x42f
+  004104b0  add        x2, x2, #0x8b4
+  004104b4  mov        w3, #0x28a      ; imm=0x28a
+  004104b8  bl         #0x3770f8      ; -> recovery_print
+  004104bc  adrp       x8, #0x11b9000
+  004104c0  mov        w9, #1      ; imm=0x1
+  004104c4  strb       w9, [x8, #0xd68]
+  004104c8  ldr        x8, [sp]
+  004104cc  ldr        x8, [x8, #0x28]
+  004104d0  ldr        x9, [sp, #0x18]
+  004104d4  cmp        x8, x9
+  004104d8  b.ne       #0x410500
+  004104dc  ldp        x29, x30, [sp, #0x70]
+  004104e0  ldp        x20, x19, [sp, #0x60]
+  004104e4  ldp        x22, x21, [sp, #0x50]
+  004104e8  ldp        x24, x23, [sp, #0x40]
+  004104ec  ldp        x26, x25, [sp, #0x30]
+  004104f0  ldp        x28, x27, [sp, #0x20]
+  004104f4  mov        x0, xzr
+  004104f8  add        sp, sp, #0x80
+  004104fc  ret        
+  00410500  bl         #0x4e824c      ; -> __stack_chk_fail

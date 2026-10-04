@@ -1,0 +1,51 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Large binaries must NOT be committed (firmware, vendor tools)
+*.zip
+*.rar
+*.7z
+*.exe
+*.dll
+*.sys
+*.pfx
+*.img
+*.app
+*.bin
+*.mbn
+*.elf
+*.so
+
+# Logs that may contain host-specific paths (keep only sanitized ones)
+# *log is kept because files in 06-日志/ are sanitized; uncomment to exclude
+# *.log
+
+# Extraction / build dirs
+dload_build/
+rom_extract/
+base_rebuild/
+hv_extract/
+hunter_tool/
+hunter_dl/
+mingit/
+
+# Python venv
+venv/
+.venv/
+env/
+
+# Temp
+tmp/
+temp/
