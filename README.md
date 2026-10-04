@@ -1,159 +1,159 @@
-# Honor X10 (TEL-AN10) — Huawei/Honor "2pct mode" USB Flashing Protocol (Reverse Engineering)
+# 荣耀X10（TEL-AN10）— 华为/荣耀「2% 模式」USB 线刷协议（逆向分析）
 
-Reverse engineering of the **USB upgrade / "2pct mode" (DLOAD)** protocol used by Huawei / Honor
-devices, performed on an **Honor X10 — TEL-AN10** (Kirin 820) running **HarmonyOS 2.0.0.270**.
+> 对华为 / 荣耀设备 **USB 升级模式（2% 模式，又称 DLOAD）** 通信协议的逆向工程。
+>
+> 实测机型：**荣耀X10 — TEL-AN10**（麒麟 820），系统 **HarmonyOS 2.0.0.270**。
+>
+> ⭐ **握手已在真实硬件上实现并验证成功** —— 通过 `DBAdapter Reserved Interface`（USB CDC / COM 口）通信。
+>
+> ⚠️ **本仓库是研究文档，不是可用的降级工具。** 降级已被密码学机制封堵（见「为什么降级走不通」）。
 
-The **handshake was implemented and confirmed working against real hardware** over
-`DBAdapter Reserved Interface` (USB CDC / COM port).
-
-> ⚠️ **This repository is research documentation, NOT a working downgrade tool.**
-> Downgrading is blocked cryptographically (see "Why downgrade fails").
+[English version → README-EN.md](README-EN.md)
 
 ---
 
-## TL;DR
+## 一句话结论
 
-| Goal | Result |
+| 目标 | 结果 |
 |---|---|
-| Downgrade HarmonyOS 2 → EMUI / MagicUI | ❌ **Blocked** (server auth signature + version check, RSA-protected) |
-| Reverse the 2pct mode protocol | ✅ **Done** — command set, frame format, package header decoded |
-| Working handshake over COM port | ✅ **Confirmed** — device replies correctly (7-byte response) |
-| Full firmware transfer | ❌ Not completed (package header rejected — see Limitations) |
+| 鸿蒙 2 降级回 EMUI / MagicUI | ❌ **走不通**（服务器授权签名 + 版本校验，RSA 保护） |
+| 逆向 2% 模式协议 | ✅ **已完成** —— 命令集、帧格式、包头结构全部解码 |
+| COM 口握手通信 | ✅ **已确认** —— 设备正确响应（7 字节） |
+| 完整固件传输 | ❌ 未完成（包头被拒，见「局限」） |
 
 ---
 
-## Device under test
+## 测试设备
 
 ```
-Model        Honor X10 — TEL-AN10 (China, C00)
-SoC          Kirin 820 (kirin820)
-Shipped with MagicUI 3.1.1 / EMUI 10.1.1
-Current      HarmonyOS 2.0.0.270 (TEL-AN10 2.0.0.270(C00E230R7P5))
-Android base 10
-Bootloader   FB LockState: LOCKED / USER LockState: LOCKED
+型号        荣耀X10 — TEL-AN10（国行 C00）
+SoC         麒麟 820（kirin820）
+出厂系统    MagicUI 3.1.1 / EMUI 10.1.1
+当前系统    HarmonyOS 2.0.0.270（TEL-AN10 2.0.0.270(C00E230R7P5)）
+Android 基座 10
+Bootloader  FB LockState: LOCKED / USER LockState: LOCKED
 ```
 
-Serial number and host-specific paths have been **redacted** from all files.
+> 设备序列号、主机路径均已**脱敏**处理。
 
 ---
 
-## What we figured out
+## 我们搞清楚了什么
 
-### 1. Transport
+### 1. 传输层
 
 ```
-Channel   DBAdapter Reserved Interface (USB CDC / COM port)
-Baud      9600 (rate irrelevant for USB CDC)
-Framing   HDLC
-          0x7E + escape(payload + CRC16-X25 LE) + 0x7E
-Escaping  0x7E -> 0x7D 0x5E
-          0x7D -> 0x7D 0x5D
-          (i.e. emit 0x7D, then byte XOR 0x20)
+通道   DBAdapter Reserved Interface（USB CDC / COM 口）
+波特率 9600（USB CDC 下速率由 USB 决定）
+帧格式 HDLC
+        0x7E + 转义(载荷 + CRC16-X25 小端) + 0x7E
+转义    0x7E → 0x7D 0x5E
+        0x7D → 0x7D 0x5D
+        （即：输出 0x7D，再输出 原字节 XOR 0x20）
 ```
 
-Confirmed from `send_package` @ `0x3F536C`:
+证据来自 `send_package` @ `0x3F536C`：
 ```asm
-mov  w13, #0x7d        ; escape char
+mov  w13, #0x7d        ; 转义符
 sub  w14, w15, #0x7d
-cmp  w14, #1           ; byte == 0x7D or 0x7E
-eor  w15, w15, #0x20   ; byte ^= 0x20
-strb w13, ...          ; write 0x7D
-strb w15, ...          ; write escaped byte
+cmp  w14, #1           ; 字节 == 0x7D 或 0x7E
+eor  w15, w15, #0x20   ; 字节 ^= 0x20
+strb w13, ...          ; 写 0x7D
+strb w15, ...          ; 写转义后字节
 ```
 
-### 2. Handshake — ⭐ the key correction
+### 2. 握手 —— ⭐ 最关键的修正
 
-**The command word was the single biggest mistake in earlier attempts.**
+**命令字错误是早期所有尝试失败的最大根源。**
 
 ```
-WRONG (old / 5% mode):  0x0026   -> bytes 26 00
-RIGHT (new / 2pct mode):  0x0226   -> bytes 26 02
-                                            ^^ one byte difference
+错误（老协议 / 5% 模式）：  0x0026  → 字节 26 00
+正确（新协议 / 2% 模式）：  0x0226  → 字节 26 02
+                                             ^^ 仅一字节之差
 
-Magic:     0x0600A725, located at payload offset 2 (NOT offset 3)
+魔数：     0x0600A725，位于载荷【偏移 2】（不是偏移 3）
 ```
 
-From `handshake_cmd` @ `0x3EC860`:
+来自 `handshake_cmd` @ `0x3EC860`：
 ```asm
 ldrb w22, [x19]        ; pkt[0]
 ldrb w26, [x19, #1]    ; pkt[1]
-ldur w23, [x19, #2]    ; magic at offset 2
+ldur w23, [x19, #2]    ; 魔数在偏移 2
 bfi  w22, w26, #8, #8  ; cmd = pkt[0] | (pkt[1] << 8)
-cmp  w23, 0x0600A725   ; magic check
-cmp  w22, #0x226       ; accepts ONLY 0x0226
+cmp  w23, 0x0600A725   ; 魔数校验
+cmp  w22, #0x226       ; 只接受 0x0226
 ```
 
-**Correct handshake frame (22 bytes):**
+**正确的握手帧（22 字节）：**
 ```
 7E 26 02 25 A7 00 06 00 00 00 00 00 00 00 00 00 00 00 01 43 8E 7E
    ^cmd=0x0226
-      ^magic=0x0600A725 (LE)
+      ^魔数=0x0600A725（小端）
                                                 ^pkt[16] ^pkt[17]
 ```
 
-**Device replies (7 bytes):** `7E 03 00 07 17 5D 7E` ✅
+**设备响应（7 字节）：** `7E 03 00 07 17 5D 7E` ✅
 
-> Using `0x0026` returns a **137-byte error response** which was originally
-> misread as "handshake succeeded".
+> 用 `0x0026` 会返回 **137 字节的错误响应**，早期曾被误判为「握手成功」。
 
-### 3. Command dispatch table
+### 3. 命令分发表
 
-Dispatch table base: `0x11B9568` (indexed by command byte, populated at runtime).
-Initializer: `0x411444 – 0x411500`.
+分发表基址：`0x11B9568`（按命令字节索引，运行时填充）
+初始化代码：`0x411444 – 0x411500`
 
-From `process_data_thread` @ `0x410218`:
+来自 `process_data_thread` @ `0x410218`：
 ```asm
 adrp x8, #0x11b9000
 add  x8, x8, #0x568           ; 0x11B9568
-ldr  x8, [x8, x5, lsl #3]     ; handler = table[cmd_byte]
-cbz  x8, ...                  ; null -> discard
-add  x0, x23, #1              ; arg0 = payload (cmd+1)
-sub  w1, w9, #1               ; arg1 = length-1
-blr  x8                       ; call handler(payload, len, cmd)
+ldr  x8, [x8, x5, lsl #3]     ; handler = 表[命令字节]
+cbz  x8, ...                  ; 为空 → 丢弃
+add  x0, x23, #1              ; 参数0 = 载荷（cmd+1）
+sub  w1, w9, #1               ; 参数1 = 长度-1
+blr  x8                       ; 调用 handler(载荷, 长度, 命令)
 ```
 
-| Command | Handler | Purpose |
+| 命令 | Handler | 作用 |
 |---|---|---|
-| `0x0F` | `new_write_cmd` (0x410C6C) | **data** |
-| `0x26` | `new_process_shake_hand_cmd` (0x410DFC) | **handshake** |
-| `0x41` | `new_write_begin_cmd` (0x410E5C) | **package header / begin write** |
-| `0x43` | (0x411018) | write end |
-| `0x44` | (0x4111AC) | process |
-| `0x45` | `new_process_update_auth_cmd` (0x411208) | auth |
-| `0x46` | `transmit_write_begin_cmd` | write control |
-| `0x48` | `transmit_write_post_cmd` | write control |
-| `0x4C` | `get_total_pkg_size_cmd` (0x410AC0) | total package size |
+| `0x0F` | `new_write_cmd` (0x410C6C) | **数据** |
+| `0x26` | `new_process_shake_hand_cmd` (0x410DFC) | **握手** |
+| `0x41` | `new_write_begin_cmd` (0x410E5C) | **包头 / 写开始** |
+| `0x43` | (0x411018) | 写结束 |
+| `0x44` | (0x4111AC) | 处理 |
+| `0x45` | `new_process_update_auth_cmd` (0x411208) | 授权 |
+| `0x46` | `transmit_write_begin_cmd` | 写控制 |
+| `0x48` | `transmit_write_post_cmd` | 写控制 |
+| `0x4C` | `get_total_pkg_size_cmd` (0x410AC0) | 包总大小 |
 
-This matches the checks in `process_data_thread`:
+与 `process_data_thread` 中的检查完全吻合：
 ```asm
 cmp w5, #0x41
 cmp w5, #0x43
 cmp w5, #0x44
 ```
 
-### 4. Package header — `module_head` (100 bytes)
+### 4. 包头 `module_head`（100 字节）
 
-Parsed by `cmd_unit_write_begin_func` @ `0x3ECB60`.
+由 `cmd_unit_write_begin_func` @ `0x3ECB60` 解析。
 
 ```c
 struct module_head {
-    /* 0x00 */ uint32_t dwMagicNum;      // 0xA55AAA55  (bytes 55 AA 5A A5)
-    /* 0x04 */ uint32_t dwHeadLen;       // actual header length (VARIES per module!)
+    /* 0x00 */ uint32_t dwMagicNum;      // 0xA55AAA55（字节 55 AA 5A A5）
+    /* 0x04 */ uint32_t dwHeadLen;       // 包头实际长度（★ 各模块不同！）
     /* 0x08 */ uint32_t dwVersion;       // 1
     /* 0x0C */ char     hw[8];           // "HW7x27\xFF\xFF"
-    /* 0x14 */ uint32_t dwDataStartAddr; // start address / offset
-    /* 0x18 */ uint32_t dwDataLen;       // data length
+    /* 0x14 */ uint32_t dwDataStartAddr; // 起始地址 / 偏移
+    /* 0x18 */ uint32_t dwDataLen;       // 数据长度
     /* 0x1C */ char     date[16];        // "2021.08.27"
     /* 0x2C */ char     time[16];        // "14.21.49"
-    /* 0x3C */ char     module_name[];   // module name
-    /* 0x5E */ uint16_t dwBlockSize;     // big-endian, always 0x0010
-    /* 0x60 */ uint16_t dwBlockSize_hw;  // big-endian, 0x0000
+    /* 0x3C */ char     module_name[];   // 模块名
+    /* 0x5E */ uint16_t dwBlockSize;     // 大端，恒为 0x0010
+    /* 0x60 */ uint16_t dwBlockSize_hw;  // 大端，0x0000
 };
 ```
 
-**`dwHeadLen` is NOT fixed at 100.** Verified against 11 real headers dumped from `UPDATE.APP`:
+**`dwHeadLen` 并非固定 100。** 已用从 `UPDATE.APP` dump 出的 11 个真实包头验证：
 
-| Module | dataLen | startAddr | headLen |
+| 模块名 | dataLen | startAddr | headLen |
 |---|---|---|---|
 | SHA256RSA | 0x00000384 | 0xFE000000 | 100 |
 | CRC | 0x0004BED0 | 0xFE000000 | 250 |
@@ -167,99 +167,98 @@ struct module_head {
 | BOOT | 0x01E00000 | 0x0000000C | 15458 |
 | DTBO | 0x009D8280 | 0x0000000C | 5140 |
 
-Layout verification:
-`SHA256RSA` header 100 + data 900 = 1000 → next magic at `0x5C + 1000 = 0x444` ✅
+结构验证：`SHA256RSA` 包头 100 + 数据 900 = 1000 → 下一个魔数正好在 `0x5C + 1000 = 0x444` ✅
 
-### 5. Data frame
+### 5. 数据帧
 
 ```
-payload[0..3] = address/offset (uint32, BIG endian)
-payload[4..7] = data length    (uint32, BIG endian)
-payload[8..]  = zlib-compressed data
+载荷[0..3] = 地址 / 偏移（uint32，大端）
+载荷[4..7] = 数据长度（uint32，大端）
+载荷[8..]  = zlib 压缩数据
 ```
 
-From `new_write_cmd` @ `0x410C6C`:
+来自 `new_write_cmd` @ `0x410C6C`：
 ```asm
-sub  w8, w1, #0xa        ; compressed length = len - 10
-add  x2, x0, #8          ; compressed data starts at payload+8
-str  x9, [sp]            ; uncompress output limit 0x400000 (4 MB)
+sub  w8, w1, #0xa        ; 压缩数据长度 = len - 10
+add  x2, x0, #8          ; 压缩数据起始 = 载荷 + 8
+str  x9, [sp]            ; 解压输出上限 0x400000（4 MB）
 bl   uncompress
 bl   write_cmd
 ```
 
-### 6. 94 valid module names
+### 6. 94 个合法模块名
 
-Extracted from `data_partition_process_table` @ `0x529330` (12784 bytes).
+来源：`data_partition_process_table` @ `0x529330`（12784 字节）。
 
-Notable: `OTA_ZIP`, `OTA_ZIP_APP`, `USERDATA_ZIP` (modules that carry a zip),
-plus `BASE_VER`, `BASE_VERLIST`, `PACKAGE_TYPE`, `CUST`, `PRELOAD`, `SYSTEM`,
-`VENDOR`, `XLOADER`, `FASTBOOT`, `CRC`, `HISIUFS_GPT`, `PTABLE_*`.
+值得注意的：`OTA_ZIP`、`OTA_ZIP_APP`、`USERDATA_ZIP`（承载 zip 的模块），
+以及 `BASE_VER`、`BASE_VERLIST`、`PACKAGE_TYPE`、`CUST`、`PRELOAD`、`SYSTEM`、
+`VENDOR`、`XLOADER`、`FASTBOOT`、`CRC`、`HISIUFS_GPT`、`PTABLE_*`。
 
 ---
 
-## Why downgrade fails
+## 为什么降级走不通
 
-The version number lives in **RSA-signed** `PTABLE.APP` / `UPDATE.APP`.
-Forging it requires **Huawei's private key** — mathematically impossible.
+版本号存在于 **RSA 签名**的 `PTABLE.APP` / `UPDATE.APP` 中。
+伪造它需要 **华为的私钥** —— 数学上不可能。
 
-Verified failure points:
+已验证的失败点：
 
-| Attempt | Result |
+| 尝试 | 结果 |
 |---|---|
-| HiSuite official rollback | ❌ Channel closed for this model |
-| HiSuite Proxy + custom firmware | ⚠️ Injects & downloads, then blocked by **server auth signature** |
-| 3-button SD-card flash | ❌ `升级包版本号信息校验失败` (version check) |
-| Edited version list in package | ❌ Breaks RSA signature |
-| "高维禁用" (High-Level Repair Center) package | ❌ Removes service-center restriction **only**, not version check |
-| 5% mode (no BL unlock) | ⚠️ Feasible in principle, but tools support Kirin ≤970 — **820 not included** |
-| Unlock BL | ❌ Requires **teardown / ISP** |
+| HiSuite 官方回退 | ❌ 该机型回退通道已关闭 |
+| HiSuite Proxy + 自定义固件 | ⚠️ 能注入、能下载，卡在**服务器授权签名** |
+| 三键 SD 卡刷 | ❌ `升级包版本号信息校验失败` |
+| 改包里的版本列表 | ❌ 破坏 RSA 签名 |
+| 「高维禁用」包 | ❌ 只解除**用服中心限制**，**不解除版本校验** |
+| 5% 模式（免解锁 BL） | ⚠️ 原理可行，但工具只支持麒麟 ≤970，**820 不在内** |
+| 解锁 BL | ❌ 需**拆机短接 / ISP 飞线** |
 
 ---
 
-## Limitations of this work
+## 本研究的局限
 
-- Package header (`0x41`) was **always rejected** — ACK `0x08`.
-  Log: `module_head.dwDataLen too large` — declared length exceeded partition size.
-- **Only the first header attempt per session is meaningful**; subsequent ones return ACK `0x0D` (state locked).
-- Full 4 GB transfer **not completed**.
-- No CUST / PRELOAD packages available (only BASE was obtained; three copies were identical).
+- 包头（`0x41`）**始终被拒** —— ACK `0x08`。
+  日志：`module_head.dwDataLen too large`（声明长度超过分区实际大小）。
+- **每个会话只有第一次包头尝试有效**；之后返回 ACK `0x0D`（状态锁死）。
+- 完整 4 GB 传输**未完成**。
+- 缺 CUST / PRELOAD 包（只拿到 BASE，且三份拷贝完全相同）。
 
 ---
 
-## Repository layout
+## 仓库结构
 
 ```
-README.md                  this file
-README-先读我.md            Chinese overview
-01-总览与结论.md            full Chinese technical write-up
-02-实测记录.md              chronological test log
-03-反汇编与符号/            disassembly output + symbol tables
-05-脚本与工具/              Python scripts used
-06-日志/                    raw USB / serial logs
-07-历史文档/                earlier notes
+README.md               本文件（中文）
+README-EN.md            英文版
+01-总览与结论.md         完整技术总结（中文）
+02-实测记录.md           按时间的实测流水
+03-反汇编与符号/         反汇编输出 + 符号表
+05-脚本与工具/           所用 Python 脚本
+06-日志/                 原始 USB / 串口日志
+07-历史文档/             早期笔记
+LICENSE                 MIT
 ```
 
-### Reproducing
+### 复现方式
 
 ```bash
 pip install pyserial pyelftools capstone
 
-python 05-脚本与工具/hs_new_test.py     # verify handshake (0x0226) -> expect 7-byte reply
+python 05-脚本与工具/hs_new_test.py     # 验证握手（0x0226）→ 期望 7 字节响应
 ```
 
-Device must be in upgrade mode with `DBAdapter Reserved Interface (COMx)` present.
-⚠️ If your `adb server` holds port 5037, HiSuite cannot detect the phone — `adb kill-server` fixes it.
+设备需处于升级模式，且电脑识别到 `DBAdapter Reserved Interface (COMx)`。
+⚠️ 若你的 `adb server` 占用 5037 端口，HiSuite 会检测不到手机 —— 执行 `adb kill-server` 即可恢复。
 
 ---
 
-## Legal / safety
+## 法律与安全声明
 
-- This is **independent reverse engineering for research and interoperability**.
-- **No Huawei/Honor proprietary binaries are included.** All binaries referenced are identified by
-  version and origin only; download them from official sources yourself.
-- Flashing will **erase all data**. You do this at your own risk.
-- Nothing here bypasses any security mechanism — the version check remains cryptographically enforced.
+- 本项目为**独立的逆向工程研究**，用于学习与互操作性目的。
+- **不包含任何华为 / 荣耀专有二进制文件。** 文中提及的固件仅标注版本与来源，请自行从官方渠道获取。
+- 刷机会**清空全部数据**，请自行承担风险。
+- **本项目不绕过任何安全机制** —— 文中描述的版本校验仍受厂商签名的密码学保护。
 
-## License
+## 许可证
 
-MIT — see `LICENSE`.
+MIT —— 见 `LICENSE`。
